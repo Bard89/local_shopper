@@ -4,6 +4,12 @@ class GiftRequestsController < ApplicationController
     @giftrequests = GiftRequest.all
   end
 
+
+  def show
+    @giftrequest = GiftRequest.find(params[:id])
+  end
+
+
   def new
     @giftrequest = GiftRequest.new
   end
@@ -41,4 +47,5 @@ class GiftRequestsController < ApplicationController
     params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :packaging, :comment, :products, :status, :requester_id)
   end
   
+
 end
