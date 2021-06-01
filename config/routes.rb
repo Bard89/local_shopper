@@ -8,10 +8,12 @@ Rails.application.routes.draw do
 
   resources :gift_requests do
     collection do
+
       get 'my_requests'
     end
   end
   
   resources :profiles, only: :show
+
 
 end

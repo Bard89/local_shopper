@@ -5,6 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+
 puts "Clearing database from Users and Gift requests"
 GiftRequest.destroy_all
 User.destroy_all
@@ -98,3 +101,4 @@ GiftRequest.create(
   requester: vojtech
 )
 puts "---Done creating Products!"
+
