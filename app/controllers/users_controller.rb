@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # create done by devise ...
+  # all the actions done by devise
   # def show
   #   @user = User.find(params[:id])
   # end
