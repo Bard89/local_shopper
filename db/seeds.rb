@@ -10,10 +10,10 @@ GiftRequest.destroy_all
 User.destroy_all
 
 puts "---Creating Default Users..."
-hannah = User.create(email: 'hannah@localshopper.com', password: '123456')
-mais = User.create(email: 'mais@localshopper.com', password: '123456')
-emily = User.create(email: 'emily@localshopper.com', password: '123456')
-vojtech = User.create(email: 'vojtech@localshopper.com', password: '123456')
+hannah = User.create(first_name: "Hannah", last_name: "Eichelsdoerfer", email: 'hannah@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/64103699?v=4")
+mais = User.create(first_name: "Mais", last_name: "Aroq", email: 'mais@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/71976918?v=4")
+emily = User.create(first_name: "Emily", last_name: "Hoult",email: 'emily@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/75494690?v=4")
+vojtech = User.create(first_name: "Vojtech", last_name: "Matous", email: 'vojtech@localshopper.com', password: '123456', profile_picture: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617994666/v7vhpsuijh9nokmdiwqn.jpg")
 puts "---Done creating users!"
 
 puts "---Creating Default Products..."
