@@ -6,7 +6,12 @@ Rails.application.routes.draw do
     resources :messages, only: :create
   end
 
-  # resources :users #, :only => [, :edit, :update] # another notation
-
+  resources :gift_requests do
+    collection do
+      get 'my_requests'
+    end
+  end
+  
   resources :profiles, only: :show
+
 end
