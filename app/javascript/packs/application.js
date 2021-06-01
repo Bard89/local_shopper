@@ -24,7 +24,7 @@ require("channels")
 
 // External imports
 import "bootstrap";
-import "initChatroomCable";
+import { initChatroomCable } from '../channels/chatroom_channel';
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 
