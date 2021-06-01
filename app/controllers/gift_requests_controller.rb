@@ -20,8 +20,19 @@ class GiftRequestsController < ApplicationController
     end
   end
 
-  def my_requests
-    @giftrequests = GiftRequest.where(requester_id: current_user)
+  def edit
+    @giftrequest = GiftRequest.find(params[:id])
+  end
+
+  def update
+    @giftrequest = GiftRequest.find(params[:id])
+      if @giftrequest.update_attributes(giftrequest_params)
+        flash[:success] = "GiftRequest was successfully updated"
+        redirect_to my_requests_gift_requests_path
+      else
+        flash[:error] = "Something went wrong"
+        render 'edit'
+      end
   end
 
   private

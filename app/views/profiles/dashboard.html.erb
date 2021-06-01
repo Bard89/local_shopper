@@ -1,0 +1,23 @@
+<div class="container">
+  <h1>My Gift Requests</h1>
+  <div class="row">
+    <% @giftrequests.each do |request| %>
+      <div class="card">
+        <p><%= request.recipient_name %></p>
+        <p><%= request.recipient_address %></p>
+        
+        <p><%= request.status %></p>
+        <%# Edit button: %>
+        <% if request.status == "pending" && request.requester_id == current_user.id %>
+          <%= link_to "Edit", edit_gift_request_path(request) %>
+        <% elsif request.status == "accecpted" && request.shopper_id == current_user.id %>
+          <%= link_to "Upload Receipt" %>
+        <% elsif request.status == "paid"  %>
+          "Status: Waiting for delivery"
+        <% elsif request.status == "delivered"  %>
+          "Status: Delivered 🎉"
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

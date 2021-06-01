@@ -8,6 +8,10 @@ class ProfilesController < ApplicationController
     @gift_requests = GiftRequest.where(requester_id: @user) # possible to rename to requester_id or shopper_id
   end
 
+  def dashboard
+    @giftrequests = GiftRequest.where(requester_id: current_user)
+  end
+
   # I don't really need this to be separate methods, it's ok have them
 
   # def my_gift_requests # profiles controller

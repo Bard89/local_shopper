@@ -1,0 +1,10 @@
+<%= simple_form_for @giftrequest do |f| %>
+  <%= f.input :recipient_name %>
+  <%= f.input :recipient_address %>
+  <%= f.input :delivery_due_date %>
+  <%= f.input :budget %>
+  <%= f.input :packaging %>
+  <%= f.input :comment %>
+  <%= f.input :products %>
+  <%= f.submit %>
+<% end %>
