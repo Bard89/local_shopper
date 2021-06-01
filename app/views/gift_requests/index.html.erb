@@ -9,19 +9,15 @@
   <div class="container">
     <div class="row">
       <% @giftrequests.each do |giftrequest| %>
-      <%= link_to gift_request_path(giftrequest) do %>
-        <div class="card-gift" class="col col-sm-6">
-            <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+        <%= link_to gift_request_path(giftrequest) do %>
+          <div class="card-gift" class="col col-sm-6">
+            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-gift-user avatar-bordered" />
             <div class="card-gift-infos">
-              <div>
-                <h2><%= giftrequest.recipient_name%></h2>
-                <p><%= giftrequest.recipient_address%></p>
-              </div>
-              <h2 class="card-gift-date"><%= giftrequest.delivery_due_date %></h2>
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-gift-user avatar-bordered" />
+              <h2><%= giftrequest.recipient_name%></h2>
+              <p class="card-gift-date"><%= giftrequest.delivery_due_date %></p>
             </div>
-        </div>
-      <%end %>
+          </div>
+        <%end %>
       <% end %>
     </div>
   </div>
