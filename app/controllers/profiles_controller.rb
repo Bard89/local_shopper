@@ -1,7 +1,5 @@
 class ProfilesController < ApplicationController
   # displaying info about specific user
-  # show
-
   def show # just to see differentu user not me, for me I pu it in the dashboard anf for that then use different controller
     # @my_user = current_user # for this do the dashboard controller
     @user = User.find(params[:id]) # to find a specific user

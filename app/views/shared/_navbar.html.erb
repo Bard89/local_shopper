@@ -1,4 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top" style="<%= 'background-color:transparent;' if request.path == '/' %>">
+<% if request.path == '/' %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top" id="transparent_nav">
+<% else %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
+<% end %>
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
   <% end %>
@@ -23,6 +27,7 @@
         <li class="nav-item dropdown">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+            <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
             <%= link_to "Action", "#", class: "dropdown-item" %>
             <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
