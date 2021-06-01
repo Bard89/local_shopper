@@ -5,4 +5,10 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
+
+  resources :gift_requests do
+    collection do
+      get 'my_requests'
+    end
+  end
 end
