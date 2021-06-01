@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_31_142806) do
+ActiveRecord::Schema.define(version: 2021_06_01_131137) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2021_05_31_142806) do
     t.string "packaging"
     t.text "comment"
     t.string "products"
-    t.string "status"
+    t.string "status", default: "pending"
     t.integer "requester_id"
     t.integer "shopper_id"
     t.datetime "created_at", precision: 6, null: false
