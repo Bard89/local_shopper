@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>My Gift Requests</h1>
+  <div class="row">
+    <% @giftrequests.each do |request| %>
+      <div class="card">
+        <p><%= request.recipient_name %></p>
+        <p><%= request.recipient_address %></p>
+        <p><%= request.status %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
