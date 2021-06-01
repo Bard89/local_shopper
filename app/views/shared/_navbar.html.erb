@@ -1,4 +1,8 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+<% if request.path == '/' %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top" id="transparent_nav">
+<% else %>
+  <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
+<% end %>
   <%= link_to "#", class: "navbar-brand" do %>
     <%= image_tag "https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/logo.png" %>
     <% end %>
