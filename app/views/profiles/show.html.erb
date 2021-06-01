@@ -1,1 +1,18 @@
 <p>profiles show, to be able to see other users, not me though, that should be in the dashboard</p>
+<!-- how to select a user i wanna? through email? nonono -> just through the  -->
+<p>add a link from gift_request to be able to get here</p>
+
+<div class="container text-center mt-4">
+  <h1>Profile of: <%= @user.first_name %></h1>
+  <div class="m-3">
+ <!--    <% if @user.profile_picture %>
+      <%= cl_image_tag @user.profile_picture.key, class: "avatar-profile" %>
+    <% else %>
+      <img src="https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif" alt="user-avatar" class="avatar-profile">
+    <% end %> -->
+  </div>
+  <p> <strong>Name:</strong>  <%= @user.first_name %> <%= @user.last_name %></p>
+  <p> <strong>Email:</strong>  <%= @user.email %> </p>
+  <p> <strong>Location:</strong> <%= @user.location %> </p>
+  <%= link_to 'Back', :back %>
+</div>
