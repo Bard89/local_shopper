@@ -23,7 +23,15 @@
                 input_html: { autocomplete: "current-password" } %>
     <%= f.input :first_name,
                 hint: "what's your name, is it Marry or Sue?",
-                required: false,
+                required: true,
+                input_html: { autocomplete: "first_name" } %>
+    <%= f.input :last_name,
+                hint: "what's last your name?",
+                required: true,
+                input_html: { autocomplete: "first_name" } %>
+    <%= f.input :location,
+                hint: "where are you now?",
+                required: true,
                 input_html: { autocomplete: "first_name" } %>
   </div>
 
