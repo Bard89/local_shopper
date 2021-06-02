@@ -1,15 +1,15 @@
 <div class="container dashboard">
   <h1>My Gift Requests</h1>
   <% @giftrequests.each do |request| %>
-    <%= link_to request do %>
+
       <div class="request-card">
         <%= link_to icon('fas', 'comments'), "#", id: "request-card-message-button" %>
         <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
         <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
         <% if request.shopper %>
-          <p> Shopper: <%= request.shopper.first_name %></p>
+          <p> Shopper: <%= request.shopper.first_name if request.shopper %></p>
         <% end %>
-        <%# Edit button: %>
+
         <div id="status">
           <% if request.status == "pending" && request.requester_id == current_user.id %>
             <p class="pill-button pill-button-pending"><%= request.status %></p>
@@ -25,14 +25,13 @@
           <% elsif request.status == "delivered"  %>
             <p class="pill-button pill-button-delivered"><%= request.status %></p>
           <% end %>
-          <h4>Change Status: </h4>
-          <% GiftRequest::STATUSES.each do |status| %>
-            <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
-              <span class="pill-button pill-button-<%= status %>"><%= status %></span>
-            <% end %>
-          <% end %>
         </div>
+        
+        <% GiftRequest::STATUSES.each do |status| %>
+          <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
+            <span class="pill-button pill-button-<%= status %>"><%= status %></span>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
   <% end %>
 </div>
