@@ -1,6 +1,6 @@
 <div class="container">
   <div class="col-sm-6 col-lg-4">
-    <%= link_to "Take on request", accept_gift_request_path(@giftrequest, status: "accepted"), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name} request?"} %>
+    <%= link_to "Take on request", accept_gift_request_path(@giftrequest, status: "accepted"), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
     <p><%= @giftrequest.recipient_name %></p>
     <p><%= @giftrequest.recipient_address%></p>
     <p><%= @giftrequest.delivery_due_date%></p>
