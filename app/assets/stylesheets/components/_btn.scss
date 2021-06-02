@@ -11,6 +11,39 @@
   background-color: #4E5DB7;
 }
 
+.pill-button {
+  font-size: 10px;
+  background-color: #ddd;
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 16px;
+}
+
+.pill-button-pending {
+  background-color: rgb(223, 223, 223);
+}
+
+.pill-button-accepted {
+  background-color: rgb(224, 224, 188);
+}
+
+.pill-button-purchased {
+  background-color: rgb(197, 170, 194);
+}
+
+.pill-button-paid {
+  background-color: rgb(170, 191, 197);
+}
+
+.pill-button-delivered {
+  background-color: rgb(170, 197, 172);
+}
+
 .label {
   background-color: #111;
   border-radius: 50px;

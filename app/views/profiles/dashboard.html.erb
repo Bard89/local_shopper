@@ -1,24 +1,37 @@
-<div class="container d-grid">
+<div class="container dashboard">
   <h1>My Gift Requests</h1>
-  <div class="row">
-    <% @giftrequests.each do |request| %>
-      <div class="card d-flex">
-        <p><%= request.recipient_name %></p>
-        <p><%= request.recipient_address %></p>
-        <p><%= request.status %></p>
-        <%# Edit button: %>
+  <% @giftrequests.each do |request| %>
+
+      <div class="request-card">
+        <%= link_to icon('fas', 'comments'), "#", id: "request-card-message-button" %>
+        <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
+        <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
+        <% if request.shopper %>
+          <p> Shopper: <%= request.shopper.first_name if request.shopper %></p>
+        <% end %>
+
         <div id="status">
           <% if request.status == "pending" && request.requester_id == current_user.id %>
-            <%= link_to "Edit", edit_gift_request_path(request) %>
-          <% elsif request.status == "accecpted" && request.shopper_id == current_user.id %>
-            <%= link_to "Upload Receipt" %>
+            <p class="pill-button pill-button-pending"><%= request.status %></p>
+            <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request), class: "request-card-action-button" %>
+          <% elsif request.status == "accepted" %>
+            <p class="pill-button pill-button-accepted"><%= request.status %></p>
+            <%= link_to "Upload Receipt", class: "request-card-action-button" if request.shopper_id == current_user.id %>
+          <% elsif request.status == "purchased"  %>
+            <p class="pill-button pill-button-purchased"><%= request.status %></p>
+            <%= link_to "Pay now", "#", class: "request-card-action-button" %>
           <% elsif request.status == "paid"  %>
-            "Status: Waiting for delivery"
+            <p class="pill-button pill-button-paid"><%= request.status %></p>
           <% elsif request.status == "delivered"  %>
-            "Status: Delivered 🎉"
+            <p class="pill-button pill-button-delivered"><%= request.status %></p>
           <% end %>
         </div>
+        
+        <% GiftRequest::STATUSES.each do |status| %>
+          <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
+            <span class="pill-button pill-button-<%= status %>"><%= status %></span>
+          <% end %>
+        <% end %>
       </div>
-    <% end %>
-  </div>
+  <% end %>
 </div>
