@@ -11,47 +11,48 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div class=info>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto d-flex align-items-center">
+        <li id="shopper"> Shopper</li>
+        <% if user_signed_in? %>
+        <li class="nav-item">
+          <% if request.fullpath == "/gift_requests"%>
+            <div>
+              <input type="checkbox" class="checkbox" id="checkbox">
+              <label for="checkbox" class="label">
+                <div class="ball"></div>
+              </label>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
-      <li class="nav-item">
-        <% if request.fullpath == "/gift_requests"%>
-          <div>
-            <input type="checkbox" class="checkbox" id="checkbox">
-            <label for="checkbox" class="label">
-              <div class="ball"></div>
-            </label>
-            <!-- <span class="slider"></span> -->
-          </div>
+            </div>
+          <% else %>
+            <div>
+              <input type="checkbox" class="checkbox" id="checkbox" checked>
+              <label for="checkbox" class="label">
+                <div class="ball"></div>
+              </label>
+            </div>
+          <% end %>
+        </li>
+        <li>Requester</li>
+          <li class="nav-item">
+            <%= link_to "New Gift Request", new_gift_request_path, class: "nav-link" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            </div>
+          </li>
         <% else %>
-          <div>
-            <input type="checkbox" class="checkbox" id="checkbox" checked>
-            <label for="checkbox" class="label">
-              <div class="ball"></div>
-            </label>
-            <!-- <span class="slider"></span> -->
-          </div>
+          <li class="nav-item">
+            <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          </li>
         <% end %>
-      </li>
-
-        <li class="nav-item">
-          <%= link_to "New Gift Request", new_gift_request_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Action", "#", class: "dropdown-item" %>
-            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
-      <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
-        </li>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
   </div>
 </div>
