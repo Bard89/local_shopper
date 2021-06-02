@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # authenticated :user do
   #   root 'profiles#dashboard', as: :authenticated_root
   # end
-  
+
   get '/dashboard', to: 'profiles#dashboard'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -18,7 +18,8 @@ Rails.application.routes.draw do
 
       get 'my_requests'
     end
+    resources :reviews, only: [:create]
   end
-  
+
   resources :profiles, only: :show
 end
