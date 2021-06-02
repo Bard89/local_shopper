@@ -9,6 +9,7 @@
   <p><%= @giftrequest.status%></p>
   <p><%= @giftrequest.requester_id%></p>
   <p><%= @giftrequest.shopper_id%></p>
+  <%= render 'reviews/new', gift_request: @giftrequest, review: @review %>
 </div>
 
 

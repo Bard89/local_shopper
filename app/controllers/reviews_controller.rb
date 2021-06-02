@@ -1,6 +1,6 @@
 class ReviewsController < ApplicationController
   def create
-      @gift_request = Giftrequest.find(params[:gift_request_id])
+      @gift_request = GiftRequest.find(params[:gift_request_id])
       @review = Review.new(review_params)
       @review.gift_request = @gift_request
       if @review.save
@@ -14,10 +14,6 @@ class ReviewsController < ApplicationController
 
   def review_params
     params.require(:review).permit(:rating, :review)
-  end
-
-  def review_permitted
-    @review.requester_shopper = true if current_id == @gift_request.shopper_id || current_id == @gift_request.requester_id
   end
 end
 

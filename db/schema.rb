@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2021_06_02_093322) do
   create_table "reviews", force: :cascade do |t|
     t.integer "rating"
     t.text "review"
-    t.boolean "requester_shopper"
     t.bigint "gift_request_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
