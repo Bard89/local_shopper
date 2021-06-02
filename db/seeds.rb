@@ -24,7 +24,7 @@ GiftRequest.create(
   recipient_name: "Sophie", 
   recipient_address: "London", 
   budget: 100,
-  products: "Lush Cloud Bathbomb",
+  products: ["Lush Cloud Bathbomb"],
   packaging: "gold",
   requester: hannah
 )
@@ -33,7 +33,7 @@ GiftRequest.create(
   recipient_address: "Tel Aviv",
   budget: 50,
   packaging: "box",
-  products: "Local Spa Voucher",
+  products: ["Local Spa Voucher"],
   status: "accepted",
   requester: hannah,
   shopper: mais
@@ -51,7 +51,7 @@ GiftRequest.create(
   recipient_address: "Prague", 
   budget: 200,
   packaging: "gold wrapping paper",
-  products: "Friends 10 Season Pack", 
+  products: ["Friends 10 Season Pack"], 
   status: "paid",
   requester: mais,
   shopper: vojtech
