@@ -49,6 +49,15 @@ ActiveRecord::Schema.define(version: 2021_06_02_105504) do
     t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "review"
+    t.bigint "gift_request_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gift_request_id"], name: "index_reviews_on_gift_request_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false

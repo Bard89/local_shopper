@@ -10,6 +10,10 @@
   <p><%= @giftrequest.requester_id%></p>
   <p><%= @giftrequest.shopper_id%></p>
 </div>
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveAReview">
+  Leave Review
+</button>
 
-
-
+<!-- Partial Modal -->
+<%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>

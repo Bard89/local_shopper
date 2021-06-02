@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
   
   root to: 'pages#home'
-  
+
   get '/dashboard', to: 'profiles#dashboard'
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
@@ -21,7 +21,8 @@ Rails.application.routes.draw do
     member do
       patch :change_status
     end
+    resources :reviews, only: [:create]
   end
-  
+
   resources :profiles, only: :show
 end

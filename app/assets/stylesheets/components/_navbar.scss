@@ -1,6 +1,7 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: white;
+  align-items:inline;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -18,4 +19,11 @@
 
 #transparent_nav {
   background-color:transparent;
+}
+
+.info label {
+  margin-bottom: 0px;
+}
+#shopper{
+  margin-right: 10px;
 }
