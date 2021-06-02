@@ -53,9 +53,7 @@ class GiftRequestsController < ApplicationController
   def accept
     @giftrequest = GiftRequest.find(params[:id])
     @giftrequest.update(status: params[:status])
-    # if params[:status].present? && GiftRequest::STATUSES.include?(params[:status].to_sym)
-    #   @giftrequest.update(status: params[:status])
-    # end
+    @giftrequest.update(shopper: current_user)
     redirect_to gift_request_path(@giftrequest), notice: "You've succesfully taken on #{@giftrequest.requester.first_name}'s' gift request!"
   end
 
