@@ -39,6 +39,15 @@ class GiftRequestsController < ApplicationController
       render 'edit'
     end
   end
+    
+  def change_status
+    @giftrequest = GiftRequest.find(params[:id])
+    @giftrequest.update(status: params[:status])
+    # if params[:status].present? && GiftRequest::STATUSES.include?(params[:status].to_sym)
+    #   @giftrequest.update(status: params[:status])
+    # end
+    redirect_to dashboard_path, notice: "Status updated to #{@giftrequest.status}"
+  end
 
   private
   

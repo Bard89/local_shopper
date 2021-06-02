@@ -16,8 +16,10 @@ Rails.application.routes.draw do
 
   resources :gift_requests do
     collection do
-
       get 'my_requests'
+    end
+    member do
+      patch :change_status
     end
   end
   

@@ -13,17 +13,23 @@
         <div id="status">
           <% if request.status == "pending" && request.requester_id == current_user.id %>
             <p class="pill-button pill-button-pending"><%= request.status %></p>
-            <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request), id: "request-card-action-button" %>
+            <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request), class: "request-card-action-button" %>
           <% elsif request.status == "accepted" %>
             <p class="pill-button pill-button-accepted"><%= request.status %></p>
-            <%= link_to "Upload Receipt" if request.shopper_id == current_user.id %>
+            <%= link_to "Upload Receipt", class: "request-card-action-button" if request.shopper_id == current_user.id %>
           <% elsif request.status == "purchased"  %>
             <p class="pill-button pill-button-purchased"><%= request.status %></p>
-            <%= link_to "Pay", "#" %>
+            <%= link_to "Pay now", "#", class: "request-card-action-button" %>
           <% elsif request.status == "paid"  %>
             <p class="pill-button pill-button-paid"><%= request.status %></p>
           <% elsif request.status == "delivered"  %>
             <p class="pill-button pill-button-delivered"><%= request.status %></p>
+          <% end %>
+          <h4>Change Status: </h4>
+          <% GiftRequest::STATUSES.each do |status| %>
+            <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
+              <span class="pill-button pill-button-<%= status %>"><%= status %></span>
+            <% end %>
           <% end %>
         </div>
       </div>
