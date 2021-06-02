@@ -1,19 +1,22 @@
-<div class="col-sm-6 col-lg-4">
-  <h1><%= @giftrequest.recipient_name %></h1>
-  <p><%= @giftrequest.recipient_address%></p>
-  <p><%= @giftrequest.delivery_due_date%></p>
-  <p><%= @giftrequest.budget%></p>
-  <p><%= @giftrequest.packaging%></p>
-  <p><%= @giftrequest.comment%></p>
-  <p><%= @giftrequest.products%></p>
-  <p><%= @giftrequest.status%></p>
-  <p><%= @giftrequest.requester_id%></p>
-  <p><%= @giftrequest.shopper_id%></p>
-</div>
-<!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveAReview">
-  Leave Review
-</button>
+<div class="container">
+  <div class="col-sm-6 col-lg-4">
+    <%= link_to "Take on request", accept_gift_request_path(@giftrequest, status: "accepted"), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name} request?"} %>
+    <p><%= @giftrequest.recipient_name %></p>
+    <p><%= @giftrequest.recipient_address%></p>
+    <p><%= @giftrequest.delivery_due_date%></p>
+    <p><%= @giftrequest.budget%></p>
+    <p><%= @giftrequest.packaging%></p>
+    <p><%= @giftrequest.comment%></p>
+    <p><%= @giftrequest.products%></p>
+    <p><%= @giftrequest.status%></p>
+    <p><%= @giftrequest.requester_id%></p>
+    <p><%= @giftrequest.shopper_id%></p>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveAReview">
+    Leave Review
+  </button>
 
-<!-- Partial Modal -->
-<%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
+  <!-- Partial Modal -->
+  <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
+  </div>
+</div>

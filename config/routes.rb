@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     end
     member do
       patch :change_status
+      patch :accept
     end
     resources :reviews, only: [:create]
   end
