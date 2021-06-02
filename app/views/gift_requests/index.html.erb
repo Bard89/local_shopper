@@ -9,14 +9,16 @@
   <div class="container">
     <div class="row">
       <% @giftrequests.each do |giftrequest| %>
-        <%= link_to gift_request_path(giftrequest) do %>
-          <div class="card-gift" class="col col-sm-6">
-            <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-gift-user avatar-bordered" />
-            <div class="card-gift-infos">
+        <% if giftrequest.status == "pending" && giftrequest.recipient_address == current_user.location %>
+          <%= link_to gift_request_path(giftrequest) do %>
+            <div class="card-gift" class="col col-sm-6">
+              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-gift-user avatar-bordered" />
+              <div class="card-gift-infos">
               <h2><%= giftrequest.recipient_name%></h2>
               <p class="card-gift-date"><%= giftrequest.delivery_due_date %></p>
+              </div>
             </div>
-          </div>
+          <%end%>
         <%end %>
       <% end %>
     </div>
