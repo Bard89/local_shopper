@@ -7,13 +7,14 @@ class GiftRequestsController < ApplicationController
 
   def show
     @giftrequest = GiftRequest.find(params[:id])
+    @review = Review.new
   end
 
 
   def new
     @giftrequest = GiftRequest.new
   end
-  
+
   def create
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
@@ -46,6 +47,6 @@ class GiftRequestsController < ApplicationController
   def giftrequest_params
     params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :packaging, :comment, :products, :status, :requester_id)
   end
-  
+
 
 end
