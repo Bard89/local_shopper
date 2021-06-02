@@ -15,12 +15,26 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <%= link_to "Home", "#", class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Messages", "#", class: "nav-link" %>
-        </li>
+      <li class="nav-item">
+        <% if request.fullpath == "/gift_requests"%>
+          <div>
+            <input type="checkbox" class="checkbox" id="checkbox">
+            <label for="checkbox" class="label">
+              <div class="ball"></div>
+            </label>
+            <!-- <span class="slider"></span> -->
+          </div>
+        <% else %>
+          <div>
+            <input type="checkbox" class="checkbox" id="checkbox" checked>
+            <label for="checkbox" class="label">
+              <div class="ball"></div>
+            </label>
+            <!-- <span class="slider"></span> -->
+          </div>
+        <% end %>
+      </li>
+
         <li class="nav-item">
           <%= link_to "New Gift Request", new_gift_request_path, class: "nav-link" %>
         </li>
