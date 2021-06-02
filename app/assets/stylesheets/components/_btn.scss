@@ -23,6 +23,9 @@
   height: 12px;
   width: 22px;
   transform: scale(1.5);
+  margin-right: 10px;
+
+
 }
 
 .label .ball {
@@ -40,6 +43,8 @@
 .checkbox {
   opacity: 0;
   position: absolute;
+
+
 }
 
 .checkbox:checked + .label .ball {
