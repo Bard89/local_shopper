@@ -46,7 +46,6 @@ gift_for_chat_2 = GiftRequest.create(
   shopper: mais
 )
 
-
 gift_for_chat_3 = GiftRequest.create(
   recipient_name: "Mia", 
   recipient_address: "Brussels", 
