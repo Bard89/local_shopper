@@ -1,8 +1,8 @@
-<p>profiles show, to be able to see other users, also my profile</p>
+<%# <p>profiles show, to be able to see other users, also my profile</p> %>
 <!-- how to select a user i wanna? through email? nonono -> just through the  -->
-<p>add a link from gift_request to be able to get here</p>
-<p>add the edit and then revrite the devise eddit> or override it somewhere else ?</p>
-<p>put a map with the location in here??</p>
+<%# <p>add a link from gift_request to be able to get here</p> %>
+<%# <p>add the edit and then revrite the devise eddit> or override it somewhere else ?</p> %>
+<%# <p>put a map with the location in here??</p> %>
 <div class="container text-center mt-4">
   <h1>Profile of: <%= @user.first_name %></h1>
   <%= link_to icon('fas fa-edit', "Edit"), edit_user_registration_path(current_user), class: "btn pt-0 pr-0 text-muted" %>

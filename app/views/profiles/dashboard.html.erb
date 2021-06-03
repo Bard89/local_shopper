@@ -6,14 +6,16 @@
 
   <% @giftrequests.each do |request| %>
     <div class="request-card">
-      <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
+      <%= link_to icon('fas', 'comments'), "#", id: "request-card-message-button" %>
+      <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
+      <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
       <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
       
       <% if request.shopper %>
         <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), "#" %></p>
       <% end %>
 
-      <div id="status">
+      <div id="status" onclick="statusupdate()">
         <% if request.status == "pending" && request.requester_id == current_user.id %>
           <p class="pill-button pill-button-pending"><%= request.status %></p>
           <div class = "request-card-action-button">
@@ -33,13 +35,16 @@
         <% elsif request.status == "cancelled"  %>
           <p class="pill-button"><%= request.status %></p>
         <% end %>
+
+        <div id="change-status" class="d-none">
+          <% GiftRequest::STATUSES.each do |status| %>
+            <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
+              <span class="pill-button pill-button-<%= status %>"><%= status %></span>
+            <% end %>
+          <% end %>
+        </div>
       </div>
       
-      <% GiftRequest::STATUSES.each do |status| %>
-        <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
-          <span class="pill-button pill-button-<%= status %>"><%= status %></span>
-        <% end %>
-      <% end %>
     </div>
   <% end %>
 </div>
