@@ -1,0 +1,26 @@
+#sidebar {
+  width:80px;
+  align-items:center;
+  float:left;
+  position: fixed;
+  margin:16px 48px;
+}
+
+#sidebar_container {
+  background-color:#F1DABF;
+  height:650px;
+  width:80px;
+  border-radius:16px;
+}
+
+.sidebar-icon {
+  color: white;
+  padding-left:24px;
+  margin:16px 0 24px 0;
+  font-size:1.8em;
+}
+
+
+.sidebar-icon:hover {
+  color: #011638;
+}
