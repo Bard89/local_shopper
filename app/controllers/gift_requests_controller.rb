@@ -63,9 +63,7 @@ class GiftRequestsController < ApplicationController
     @giftrequest = GiftRequest.find(params[:id])
     @giftrequest.update(status: params[:status])
     @giftrequest.update(shopper: current_user)
-
     @chatroom = Chatroom.new(gift_request_id:@giftrequest.id) # I create the chatroom on accepting the request by the other user (need 2 users for that)
-
     redirect_to gift_request_path(@giftrequest), notice: "You've succesfully taken on #{@giftrequest.requester.first_name}'s' gift request!"
   end
 

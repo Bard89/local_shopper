@@ -9,6 +9,7 @@
 
 
 puts "Clearing database from Users and Gift requests"
+Chatroom.destroy_all
 GiftRequest.destroy_all
 Chatroom.destroy_all
 User.destroy_all
@@ -185,7 +186,6 @@ gift_for_chat_16 = GiftRequest.create(
   requester: hannah
 )
 
-
 gift_for_chat_17 = GiftRequest.create(
   recipient_name: "Klaus", 
   recipient_address: "Prague", 
@@ -264,5 +264,4 @@ Chatroom.create(
   gift_request_id:gift_for_chat_17.id
 )
 
-# puts "---Done creating Products!"
 puts "---Done creating Seeds!"
