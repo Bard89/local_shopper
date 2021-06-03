@@ -26,7 +26,7 @@ vojtech = User.create(location: "Prague", first_name: "Vojtech", last_name: "Mat
 
 # puts "---Creating Default Products..."
 
-gift_for_chat_1 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Sophie",
   recipient_address: "London",
   budget: 100,
@@ -35,7 +35,7 @@ gift_for_chat_1 = GiftRequest.create(
   requester: hannah
 )
 
-gift_for_chat_2 = GiftRequest.create(
+gift_for_chat_1 = GiftRequest.create(
   recipient_name: "Emilia",
   recipient_address: "Tel Aviv",
   budget: 50,
@@ -46,7 +46,7 @@ gift_for_chat_2 = GiftRequest.create(
   shopper: mais
 )
 
-gift_for_chat_3 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Mia",
   recipient_address: "Brussels",
   budget: 200,
@@ -55,7 +55,7 @@ gift_for_chat_3 = GiftRequest.create(
   requester: hannah
 )
 
-gift_for_chat_4 = GiftRequest.create(
+gift_for_chat_2 = GiftRequest.create(
   recipient_name: "Sarah",
   recipient_address: "Prague",
   budget: 200,
@@ -66,7 +66,7 @@ gift_for_chat_4 = GiftRequest.create(
   shopper: vojtech
 )
 
-gift_for_chat_5 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Claire",
   recipient_address: "Dresden",
   budget: 200,
@@ -75,7 +75,7 @@ gift_for_chat_5 = GiftRequest.create(
   requester: mais
 )
 
-gift_for_chat_6 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Chloe",
   recipient_address: "Madrid",
   budget: 200,
@@ -83,7 +83,7 @@ gift_for_chat_6 = GiftRequest.create(
   requester: mais
 )
 
-gift_for_chat_7 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Elena",
   recipient_address: "Brussels",
   budget: 200,
@@ -91,7 +91,7 @@ gift_for_chat_7 = GiftRequest.create(
   requester: emily
 )
 
-gift_for_chat_8 = GiftRequest.create(
+gift_for_chat_3 = GiftRequest.create(
   recipient_name: "Annie",
   recipient_address: "Vienna",
   budget: 200,
@@ -103,7 +103,7 @@ gift_for_chat_8 = GiftRequest.create(
   shopper: hannah
 )
 
-gift_for_chat_9 = GiftRequest.create(
+gift_for_chat_4 = GiftRequest.create(
   recipient_name: "Fifi",
   recipient_address: "London",
   budget: 20,
@@ -116,7 +116,7 @@ gift_for_chat_9 = GiftRequest.create(
   shopper: emily
 )
 
-gift_for_chat_10 = GiftRequest.create(
+gift_for_chat_5 = GiftRequest.create(
   recipient_name: "Coleen",
   recipient_address: "Tel Aviv",
   budget: 60,
@@ -129,7 +129,7 @@ gift_for_chat_10 = GiftRequest.create(
 )
 
 
-gift_for_chat_11 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Coleen",
   recipient_address: "London",
   budget: 60,
@@ -140,7 +140,7 @@ gift_for_chat_11 = GiftRequest.create(
 )
 
 
-gift_for_chat_12 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Julian",
   recipient_address: "Vienna",
   budget: 60,
@@ -149,8 +149,7 @@ gift_for_chat_12 = GiftRequest.create(
   product1: ["Parfume", "Instax Mini"],
 )
 
-
-gift_for_chat_13 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Trent",
   recipient_address: "Vienna",
   budget: 60,
@@ -159,8 +158,7 @@ gift_for_chat_13 = GiftRequest.create(
   requester: vojtech,
 )
 
-
-gift_for_chat_14 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Klaus",
   recipient_address: "Vienna",
   budget: 60,
@@ -169,8 +167,7 @@ gift_for_chat_14 = GiftRequest.create(
   requester: vojtech
 )
 
-
-gift_for_chat_15 = GiftRequest.create(
+gift_for_chat_6 = GiftRequest.create(
   recipient_name: "Klaus",
   recipient_address: "Prague",
   budget: 60,
@@ -179,8 +176,7 @@ gift_for_chat_15 = GiftRequest.create(
   requester: mais
 )
 
-
-gift_for_chat_16 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Klaus",
   recipient_address: "Prague",
   budget: 60,
@@ -189,7 +185,7 @@ gift_for_chat_16 = GiftRequest.create(
   requester: hannah
 )
 
-gift_for_chat_17 = GiftRequest.create(
+GiftRequest.create(
   recipient_name: "Klaus",
   recipient_address: "Prague",
   budget: 60,
@@ -221,50 +217,6 @@ Chatroom.create(
 
 Chatroom.create(
   gift_request_id:gift_for_chat_6.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_7.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_8.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_9.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_10.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_11.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_12.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_13.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_14.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_15.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_16.id
-)
-
-Chatroom.create(
-  gift_request_id:gift_for_chat_17.id
 )
 
 puts "---Done creating Seeds!"

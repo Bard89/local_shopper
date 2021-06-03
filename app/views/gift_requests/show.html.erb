@@ -32,21 +32,27 @@
           No Comment 
         <% end %>
       </div>
-        <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
-          <%= link_to "Take on #{@giftrequest.requester.first_name} 's request", accept_gift_request_path(@giftrequest, status: "accepted"), class: "pill-button", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
-        <% end %>
+      <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
+        <%= link_to "Take on #{@giftrequest.requester.first_name} 's request", accept_gift_request_path(@giftrequest, status: "accepted"), class: "pill-button", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
+      <% end %>
     </div>
-
     
     <% if @giftrequest.requester != current_user %>
       <%= link_to profile_path(@giftrequest.requester) do %>
         <div class="col-4 d-flex">
-          <% if @giftrequest.requester.profile_picture %>
-            <%= image_tag(@giftrequest.requester.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
-          <% else %>
-            <%= image_tag "https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
+          <p>Requester:</p>
+          <%= image_tag(@giftrequest.requester.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
           <p><%= @giftrequest.requester.first_name %></p>
+          <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) %>
+        </div>
+      <% end %>
+    <% elsif @giftrequest.shopper %>
+      <%= link_to profile_path(@giftrequest.shopper) do %>
+        <div class="col-4 d-flex">
+          <p>Shopper:</p>
+          <%= image_tag(@giftrequest.shopper.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
+          <p><%= @giftrequest.shopper.first_name %></p>
+          <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) %>
         </div>
       <% end %>
     <% end %>
