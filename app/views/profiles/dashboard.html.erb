@@ -14,7 +14,7 @@
         <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
       <% end %>
       <div id="status" onclick="statusupdate()">
-        <% if request.status == "pending" && request.requester_id == current_user.id %>
+        <% if request.status == "pending" && request.requester == current_user %>
           <p class="pill-button pill-button-pending"><%= request.status %></p>
           <div class = "request-card-action-button">
             <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request) %>

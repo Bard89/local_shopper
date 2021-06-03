@@ -56,7 +56,7 @@ class GiftRequestsController < ApplicationController
     # if params[:status].present? && GiftRequest::STATUSES.include?(params[:status].to_sym)
     #   @giftrequest.update(status: params[:status])
     # end
-    redirect_to dashboard_path, notice: "Status for #{@giftrequest.recipient_name} gift updated to #{@giftrequest.status}"
+    redirect_to dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
   end
 
   def accept
