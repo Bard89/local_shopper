@@ -19,7 +19,7 @@ class GiftRequestsController < ApplicationController
     @giftrequest.requester = current_user
     if @giftrequest.save
       flash[:success] = "GiftRequest successfully created"
-      redirect_to my_requests_gift_requests_path
+      redirect_to dashboard_path
     else
       flash[:error] = "Something went wrong"
       render 'new'
@@ -34,7 +34,7 @@ class GiftRequestsController < ApplicationController
     @giftrequest = GiftRequest.find(params[:id])
     if @giftrequest.update_attributes(giftrequest_params)
       flash[:success] = "GiftRequest was successfully updated"
-      redirect_to my_requests_gift_requests_path
+      redirect_to dashboard_path
     else
       flash[:error] = "Something went wrong"
       render 'edit'
