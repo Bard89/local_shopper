@@ -1,15 +1,51 @@
+<%#= form_for @giftrequest do |f| %>
+  <%#= f.input :recipient_name %>
+  <%#= f.input :recipient_address %>
+  <%#= f.input :delivery_due_date %>
+  <%#= f.input :budget %>
+  <%#= f.input :packaging %>
+  <%#= f.input :comment %>
+  <%#= f.input :product1 %>
+  <%#= f.input :shop1 %>
+  <%#= f.input :product2 %>
+  <%#= f.input :shop2 %>
+  <%#= f.input :product3 %>
+  <%#= f.input :shop3 %>
+  <%#= f.submit %>
+<%# end %>
+
 <%= simple_form_for @giftrequest do |f| %>
-  <%= f.input :recipient_name %>
-  <%= f.input :recipient_address %>
-  <%= f.input :delivery_due_date %>
-  <%= f.input :budget %>
-  <%= f.input :packaging %>
-  <%= f.input :comment %>
-  <%= f.input :product1 %>
-  <%= f.input :shop1 %>
-  <%= f.input :product2 %>
-  <%= f.input :shop2 %>
-  <%= f.input :product3 %>
-  <%= f.input :shop3 %>
+  <div class="d-flex">
+    <div>
+      <p><b>Recipient</b></p>
+      <%= f.input :recipient_name, placeholer: "Recipient Name" %>
+      <%= f.input :recipient_address,placeholer: "Recipient Address" %>
+    </div>
+    <div>
+      <p><b>Details</b></p>
+      <%= f.date_select :delivery_due_date %>
+      <%= f.input :budget %>
+      <%= f.input :packaging %>
+    </div>
+  </div>
+
+  <div class="d-flex">
+    <div>
+      <%= f.input :product1 %>
+      <%= f.input :shop1 %>
+      <%#= link_to icon('fas', 'plus', 'Add another product') %>
+    </div>
+    <div>
+      <%= f.input :product2 %>
+      <%= f.input :shop2 %>
+    </div>
+    <div>
+      <%= f.input :product3%>
+      <%= f.input :shop3 %>
+    </div>
+  </div>
+  <div>
+    <%= f.input :comment %>
+  </div>
   <%= f.submit %>
 <% end %>
