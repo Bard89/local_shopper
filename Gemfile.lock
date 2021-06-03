@@ -114,6 +114,15 @@ GEM
     mini_portile2 (2.5.2)
       net-ftp (~> 0.1)
     minitest (5.14.4)
+    monetize (1.9.4)
+      money (~> 6.12)
+    money (6.13.8)
+      i18n (>= 0.6.4, <= 2)
+    money-rails (1.14.0)
+      activesupport (>= 3.0)
+      monetize (~> 1.9.0)
+      money (~> 6.13.2)
+      railties (>= 3.0)
     msgpack (1.4.2)
     net-ftp (0.1.2)
       net-protocol
@@ -252,6 +261,7 @@ DEPENDENCIES
   font-awesome-sass
   jbuilder (~> 2.7)
   listen (~> 3.2)
+  money-rails
   pg (>= 0.18, < 2.0)
   pry-byebug
   pry-rails

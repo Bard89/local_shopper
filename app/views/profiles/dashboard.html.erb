@@ -1,19 +1,48 @@
+<div class="gift_request d-none">
+  <header>
+    <div class="container">
+      <h1>Gift Requests in your Area</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="row">
+        <%@giftrequests.each do |giftrequest| %>
+          <% if giftrequest.status == "pending" && giftrequest.recipient_address == current_user.location %>
+            <%= link_to gift_request_path(giftrequest) do %>
+              <div class="card-gift" class="col col-sm-6">
+                <%= image_tag(giftrequest.requester.profile_picture, class: "card-gift-user avatar-bordered" ) %>
+                <div class="card-gift-infos d-block">
+                  <p> <small> Created <%= giftrequest.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
+                  <p>Products: </p>
+                  <p>Gift for: <%= giftrequest.recipient_name%></p>
+                  <p class="card-gift-date"><%= giftrequest.delivery_due_date %></p>
+                </div>
+              </div>
+            <%end%>
+          <%end %>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>
+
 <div class="container dashboard">
   <div class="d-flex align-items-center">
     <h1>My Gift Requests</h1>
     <%= link_to "New Gift Request", new_gift_request_path, class: "ml-3" %>
   </div>
-
   <% @giftrequests.each do |request| %>
     <div class="request-card">
-      <%= link_to icon('fas', 'comments'), "#", id: "request-card-message-button" %>
+      <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request), id: "request-card-message-button" %>
       <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
       <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
       <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
+      
       <% if request.shopper %>
-        <p> Shopper: <%= request.shopper.first_name if request.shopper %></p>
+        <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), "#" %></p>
       <% end %>
-
       <div id="status" onclick="statusupdate()">
         <% if request.status == "pending" && request.requester_id == current_user.id %>
           <p class="pill-button pill-button-pending"><%= request.status %></p>
@@ -43,7 +72,12 @@
           <% end %>
         </div>
       </div>
-      
+
     </div>
   <% end %>
 </div>
+
+
+
+
+

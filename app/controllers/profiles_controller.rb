@@ -9,15 +9,7 @@ class ProfilesController < ApplicationController
 
   def dashboard
     @giftrequests = GiftRequest.where(requester_id: current_user).order(updated_at: :desc)
+    # @chatrooms = Chatroom.where(gift_request: @giftrequest)
+    # raise
   end
-
-  # I don't really need this to be separate methods, it's ok have them
-
-  # def my_gift_requests # profiles controller
-  #   @gift_requests = GiftRequest.where(user_id: current_user)
-  # end
-
-  # def my_gift_requests # rename to see other users
-  #   @gift_requests = GiftRequest.where(user_id: @user) # rename  requester_id or shopper_id
-  # end
 end
