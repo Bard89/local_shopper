@@ -14,8 +14,8 @@
   <div class=info>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto d-flex align-items-center">
-        <li id="shopper"> Shopper</li>
         <% if user_signed_in? %>
+        <li id="shopper"> Shopper</li>
         <li class="nav-item">
           <% if request.fullpath == "/gift_requests"%>
             <div>
@@ -26,14 +26,14 @@
             </div>
           <% else %>
             <div>
-              <input type="checkbox" class="checkbox" id="checkbox" checked>
+              <input type="checkbox" class="checkbox" id="checkbox" >
               <label for="checkbox" class="label">
                 <div class="ball"></div>
               </label>
             </div>
           <% end %>
         </li>
-        <li>Requester</li>
+        <li id="requester">Requester</li>
         <li class="nav-item dropdown">
           <% if current_user.profile_picture %>
             <%= image_tag(current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
