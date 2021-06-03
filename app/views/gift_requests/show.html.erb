@@ -8,10 +8,13 @@
       <p><%= @giftrequest.recipient_name %> <span class="pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status%></span></p>
       <p><%= @giftrequest.recipient_address%></p>
       <p><%= @giftrequest.delivery_due_date%></p>
-      <p><%= @giftrequest.budget%></p>
-      <p><%= @giftrequest.packaging%></p>
-      <p><%= @giftrequest.comment%></p>
-      <p><%= @giftrequest.products%></p>
+      <p><%= @giftrequest.budget %></p>
+      <p><%= @giftrequest.packaging %></p>
+      <p><%= @giftrequest.comment %></p>
+      
+      <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
+      <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
+      <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
     </div>
 
     <%= link_to profile_path(@giftrequest.requester) do %>
@@ -21,7 +24,7 @@
         <% else %>
           <%= image_tag "https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <% end %>
-        <p><%= @giftrequest.requester.first_name%></p>
+        <p><%= @giftrequest.requester.first_name %></p>
       </div>
     <% end %>
 

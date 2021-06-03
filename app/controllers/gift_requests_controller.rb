@@ -72,6 +72,6 @@ class GiftRequestsController < ApplicationController
   private
   
   def giftrequest_params
-    params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :packaging, :comment, :products, :status, :requester_id)
+    params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :packaging, :comment, :status, :requester_id, :product1, :shop1, :product2, :shop2, :product3, :shop3)
   end
 end
