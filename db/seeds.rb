@@ -9,6 +9,7 @@
 
 
 puts "Clearing database from Users and Gift requests"
+Message.destroy_all
 Chatroom.destroy_all
 GiftRequest.destroy_all
 Chatroom.destroy_all
@@ -22,6 +23,7 @@ hannah = User.create(location: "Vienna", first_name: "Hannah", last_name: "Eiche
 mais = User.create(location: "Tel Aviv", first_name: "Mais", last_name: "Aroq", email: 'mais@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/71976918?v=4")
 emily = User.create(location: "London", first_name: "Emily", last_name: "Hoult",email: 'emily@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/75494690?v=4")
 vojtech = User.create(location: "Prague", first_name: "Vojtech", last_name: "Matous", email: 'vojtech@localshopper.com', password: '123456', profile_picture: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617994666/v7vhpsuijh9nokmdiwqn.jpg")
+charles = User.create(location: "Brussels", first_name: "Charles", last_name: "Overlaux", email: 'charles@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/33698505?v=4")
 # puts "---Done creating users!"
 
 # puts "---Creating Default Products..."
@@ -72,7 +74,7 @@ GiftRequest.create(
   budget: 200,
   packaging: "brown eco paper",
   product1: ["Lush Cloud Bathbomb", "Vegan Chocolate"],
-  requester: mais
+  requester: charles
 )
 
 GiftRequest.create(
@@ -159,7 +161,7 @@ GiftRequest.create(
 )
 
 GiftRequest.create(
-  recipient_name: "Klaus",
+  recipient_name: "Heinz",
   recipient_address: "Vienna",
   budget: 60,
   packaging: "colorful box",
@@ -172,27 +174,18 @@ gift_for_chat_6 = GiftRequest.create(
   recipient_address: "Prague",
   budget: 60,
   packaging: "colorful box",
-  product1: ["Hunter Knife", "New Car Tires"],
+  product1: "New Car Tires",
+  product2: "Hunter Knife",
   requester: mais
 )
 
 GiftRequest.create(
-  recipient_name: "Klaus",
-  recipient_address: "Prague",
+  recipient_name: "Hannes",
+  recipient_address: "Berlin",
   budget: 60,
   packaging: "colorful box",
   product1: "Vegan Chocolate",
-  requester: hannah
-)
-
-GiftRequest.create(
-  recipient_name: "Klaus",
-  recipient_address: "Prague",
-  budget: 60,
-  packaging: "colorful box",
-  product1: "New Car Tires",
-  product2: "Hunter Knife",
-  requester: emily
+  requester: charles
 )
 
 Chatroom.create(

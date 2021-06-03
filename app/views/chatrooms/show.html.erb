@@ -4,7 +4,7 @@
   <% else %>
     <h1><%= image_tag @chatroom.gift_request.shopper.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.shopper.first_name %></h1>
   <% end %>
-  <h1>#<%= @chatroom.id %></h1> <!-- id replaed -->
+   <!--  <h1>#<%= @chatroom.id %></h1> id replaed -->
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
       <div class="message-container" id="message-<%= message.id %>">

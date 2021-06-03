@@ -1,7 +1,7 @@
 class ChatroomsController < ApplicationController
 
   def index
-    @chatrooms = Chatroom.where(gift_request_id: current_user)
+    @chatrooms = Chatroom.all
   end
   
 
