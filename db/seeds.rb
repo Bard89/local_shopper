@@ -23,15 +23,15 @@ vojtech = User.create(location: "Prague", first_name: "Vojtech", last_name: "Mat
 
 # puts "---Creating Default Products..."
 GiftRequest.create(
-  recipient_name: "Sophie", 
-  recipient_address: "London", 
+  recipient_name: "Sophie",
+  recipient_address: "London",
   budget: 100,
   product1: ["Lush Cloud Bathbomb"],
   packaging: "gold",
   requester: hannah
 )
 GiftRequest.create(
-  recipient_name: "Emilia", 
+  recipient_name: "Emilia",
   recipient_address: "Tel Aviv",
   budget: 50,
   packaging: "box",
@@ -41,16 +41,16 @@ GiftRequest.create(
   shopper: mais
 )
 GiftRequest.create(
-  recipient_name: "Mia", 
-  recipient_address: "Brussels", 
+  recipient_name: "Mia",
+  recipient_address: "Brussels",
   budget: 200,
   packaging: "gift basket",
   product1: ["A tiny cactus", "Chocolate", "Cactus pot"], 
   requester: hannah
 )
 GiftRequest.create(
-  recipient_name: "Sarah", 
-  recipient_address: "Prague", 
+  recipient_name: "Sarah",
+  recipient_address: "Prague",
   budget: 200,
   packaging: "gold wrapping paper",
   product1: ["Friends 10 Season Pack"], 
@@ -59,30 +59,30 @@ GiftRequest.create(
   shopper: vojtech
 )
 GiftRequest.create(
-  recipient_name: "Claire", 
-  recipient_address: "Dresden", 
+  recipient_name: "Claire",
+  recipient_address: "Dresden",
   budget: 200,
   packaging: "brown eco paper",
   product1: ["Lush Cloud Bathbomb", "Vegan Chocolate"], 
   requester: mais
 )
 GiftRequest.create(
-  recipient_name: "Chloe", 
-  recipient_address: "Madrid", 
+  recipient_name: "Chloe",
+  recipient_address: "Madrid",
   budget: 200,
   product1: ["Bodyshop Creme", "Lindt Chocolate"], 
   requester: mais
 )
 GiftRequest.create(
-  recipient_name: "Elena", 
-  recipient_address: "Brussels", 
+  recipient_name: "Elena",
+  recipient_address: "Brussels",
   budget: 200,
   product1: ["Prada Bag", "FFP2 Prada Mask"], 
   requester: emily
 )
 GiftRequest.create(
-  recipient_name: "Annie", 
-  recipient_address: "Vienna", 
+  recipient_name: "Annie",
+  recipient_address: "London",
   budget: 200,
   packaging: "gift bag",
   product1: ["Jojo Moyes Book", "A mug"], 
@@ -91,8 +91,8 @@ GiftRequest.create(
   shopper: hannah
 )
 GiftRequest.create(
-  recipient_name: "Fifi", 
-  recipient_address: "London", 
+  recipient_name: "Fifi",
+  recipient_address: "London",
   budget: 20,
   packaging: "yellow bow around",
   status: "purchased",
@@ -101,10 +101,11 @@ GiftRequest.create(
   shopper: emily
 )
 GiftRequest.create(
-  recipient_name: "Coleen", 
-  recipient_address: "Tel Aviv", 
+  recipient_name: "Coleen",
+  recipient_address: "Tel Aviv",
   budget: 60,
   packaging: "colorful box",
+  status: "pending",
   product1: ["Earrings", "Vegan Chocolate"], 
   status: "delivered",
   requester: vojtech,
@@ -112,8 +113,8 @@ GiftRequest.create(
 )
 
 GiftRequest.create(
-  recipient_name: "Coleen", 
-  recipient_address: "London", 
+  recipient_name: "Coleen",
+  recipient_address: "London",
   budget: 60,
   packaging: "colorful box",
   product1: ["Sleeping Bag", "20l Backpack"], 
@@ -121,17 +122,17 @@ GiftRequest.create(
 )
 
 GiftRequest.create(
-  recipient_name: "Julian", 
-  recipient_address: "Vienna", 
+  recipient_name: "Julian",
+  recipient_address: "Vienna",
   budget: 60,
   packaging: "colorful box",
+  requester: emily,
   product1: ["Parfume", "Instax Mini"], 
-  requester: emily
 )
 
 GiftRequest.create(
-  recipient_name: "Trent", 
-  recipient_address: "Vienna", 
+  recipient_name: "Trent",
+  recipient_address: "Vienna",
   budget: 60,
   packaging: "colorful box",
   product1: ["Sleeping Bag", "Hiking Backpack"], 
@@ -139,8 +140,8 @@ GiftRequest.create(
 )
 
 GiftRequest.create(
-  recipient_name: "Klaus", 
-  recipient_address: "Vienna", 
+  recipient_name: "Klaus",
+  recipient_address: "Vienna",
   budget: 60,
   packaging: "colorful box",
   product1: ["Hunter Knife", "New Car Tires"], 
@@ -148,8 +149,8 @@ GiftRequest.create(
 )
 
 GiftRequest.create(
-  recipient_name: "Klaus", 
-  recipient_address: "Prague", 
+  recipient_name: "Klaus",
+  recipient_address: "Prague",
   budget: 60,
   packaging: "colorful box",
   product1: ["Hunter Knife", "New Car Tires"], 
@@ -157,8 +158,8 @@ GiftRequest.create(
 )
 
 GiftRequest.create(
-  recipient_name: "Klaus", 
-  recipient_address: "Prague", 
+  recipient_name: "Klaus",
+  recipient_address: "Prague",
   budget: 60,
   packaging: "colorful box",
   product1: "Vegan Chocolate", 
@@ -166,8 +167,8 @@ GiftRequest.create(
 )
 
 GiftRequest.create(
-  recipient_name: "Klaus", 
-  recipient_address: "Prague", 
+  recipient_name: "Klaus",
+  recipient_address: "Prague",
   budget: 60,
   packaging: "colorful box",
   product1: "New Car Tires", 
