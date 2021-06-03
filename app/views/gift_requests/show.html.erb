@@ -1,41 +1,66 @@
 <%= link_to icon('fas', 'chevron-left', 'Back'), :back %>
 <div class="container">
-  <div class="col-sm-6 col-lg-4">
-    <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
-      <%= link_to "Take on request", accept_gift_request_path(@giftrequest, status: "accepted"), class: "btn border-warning", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
-    <% end %>
-    <div class="border border-secondary">
-      <p><%= @giftrequest.recipient_name %> <span class="pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status%></span></p>
-      <p><%= @giftrequest.recipient_address%></p>
-      <p><%= @giftrequest.delivery_due_date%></p>
-      <p><%= @giftrequest.budget %></p>
-      <p><%= @giftrequest.packaging %></p>
-      <p><%= @giftrequest.comment %></p>
+  <div class="row justify-content-center">
+    <div class="col-8">
+      <div>
+        <h2>Gift request for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span class="pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h2>
+        <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
+          <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(@giftrequest) %>
+          <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"} %>
+        <% end %>
+      </div>
+
+      <div>
+        <p><b>Details</b></p>
+        <p><%= @giftrequest.delivery_due_date%></p>
+        <p><%= @giftrequest.budget %></p>
+        <p><%= @giftrequest.packaging %></p>
+      </div>
       
-      <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
-      <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
-      <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
+      <div>
+        <p><b>Products</b></p>
+        <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
+        <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
+        <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
+      </div>
+
+      <div>
+        <p><b>Comment</b></p>
+        <% if @giftrequest.comment %>
+          <%= @giftrequest.comment %>
+        <% else %>
+          No Comment 
+        <% end %>
+      </div>
+        <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
+          <%= link_to "Take on #{@giftrequest.requester.first_name} 's request", accept_gift_request_path(@giftrequest, status: "accepted"), class: "pill-button", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
+        <% end %>
     </div>
 
-    <%= link_to profile_path(@giftrequest.requester) do %>
-      <div class="border border-danger d-flex">
-        <% if @giftrequest.requester.profile_picture %>
-          <%= image_tag(@giftrequest.requester.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
-        <% else %>
-          <%= image_tag "https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-        <% end %>
-        <p><%= @giftrequest.requester.first_name %></p>
-      </div>
+    
+    <% if @giftrequest.requester != current_user %>
+      <%= link_to profile_path(@giftrequest.requester) do %>
+        <div class="col-4 d-flex">
+          <% if @giftrequest.requester.profile_picture %>
+            <%= image_tag(@giftrequest.requester.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
+          <% else %>
+            <%= image_tag "https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <% end %>
+          <p><%= @giftrequest.requester.first_name %></p>
+        </div>
+      <% end %>
     <% end %>
+    
+    </div>
 
-  <!-- Button trigger modal -->
-  <% if @giftrequest.status == "delivered" && @giftrequest.requester == current_user %>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveAReview">
-    Leave Review
-  </button>
+    <!-- Button trigger modal -->
+    <% if @giftrequest.status == "delivered" && @giftrequest.requester == current_user %>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveAReview">
+      Leave Review
+    </button>
 
-  <!-- Partial Modal -->
-  <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
-  <% end %>
+    <!-- Partial Modal -->
+    <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
+    <% end %>
   </div>
 </div>

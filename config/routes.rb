@@ -12,14 +12,10 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   resources :chatrooms, only: [] do # [] not making a show
     resources :messages, only: :create
-
   end
 
   resources :gift_requests do
     resource :chatrooms, only: :show # singular -> omits the id at the end
-    collection do
-      get 'my_requests'
-    end
     member do
       patch :change_status
       patch :accept
@@ -28,4 +24,6 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: :show
+
+  resources :chatrooms, only: :index
 end

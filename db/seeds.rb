@@ -96,7 +96,8 @@ gift_for_chat_8 = GiftRequest.create(
   recipient_address: "Vienna",
   budget: 200,
   packaging: "gift bag",
-  product1: ["Jojo Moyes Book", "A mug"],
+  product1: "Jojo Moyes Book", 
+  product2: "A handcrafted mug",
   status: "delivered",
   requester: emily,
   shopper: hannah
@@ -107,8 +108,10 @@ gift_for_chat_9 = GiftRequest.create(
   recipient_address: "London",
   budget: 20,
   packaging: "yellow bow around",
-  status: "pending",
-  product1: ["A wallet", "Picture Frame", "A handcreme"],
+  status: "accepted",
+  product1: "Wallet",
+  product2: "Picture Frame",
+  product3: "A handcreme",
   requester: vojtech,
   shopper: emily
 )
