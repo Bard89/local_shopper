@@ -6,11 +6,11 @@
 
   <% @giftrequests.each do |request| %>
     <div class="request-card">
-      <%= link_to icon('fas', 'comments'), "#", id: "request-card-message-button" %>
       <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
       <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
+      
       <% if request.shopper %>
-        <p> Shopper: <%= request.shopper.first_name if request.shopper %></p>
+        <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), "#" %></p>
       <% end %>
 
       <div id="status">
