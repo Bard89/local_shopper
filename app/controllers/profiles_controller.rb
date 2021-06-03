@@ -7,7 +7,7 @@ class ProfilesController < ApplicationController
   end
 
   def dashboard
-    @giftrequests = GiftRequest.where(requester_id: current_user).order(created_at: :asc)
+    @giftrequests = GiftRequest.where(requester_id: current_user).order(updated_at: :desc)
   end
 
   # I don't really need this to be separate methods, it's ok have them
