@@ -1,3 +1,33 @@
+<div class="gift_request d-none">
+  <header>
+    <div class="container">
+      <h1>Gift Requests in your Area</h1>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <div class="row">
+        <%@giftrequests.each do |giftrequest| %>
+          <% if giftrequest.status == "pending" && giftrequest.recipient_address == current_user.location %>
+            <%= link_to gift_request_path(giftrequest) do %>
+              <div class="card-gift" class="col col-sm-6">
+                <%= image_tag(giftrequest.requester.profile_picture, class: "card-gift-user avatar-bordered" ) %>
+                <div class="card-gift-infos d-block">
+                  <p> <small> Created <%= giftrequest.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
+                  <p>Products: <%= giftrequest.products %></p>
+                  <p>Gift for: <%= giftrequest.recipient_name%></p>
+                  <p class="card-gift-date"><%= giftrequest.delivery_due_date %></p>
+                </div>
+              </div>
+            <%end%>
+          <%end %>
+        <% end %>
+      </div>
+    </div>
+  </main>
+</div>
+
 <div class="container dashboard">
   <div class="d-flex align-items-center">
     <h1>My Gift Requests</h1>
@@ -43,7 +73,12 @@
           <% end %>
         </div>
       </div>
-      
+
     </div>
   <% end %>
 </div>
+
+
+
+
+

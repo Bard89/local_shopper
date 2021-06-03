@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2021_06_02_105504) do
     t.integer "shopper_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.text "products", default: [], array: true
+    t.text"products", default: [], array: true
     t.index ["requester_id"], name: "index_gift_requests_on_requester_id"
     t.index ["shopper_id"], name: "index_gift_requests_on_shopper_id"
   end
