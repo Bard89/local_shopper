@@ -15,21 +15,25 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto d-flex align-items-center">
         <% if user_signed_in? %>
+        <li id="requester"> Requester</li>
 
           <li class="nav-item">
+
+
             <% if request.fullpath == "/"%>
-              <li id="requester"> Requester</li>
+
               <div>
+
                 <input type="checkbox" class="checkbox" id="checkbox">
                 <label for="checkbox" class="label">
                   <div class="ball"></div>
                 </label>
+
               </div>
-              <li id="shopper">Shopper</li>
-
             <% end %>
-          </li>
 
+          </li>
+          <li id="shopper">Shopper</li>
           <li class="nav-item dropdown">
             <% if current_user.profile_picture %>
               <%= image_tag(current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
