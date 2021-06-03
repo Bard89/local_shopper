@@ -40,7 +40,6 @@ ActiveRecord::Schema.define(version: 2021_06_03_122150) do
     t.string "shop1"
     t.string "shop2"
     t.string "shop3"
-
     t.index ["requester_id"], name: "index_gift_requests_on_requester_id"
     t.index ["shopper_id"], name: "index_gift_requests_on_shopper_id"
   end
