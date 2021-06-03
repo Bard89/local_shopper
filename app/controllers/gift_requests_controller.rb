@@ -7,16 +7,23 @@ class GiftRequestsController < ApplicationController
   def show
     @giftrequest = GiftRequest.find(params[:id])
     @review = Review.new
+    # raise
   end
 
 
   def new
     @giftrequest = GiftRequest.new
+    @chatroom = Chatroom.new # now added, should it be here? ...
   end
 
   def create
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
+
+    # add create chatroom and assign the newly created chatroom to the gift request
+    @chatroom = Chatroom.new(gift_request_id:@giftrequest.id)
+    @giftrequest.chatroom = @chatroom
+
     if @giftrequest.save
       flash[:success] = "GiftRequest successfully created"
       redirect_to dashboard_path
@@ -24,6 +31,7 @@ class GiftRequestsController < ApplicationController
       flash[:error] = "Something went wrong"
       render 'new'
     end
+    # raise
   end
 
   def edit
@@ -60,6 +68,6 @@ class GiftRequestsController < ApplicationController
   private
   
   def giftrequest_params
-    params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :packaging, :comment, :products, :status, :requester_id)
+    params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :packaging, :comment, :status, :requester_id, :product1, :shop1, :product2, :shop2, :product3, :shop3)
   end
 end

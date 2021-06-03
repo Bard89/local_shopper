@@ -33,17 +33,16 @@
     <h1>My Gift Requests</h1>
     <%= link_to "New Gift Request", new_gift_request_path, class: "ml-3" %>
   </div>
-
   <% @giftrequests.each do |request| %>
     <div class="request-card">
-      <%= link_to icon('fas', 'comments'), "#", id: "request-card-message-button" %>
+      <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request), id: "request-card-message-button" %>
       <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
       <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
       <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
+      
       <% if request.shopper %>
-        <p> Shopper: <%= request.shopper.first_name if request.shopper %></p>
+        <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), "#" %></p>
       <% end %>
-
       <div id="status" onclick="statusupdate()">
         <% if request.status == "pending" && request.requester_id == current_user.id %>
           <p class="pill-button pill-button-pending"><%= request.status %></p>

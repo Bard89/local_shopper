@@ -15,5 +15,15 @@
   <p> <strong>Name:</strong>  <%= @user.first_name %> <%= @user.last_name %></p>
   <p> <strong>Email:</strong>  <%= @user.email %> </p>
   <p> <strong>Location:</strong> <%= @user.location %> </p>
+
+
+
+  <% @reviews.each do |review|%>
+    <% if @user.id == review.gift_request.shopper_id %>
+      <p>Rating: <%= review.rating %></p>
+      <p>Review: <%= review.review %></p>
+    <% end %>
+  <% end %>
+
   <%= link_to 'Back', :back %>
 </div>
