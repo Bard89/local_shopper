@@ -4,6 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :requester_gift_requests, foreign_key: "requester_id", class_name: 'Gift_request'
-  has_many :shopper_gift_requests, foreign_key: "shopper_id", class_name: 'Gift_request'
+  has_many :requester_gift_requests, foreign_key: "requester_id", class_name: 'GiftRequest'
+  has_many :shopper_gift_requests, foreign_key: "shopper_id", class_name: 'GiftRequest'
+  has_many :reviews, through: :shopper_gift_requests
 end

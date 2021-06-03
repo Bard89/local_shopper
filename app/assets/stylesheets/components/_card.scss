@@ -1,4 +1,3 @@
-
 .card-gift .card-gift-infos {
   padding: 16px;
   display: flex;
@@ -19,9 +18,13 @@
   margin-bottom:15px;
   border-radius: 10px;
   color:black;
-
 }
 
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
 
 .card-gift p {
   font-size: 12px;
@@ -31,15 +34,48 @@
   margin-top: 8px;
 }
 
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-}
-
 .card-gift-infos .card-gift-user {
   padding: 16px;
 }
 
+.container a {
+  color: inherit;
+  text-decoration: none;
+}
 
+.request-card {
+  box-shadow: 0 0 15px rgba(105, 105, 105, 0.2);
+  margin-bottom: 10px;
+  padding: 5px;
+  font-size: 14px;
+  border-radius: 5px;
+  position: relative;
+}
+
+.dashboard a {
+  text-decoration: none;
+  color: black;
+}
+
+.request-card:hover {
+  transform: scaleY(1.005);
+}
+
+.request-card-action-button {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+#request-card-message-button {
+  position: absolute;
+  bottom: 5px;
+  right: 30px;
+}
+
+#request-card-expand-button {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+}
 
