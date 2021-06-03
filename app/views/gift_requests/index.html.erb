@@ -1,8 +1,7 @@
 <header>
   <div class="container">
-    <p> All requests</p>
+    <h1>Gift Requests in your Area</h1>
   </div>
-
 </header>
 
 <main>
@@ -12,10 +11,13 @@
         <% if giftrequest.status == "pending" && giftrequest.recipient_address == current_user.location %>
           <%= link_to gift_request_path(giftrequest) do %>
             <div class="card-gift" class="col col-sm-6">
-              <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-gift-user avatar-bordered" />
-              <div class="card-gift-infos">
-              <h2><%= giftrequest.recipient_name%></h2>
-              <p class="card-gift-date"><%= giftrequest.delivery_due_date %></p>
+              <%= image_tag(giftrequest.requester.profile_picture, class: "card-gift-user avatar-bordered" ) %>
+              <div class="card-gift-infos d-block">
+                <p> <small> Created <%= giftrequest.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
+                <p>Products:</p>
+                <p><%= giftrequest.products %></p>
+                <p>Gift for: <%= giftrequest.recipient_name%></p>
+                <p class="card-gift-date"><%= giftrequest.delivery_due_date %></p>
               </div>
             </div>
           <%end%>

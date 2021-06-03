@@ -1,4 +1,3 @@
-
 .card-gift .card-gift-infos {
   padding: 16px;
   display: flex;
@@ -37,6 +36,11 @@
 
 .card-gift-infos .card-gift-user {
   padding: 16px;
+}
+
+.container a {
+  color: inherit;
+  text-decoration: none;
 }
 
 .request-card {

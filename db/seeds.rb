@@ -108,4 +108,13 @@ GiftRequest.create(
   requester: vojtech,
   shopper: mais
 )
+
+GiftRequest.create(
+  recipient_name: "Coleen", 
+  recipient_address: "London", 
+  budget: 60,
+  packaging: "colorful box",
+  products: ["Sleeping Bag", "20l Backpack"], 
+  requester: vojtech,
+)
 puts "---Done creating Products!"
