@@ -5,7 +5,7 @@ class MessagesController < ApplicationController
     @message.chatroom = @chatroom
     @message.user = current_user
     if @message.save
-      redirect_to chatroom_path(@chatroom, anchor: "message-#{@message.id}")
+      redirect_to gift_request_chatrooms_path(params[:message][:gift_request_id], anchor: "message-#{@message.id}")
     else
       render "chatrooms/show"
     end
