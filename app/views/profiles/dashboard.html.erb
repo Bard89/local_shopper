@@ -15,7 +15,7 @@
                 <%= image_tag(giftrequest.requester.profile_picture, class: "card-gift-user avatar-bordered" ) %>
                 <div class="card-gift-infos d-block">
                   <p> <small> Created <%= giftrequest.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
-                  <p>Products: <%= giftrequest.products %></p>
+                  <p>Products: </p>
                   <p>Gift for: <%= giftrequest.recipient_name%></p>
                   <p class="card-gift-date"><%= giftrequest.delivery_due_date %></p>
                 </div>
