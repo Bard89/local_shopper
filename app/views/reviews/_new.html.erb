@@ -9,7 +9,7 @@
       </div>
       <div class="modal-body">
         <%= simple_form_for [gift_request, review] do |f| %>
-          <%= f.input :rating, collection: 0..5 %>
+          <%= f.input :rating, collection: 1..5 %>
           <%= f.input :review%>
           <%= f.submit class: 'btn btn-primary' %>
         <% end %>
