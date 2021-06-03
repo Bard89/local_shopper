@@ -12,19 +12,21 @@ puts "Clearing database from Users and Gift requests"
 GiftRequest.destroy_all
 User.destroy_all
 
-puts "---Creating Default Users..."
+puts "---Creating seeds"
+puts "..."
+#puts "---Creating Default Users..."
 hannah = User.create(location: "Vienna", first_name: "Hannah", last_name: "Eichelsdoerfer", email: 'hannah@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/64103699?v=4")
 mais = User.create(location: "Tel Aviv", first_name: "Mais", last_name: "Aroq", email: 'mais@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/71976918?v=4")
 emily = User.create(location: "London", first_name: "Emily", last_name: "Hoult",email: 'emily@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/75494690?v=4")
 vojtech = User.create(location: "Prague", first_name: "Vojtech", last_name: "Matous", email: 'vojtech@localshopper.com', password: '123456', profile_picture: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617994666/v7vhpsuijh9nokmdiwqn.jpg")
-puts "---Done creating users!"
+# puts "---Done creating users!"
 
-puts "---Creating Default Products..."
+# puts "---Creating Default Products..."
 GiftRequest.create(
   recipient_name: "Sophie", 
   recipient_address: "London", 
   budget: 100,
-  products: "Lush Cloud Bathbomb",
+  products: ["Lush Cloud Bathbomb"],
   packaging: "gold",
   requester: hannah
 )
@@ -33,7 +35,7 @@ GiftRequest.create(
   recipient_address: "Tel Aviv",
   budget: 50,
   packaging: "box",
-  products: "Local Spa Voucher",
+  products: ["Local Spa Voucher"],
   status: "accepted",
   requester: hannah,
   shopper: mais
@@ -51,7 +53,7 @@ GiftRequest.create(
   recipient_address: "Prague", 
   budget: 200,
   packaging: "gold wrapping paper",
-  products: "Friends 10 Season Pack", 
+  products: ["Friends 10 Season Pack"], 
   status: "paid",
   requester: mais,
   shopper: vojtech
@@ -108,4 +110,68 @@ GiftRequest.create(
   requester: vojtech,
   shopper: mais
 )
-puts "---Done creating Products!"
+
+GiftRequest.create(
+  recipient_name: "Coleen", 
+  recipient_address: "London", 
+  budget: 60,
+  packaging: "colorful box",
+  products: ["Sleeping Bag", "20l Backpack"], 
+  requester: vojtech,
+)
+
+GiftRequest.create(
+  recipient_name: "Julian", 
+  recipient_address: "Vienna", 
+  budget: 60,
+  packaging: "colorful box",
+  products: ["Parfume", "Instax Mini"], 
+  requester: emily,
+)
+
+GiftRequest.create(
+  recipient_name: "Trent", 
+  recipient_address: "Vienna", 
+  budget: 60,
+  packaging: "colorful box",
+  products: ["Sleeping Bag", "Hiking Backpack"], 
+  requester: vojtech,
+)
+
+GiftRequest.create(
+  recipient_name: "Klaus", 
+  recipient_address: "Vienna", 
+  budget: 60,
+  packaging: "colorful box",
+  products: ["Hunter Knife", "New Car Tires"], 
+  requester: vojtech
+)
+
+GiftRequest.create(
+  recipient_name: "Klaus", 
+  recipient_address: "Prague", 
+  budget: 60,
+  packaging: "colorful box",
+  products: ["Hunter Knife", "New Car Tires"], 
+  requester: mais
+)
+
+GiftRequest.create(
+  recipient_name: "Klaus", 
+  recipient_address: "Prague", 
+  budget: 60,
+  packaging: "colorful box",
+  products: ["Hunter Knife", "New Car Tires"], 
+  requester: hannah
+)
+
+GiftRequest.create(
+  recipient_name: "Klaus", 
+  recipient_address: "Prague", 
+  budget: 60,
+  packaging: "colorful box",
+  products: ["Hunter Knife", "New Car Tires"], 
+  requester: emily
+)
+# puts "---Done creating Products!"
+puts "---Done creating Seeds!"

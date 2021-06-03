@@ -1,14 +1,29 @@
-<p>profiles show, to be able to see other users, also my profile</p>
+<%# <p>profiles show, to be able to see other users, also my profile</p> %>
 <!-- how to select a user i wanna? through email? nonono -> just through the  -->
-<p>add a link from gift_request to be able to get here</p>
-<p>add the edit and then revrite the devise eddit> or override it somewhere else ?</p>
-<p>put a map with the location in here??</p>
+<%# <p>add a link from gift_request to be able to get here</p> %>
+<%# <p>add the edit and then revrite the devise eddit> or override it somewhere else ?</p> %>
+<%# <p>put a map with the location in here??</p> %>
 <div class="container text-center mt-4">
   <h1>Profile of: <%= @user.first_name %></h1>
   <%= link_to icon('fas fa-edit', "Edit"), edit_user_registration_path(current_user), class: "btn pt-0 pr-0 text-muted" %>
-  <%= image_tag(@user.profile_picture, options = {class: "avatar-large"} ) %>
+  <% if @user.profile_picture %>
+    <%= image_tag(@user.profile_picture, options = {class: "avatar-large"} ) %>
+  <% else %>
+    <img src="https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif" alt="user-avatar" class="avatar-large">
+  <% end %>
+
   <p> <strong>Name:</strong>  <%= @user.first_name %> <%= @user.last_name %></p>
   <p> <strong>Email:</strong>  <%= @user.email %> </p>
   <p> <strong>Location:</strong> <%= @user.location %> </p>
+
+
+
+  <% @reviews.each do |review|%>
+    <% if @user.id == review.gift_request.shopper_id %>
+      <p>Rating: <%= review.rating %></p>
+      <p>Review: <%= review.review %></p>
+    <% end %>
+  <% end %>
+
   <%= link_to 'Back', :back %>
 </div>

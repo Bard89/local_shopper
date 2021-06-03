@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_01_131137) do
+ActiveRecord::Schema.define(version: 2021_06_02_105504) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,12 +29,12 @@ ActiveRecord::Schema.define(version: 2021_06_01_131137) do
     t.integer "budget"
     t.string "packaging"
     t.text "comment"
-    t.string "products"
     t.string "status", default: "pending"
     t.integer "requester_id"
     t.integer "shopper_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "products", default: [], array: true
     t.index ["requester_id"], name: "index_gift_requests_on_requester_id"
     t.index ["shopper_id"], name: "index_gift_requests_on_shopper_id"
   end
@@ -47,6 +47,15 @@ ActiveRecord::Schema.define(version: 2021_06_01_131137) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["chatroom_id"], name: "index_messages_on_chatroom_id"
     t.index ["user_id"], name: "index_messages_on_user_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "review"
+    t.bigint "gift_request_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gift_request_id"], name: "index_reviews_on_gift_request_id"
   end
 
   create_table "users", force: :cascade do |t|
