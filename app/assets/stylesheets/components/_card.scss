@@ -1,45 +1,52 @@
 .card-gift .card-gift-infos {
-  padding: 16px;
-  display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
+  padding-left: 18px;
+
+
+}
+
+#card-gift-date{
+  margin-left: 850px;
 }
 
 .card-gift {
-  overflow: hidden;
-  height: 100px;
-  background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  display: flex;
-  align-items: center;
-  width:800px;
-  padding-left: 15px;
-  margin-bottom:15px;
-  border-radius: 10px;
-  color:black;
+  box-shadow: 0 0 15px rgba(105, 105, 105, 0.2);
+  margin-bottom: 10px;
+  padding: 16px 30px;
+
+  border-radius: 5px;
+  position: relative;
+  width:1140px;
 }
 
 .card-trip h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
+  font-size: 80%;
 }
 
 .card-gift p {
-  font-size: 12px;
+  font-size: 80%;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-  margin-top: 8px;
+  margin-top: 10px;
 }
 
 .card-gift-infos .card-gift-user {
   padding: 16px;
 }
+#info{
+  margin-bottom: 30px;
+}
+
 
 .container a {
   text-decoration: none;
+  margin-top: 10px;
 }
 
 .request-card {
