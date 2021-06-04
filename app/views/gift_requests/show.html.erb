@@ -1,22 +1,18 @@
-<%= link_to icon('fas', 'chevron-left', 'Back'), :back %>
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-8">
       <div>
         <h2>Gift request for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span class="pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h2>
-        <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
-          <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(@giftrequest) %>
-          <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"} %>
-        <% end %>
       </div>
 
       <div>
         <p><b>Details</b></p>
-        <p><%= @giftrequest.delivery_due_date%></p>
-        <p><%= @giftrequest.budget %></p>
+        <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
+          <p><%= @giftrequest.delivery_due_date.strftime("%-d.%-m.%Y")%></p>
+        <% end %>
+        <p>€ <%= @giftrequest.budget%></p>
         <p><%= @giftrequest.packaging %></p>
       </div>
-      
       <div>
         <p><b>Products</b></p>
         <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
@@ -25,11 +21,20 @@
       </div>
 
       <div>
+        <b></b>
         <p><b>Comment</b></p>
         <% if @giftrequest.comment %>
           <%= @giftrequest.comment %>
         <% else %>
           No Comment 
+        <% end %>
+      </div>
+
+      <div>
+        <br>
+        <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
+          <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(@giftrequest) %>
+          <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"} %>
         <% end %>
       </div>
       <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
