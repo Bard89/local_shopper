@@ -1,8 +1,8 @@
 
 <div class="container dashboard">
-  <div class="d-flex align-items-center">
-    <h1>My Gift Requests</h1>
-    <%= link_to "New Gift Request", new_gift_request_path, class: "btn-primary ml-3" %>
+  <div class="d-flex align-items-center mb-4">
+    <h1 class="my-0">My Gift Requests</h1>
+    <%= link_to "New Gift Request", new_gift_request_path, class: "btn-primary ml-3 mt-1" %>
   </div>
   <% @giftrequests.each do |request| %>
     <div class="request-card">
@@ -67,7 +67,7 @@
 
 <div class="gift_request d-none">
   <header>
-    <div class="container">
+    <div class="container mb-3">
       <h1>Gift Requests in your Area</h1>
     </div>
   </header>
