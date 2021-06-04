@@ -1,3 +1,28 @@
+.btn-primary {
+  background-color:#547748;
+  color:white;
+  border-radius:32px;
+  border:none;
+  padding:8px 16px;
+  transition:0.3s;
+}
+
+.btn-primary:active {
+  background-color:#547748;
+  border:none;
+}
+
+.btn-primary:focus {
+  background-color:#547748;
+  border:none;
+}
+
+.btn-primary:hover {
+  background-color:#314D28;
+  transition:0.3s;
+}
+
+
 #btn-sign-up {
   padding: 12px 24px;
   border-radius: 32px;

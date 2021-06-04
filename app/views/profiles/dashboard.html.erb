@@ -2,7 +2,7 @@
 <div class="container dashboard">
   <div class="d-flex align-items-center">
     <h1>My Gift Requests</h1>
-    <%= link_to "New Gift Request", new_gift_request_path, class: "ml-3" %>
+    <%= link_to "New Gift Request", new_gift_request_path, class: "btn-primary ml-3" %>
   </div>
   <% @giftrequests.each do |request| %>
     <div class="request-card">
@@ -60,7 +60,7 @@
           <p class="pill-button"><%= request.status %></p>
         <% end %>
 
-        
+
       </div>
 
     </div>
