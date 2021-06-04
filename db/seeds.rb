@@ -144,7 +144,6 @@ gift_for_chat_1 = GiftRequest.create(
   requester: hannah,
   shopper: pragueShopper
 )
-
 # gift_for_chat_2 = GiftRequest.create(
 #   recipient_name: "Lisa",
 #   recipient_address: "Graz",
