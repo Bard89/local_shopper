@@ -19,174 +19,290 @@ User.destroy_all
 puts "---Creating seeds"
 puts "..."
 #puts "---Creating Default Users..."
-hannah = User.create(location: "Vienna", first_name: "Hannah", last_name: "Eichelsdoerfer", email: 'hannah@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/64103699?v=4")
-mais = User.create(location: "Tel Aviv", first_name: "Mais", last_name: "Aroq", email: 'mais@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/71976918?v=4")
-emily = User.create(location: "London", first_name: "Emily", last_name: "Hoult",email: 'emily@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/75494690?v=4")
-vojtech = User.create(location: "Prague", first_name: "Vojtech", last_name: "Matous", email: 'vojtech@localshopper.com', password: '123456', profile_picture: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617994666/v7vhpsuijh9nokmdiwqn.jpg")
-charles = User.create(location: "Brussels", first_name: "Charles", last_name: "Overlaux", email: 'charles@localshopper.com', password: '123456', profile_picture: "https://avatars.githubusercontent.com/u/33698505?v=4")
-# puts "---Done creating users!"
+hannah = User.create(
+  location: "Sydney", 
+  first_name: "Hannah", 
+  last_name: "Eichelsdoerfer", 
+  email: 'hannah@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://avatars.githubusercontent.com/u/64103699?v=4"
+  )
+mais = User.create(
+  location: "Tel Aviv", 
+  first_name: "Mais", 
+  last_name: "Aroq", 
+  email: 'mais@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://avatars.githubusercontent.com/u/71976918?v=4"
+  )
+emily = User.create(
+  location: "Barcelona",
+  first_name: "Emily", 
+  last_name: "Hoult",
+  email: 'emily@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://avatars.githubusercontent.com/u/75494690?v=4"
+  )
+vojtech = User.create(
+  location: "Prague",
+  first_name: "Vojtech", 
+  last_name: "Matous", 
+  email: 'vojtech@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617994666/v7vhpsuijh9nokmdiwqn.jpg"
+  )
+charles = User.create(
+  location: "Brussels",
+  first_name: "Charles", 
+  last_name: "Overleaux", 
+  email: 'charles@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://avatars.githubusercontent.com/u/33698505?v=4"
+  )
+hannes = User.create(
+  location: "Berlin",
+  first_name: "Hannes", 
+  last_name: "Schaletzky", 
+  email: 'hannes@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617610850/mxfccfai3khgtaosnj2n.jpg"
+  )
+vicenzo = User.create(
+  location: "", 
+  first_name: "Vincenzo", 
+  last_name: "Schaletzky", 
+  email: 'vincenzo@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1621413022/nfqu6jhufrzsmbo5idzz.jpg"
+	)
+prabha = User.create(
+  location: "Berlin", 
+  first_name: "Prabha", 
+  last_name: "Pothen", 
+  email: 'prabha@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://avatars.githubusercontent.com/u/43320081?v=4"
+  )
+jeanie = User.create(
+  location: "Frankfurt", 
+  first_name: "Jeanie", 
+  last_name: "Ahn", 
+  email: 'jeanie@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://avatars.githubusercontent.com/u/43320081?v=4https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617609512/eabdmwghzmkymo82gatb.jpg"
+  )
+jeanie = User.create(
+  location: "Frankfurt", 
+  first_name: "Jeanie", 
+  last_name: "Ahn", 
+  email: 'jeanie@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://avatars.githubusercontent.com/u/43320081?v=4https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/v1617609512/eabdmwghzmkymo82gatb.jpg"
+)  
+barcelonaShopper = User.create(
+  location: "Barcelona", 
+  first_name: "Eileen", 
+  last_name: "Smith", 
+  email: 'eileen@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb"
+  )
+pragueShopper = User.create(
+  location: "Prague", 
+  first_name: "Konstantin", 
+  last_name: "Müller", 
+  email: 'konstantin@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://uifaces.co/our-content/donated/L7wQctBt.jpg"
+  )
+grazShopper = User.create(
+  location: "Graz", 
+  first_name: "Theresa", 
+  last_name: "Steiner", 
+  email: 'theresa@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://uifaces.co/our-content/donated/N8kxcjRw.jpg"
+  )
+berlinShopper = User.create(
+  location: "Berlin", 
+  first_name: "Alicia", 
+  last_name: "Müller", 
+  email: 'alicia@localshopper.com', 
+  password: '123456', 
+  profile_picture: "https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+  )
 
-# puts "---Creating Default Products..."
-
-GiftRequest.create(
-  recipient_name: "Sophie",
-  recipient_address: "London",
-  budget: 100,
-  product1: ["Lush Cloud Bathbomb"],
-  packaging: "gold",
-  requester: hannah
-)
-
+# Past Gift Requests for Hannah
 gift_for_chat_1 = GiftRequest.create(
-  recipient_name: "Emilia",
-  recipient_address: "Tel Aviv",
-  budget: 50,
-  packaging: "box",
-  product1: ["Local Spa Voucher"],
-  status: "accepted",
+  recipient_name: "Vojtech",
+  recipient_address: "Prague",
+  delivery_due_date: "",
+  budget: 70,
+  packaging: "Gift Bag",
+  product1: "Local Spa Voucher",
+  status: "delivered",
   requester: hannah,
-  shopper: mais
-)
-
-GiftRequest.create(
-  recipient_name: "Mia",
-  recipient_address: "Brussels",
-  budget: 200,
-  packaging: "gift basket",
-  product1: ["A tiny cactus", "Chocolate", "Cactus pot"],
-  requester: hannah
+  shopper: pragueShopper
 )
 
 gift_for_chat_2 = GiftRequest.create(
-  recipient_name: "Sarah",
-  recipient_address: "Prague",
+  recipient_name: "Lisa",
+  recipient_address: "Graz",
   budget: 200,
-  packaging: "gold wrapping paper",
-  product1: ["Friends 10 Season Pack"],
+  packaging: "Gift Basket",
+  product1: "A tiny cactus", 
+  product2: "Veganz Almond Chocolate", 
+  product3: "Cactus pot",
+  requester: hannah,
   status: "paid",
-  requester: mais,
-  shopper: vojtech
+  shopper: grazShopper
 )
 
-GiftRequest.create(
-  recipient_name: "Claire",
-  recipient_address: "Dresden",
-  budget: 200,
-  packaging: "brown eco paper",
-  product1: ["Lush Cloud Bathbomb", "Vegan Chocolate"],
-  requester: charles
-)
-
-GiftRequest.create(
-  recipient_name: "Chloe",
-  recipient_address: "Madrid",
-  budget: 200,
-  product1: ["Bodyshop Creme", "Lindt Chocolate"],
-  requester: mais
-)
-
-GiftRequest.create(
-  recipient_name: "Elena",
-  recipient_address: "Brussels",
-  budget: 200,
-  product1: ["Prada Bag", "FFP2 Prada Mask"],
-  requester: emily
-)
-
+# Shopped Gifts for the Barcelona Shopper (Eileen)
 gift_for_chat_3 = GiftRequest.create(
-  recipient_name: "Annie",
-  recipient_address: "Vienna",
+  recipient_name: "Irene",
+  recipient_address: "Barcelona",
+  budget: 200,
+  packaging: "Gift Bag, unwrapped",
+  product1: "A tiny cactus", 
+  product2: "Veganz Almond Chocolate", 
+  product3: "Cactus pot",
+  requester: grazShopper,
+  status: "paid",
+  shopper: barcelonaShopper
+)
+
+Review.create(
+  rating: 5,
+  review: "My friend said Eileen was super nice when she delivered the gift, everything was perfect!",
+  gift_request_id: gift_for_chat_3.id
+)
+
+gift_for_chat_4 = GiftRequest.create(
+  recipient_name: "Jessica",
+  recipient_address: "Barcelona",
+  budget: 200,
+  packaging: "Gift Basket",
+  product1: "Craft Beer Mix",
+  requester: berlinShopper,
+  status: "paid",
+  shopper: barcelonaShopper
+)
+
+Review.create(
+  rating: 4,
+  review: "Great communication, fast delivery.",
+  gift_request_id: gift_for_chat_4.id
+)
+
+# Open Gift Requests in Barcelona
+GiftRequest.create(
+  recipient_name: "Theresa",
+  recipient_address: "Barcelona",
   budget: 200,
   packaging: "gift bag",
   product1: "Jojo Moyes Book", 
   product2: "A handcrafted mug",
-  status: "delivered",
-  requester: emily,
-  shopper: hannah
+  requester: grazShopper,
 )
 
-gift_for_chat_4 = GiftRequest.create(
-  recipient_name: "Fifi",
-  recipient_address: "London",
+GiftRequest.create(
+  recipient_name: "Konstantin",
+  recipient_address: "Barcelona",
   budget: 20,
   packaging: "yellow bow around",
-  status: "accepted",
   product1: "Wallet",
   product2: "Picture Frame",
   product3: "A handcreme",
-  requester: vojtech,
-  shopper: emily
-)
-
-gift_for_chat_5 = GiftRequest.create(
-  recipient_name: "Coleen",
-  recipient_address: "Tel Aviv",
-  budget: 60,
-  packaging: "colorful box",
-  status: "pending",
-  product1: ["Earrings", "Vegan Chocolate"],
-  status: "delivered",
-  requester: vojtech,
-  shopper: mais
-)
-
-
-GiftRequest.create(
-  recipient_name: "Coleen",
-  recipient_address: "London",
-  budget: 60,
-  status: "pending",
-  packaging: "colorful box",
-  product1: ["Sleeping Bag", "20l Backpack"],
-  requester: vojtech,
-)
-
-
-GiftRequest.create(
-  recipient_name: "Julian",
-  recipient_address: "Vienna",
-  budget: 60,
-  packaging: "colorful box",
-  requester: emily,
-  product1: ["Parfume", "Instax Mini"],
+  requester: pragueShopper,
 )
 
 GiftRequest.create(
-  recipient_name: "Trent",
-  recipient_address: "Vienna",
-  budget: 60,
-  packaging: "colorful box",
-  product1: ["Sleeping Bag", "Hiking Backpack"],
-  requester: vojtech,
+  recipient_name: "Emily",
+  recipient_address: "Barcelona",
+  budget: 20,
+  product1: "Friends 10 Season Pack",
+  requester: hannes
 )
 
 GiftRequest.create(
-  recipient_name: "Heinz",
-  recipient_address: "Vienna",
-  budget: 60,
-  packaging: "colorful box",
-  product1: ["Hunter Knife", "New Car Tires"],
-  requester: vojtech
+  recipient_name: "Sophie",
+  recipient_address: "Barcelona",
+  budget: 20,
+  product1: "Package with local snacks",
+  requester: berlinShopper
 )
 
-gift_for_chat_6 = GiftRequest.create(
-  recipient_name: "Klaus",
-  recipient_address: "Prague",
-  budget: 60,
-  packaging: "colorful box",
-  product1: "New Car Tires",
-  product2: "Hunter Knife",
-  requester: mais
-)
 
-GiftRequest.create(
-  recipient_name: "Hannes",
-  recipient_address: "Berlin",
-  budget: 60,
-  packaging: "colorful box",
-  product1: "Vegan Chocolate",
-  requester: charles
-)
+# gift_for_chat_5 = GiftRequest.create(
+#   recipient_name: "Coleen",
+#   recipient_address: "Tel Aviv",
+#   budget: 60,
+#   packaging: "colorful box",
+#   status: "pending",
+#   product1: ["Earrings", "Vegan Chocolate"],
+#   status: "delivered",
+#   requester: vojtech,
+#   shopper: mais
+# )
+
+
+# GiftRequest.create(
+#   recipient_name: "Coleen",
+#   recipient_address: "London",
+#   budget: 60,
+#   status: "pending",
+#   packaging: "colorful box",
+#   product1: ["Sleeping Bag", "20l Backpack"],
+#   requester: vojtech,
+# )
+
+
+# GiftRequest.create(
+#   recipient_name: "Julian",
+#   recipient_address: "Vienna",
+#   budget: 60,
+#   packaging: "colorful box",
+#   requester: emily,
+#   product1: ["Parfume", "Instax Mini"],
+# )
+
+# GiftRequest.create(
+#   recipient_name: "Trent",
+#   recipient_address: "Vienna",
+#   budget: 60,
+#   packaging: "colorful box",
+#   product1: ["Sleeping Bag", "Hiking Backpack"],
+#   requester: vojtech,
+# )
+
+# GiftRequest.create(
+#   recipient_name: "Heinz",
+#   recipient_address: "Vienna",
+#   budget: 60,
+#   packaging: "colorful box",
+#   product1: ["Hunter Knife", "New Car Tires"],
+#   requester: vojtech
+# )
+
+# gift_for_chat_6 = GiftRequest.create(
+#   recipient_name: "Klaus",
+#   recipient_address: "Prague",
+#   budget: 60,
+#   packaging: "colorful box",
+#   product1: "New Car Tires",
+#   product2: "Hunter Knife",
+#   requester: mais
+# )
+
+# GiftRequest.create(
+#   recipient_name: "Hannes",
+#   recipient_address: "Berlin",
+#   budget: 60,
+#   packaging: "colorful box",
+#   product1: "Vegan Chocolate",
+#   requester: charles
+# )
 
 Chatroom.create(
   gift_request_id:gift_for_chat_1.id
@@ -196,20 +312,20 @@ Chatroom.create(
   gift_request_id:gift_for_chat_2 .id
 )
 
-Chatroom.create(
-  gift_request_id:gift_for_chat_3.id
-)
+# Chatroom.create(
+  # gift_request_id:gift_for_chat_3.id
+# )
 
-Chatroom.create(
-  gift_request_id:gift_for_chat_4.id
-)
+# Chatroom.create(
+#   gift_request_id:gift_for_chat_4.id
+# )
 
-Chatroom.create(
-  gift_request_id:gift_for_chat_5.id
-)
+# Chatroom.create(
+#   gift_request_id:gift_for_chat_5.id
+# )
 
-Chatroom.create(
-  gift_request_id:gift_for_chat_6.id
-)
+# Chatroom.create(
+#   gift_request_id:gift_for_chat_6.id
+# )
 
 puts "---Done creating Seeds!"

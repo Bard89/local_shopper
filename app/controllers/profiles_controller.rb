@@ -14,4 +14,8 @@ class ProfilesController < ApplicationController
     # @chatrooms = Chatroom.where(gift_request: @giftrequest)
     # raise
   end
+
+  def shopper_dashboard
+    @giftrequests = GiftRequest.where(shopper_id: current_user).order(created_at: :desc)
+  end
 end
