@@ -8,10 +8,9 @@ class ProfilesController < ApplicationController
   end
 
   def dashboard
-    @giftrequests = GiftRequest.where(requester_id: current_user).order(updated_at: :desc)
-    @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(updated_at: :desc)
-
-
+    @giftrequests = GiftRequest.where(requester_id: current_user).order(created_at: :desc)
+    @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(created_at: :desc)
+    
     # @chatrooms = Chatroom.where(gift_request: @giftrequest)
     # raise
   end

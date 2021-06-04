@@ -42,7 +42,8 @@
             <% end %>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
-              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Messages", chatrooms_path, class: "dropdown-item" %>
+              <%= link_to "Dashboard", root_path, class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
           </li>
