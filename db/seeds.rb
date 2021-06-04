@@ -312,13 +312,13 @@ Chatroom.create(
   gift_request_id:gift_for_chat_2 .id
 )
 
-# Chatroom.create(
-  # gift_request_id:gift_for_chat_3.id
-# )
+Chatroom.create(
+ gift_request_id:gift_for_chat_3.id
+)
 
-# Chatroom.create(
-#   gift_request_id:gift_for_chat_4.id
-# )
+Chatroom.create(
+  gift_request_id:gift_for_chat_4.id
+)
 
 # Chatroom.create(
 #   gift_request_id:gift_for_chat_5.id
