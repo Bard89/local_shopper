@@ -105,7 +105,7 @@ barcelonaShopper = User.create(
   last_name: "Smith", 
   email: 'eileen@localshopper.com', 
   password: '123456', 
-  profile_picture: "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?crop=faces&fit=crop&h=200&w=200&auto=compress&cs=tinysrgb"
+  profile_picture: "https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=aa3a807e1bbdfd4364d1f449eaa96d82"
   )
 pragueShopper = User.create(
   location: "Prague", 
@@ -145,18 +145,18 @@ gift_for_chat_1 = GiftRequest.create(
   shopper: pragueShopper
 )
 
-gift_for_chat_2 = GiftRequest.create(
-  recipient_name: "Lisa",
-  recipient_address: "Graz",
-  budget: 200,
-  packaging: "Gift Basket",
-  product1: "A tiny cactus", 
-  product2: "Veganz Almond Chocolate", 
-  product3: "Cactus pot",
-  requester: hannah,
-  status: "paid",
-  shopper: grazShopper
-)
+# gift_for_chat_2 = GiftRequest.create(
+#   recipient_name: "Lisa",
+#   recipient_address: "Graz",
+#   budget: 200,
+#   packaging: "Gift Basket",
+#   product1: "A tiny cactus", 
+#   product2: "Veganz Almond Chocolate", 
+#   product3: "Cactus pot",
+#   requester: hannah,
+#   status: "paid",
+#   shopper: grazShopper
+# )
 
 # Shopped Gifts for the Barcelona Shopper (Eileen)
 gift_for_chat_3 = GiftRequest.create(
@@ -317,9 +317,9 @@ Chatroom.create(
   gift_request_id:gift_for_chat_1.id
 )
 
-Chatroom.create(
-  gift_request_id:gift_for_chat_2 .id
-)
+# Chatroom.create(
+#   gift_request_id:gift_for_chat_2 .id
+# )
 
 Chatroom.create(
  gift_request_id:gift_for_chat_3.id
