@@ -44,12 +44,13 @@
 
 .request-card {
   box-shadow: 0 0 15px rgba(105, 105, 105, 0.2);
-  margin-bottom: 10px;
+  margin: 16px 0;
   padding: 5px;
   font-size: 14px;
   border-radius: 5px;
   position: relative;
   color:black;
+  padding:16px 20px;
 }
 
 .dashboard a {
@@ -62,8 +63,8 @@
 
 .request-card-action-button {
   position: absolute;
-  top: 5px;
-  right: 10px;
+  top: 16px;
+  right: 20px;
 }
 
 #request-card-message-button {
@@ -74,10 +75,14 @@
 
 #request-card-expand-button {
   position: absolute;
-  bottom: 5px;
-  right: 10px;
+  bottom: 16px;
+  right: 20px;
 }
 
 a {
   color:inherit;
+}
+
+a:hover {
+  color:#547748;
 }
