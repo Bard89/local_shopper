@@ -1,8 +1,7 @@
-
 <div class="container dashboard">
   <div class="d-flex align-items-center">
-    <h1>My Gift Requests</h1>
-    <%= link_to "New Gift Request", new_gift_request_path, class: "ml-3" %>
+    <h1>My Shoppings</h1>
+    <%= link_to "Find Requests in your Area", gift_requests_path, class: "ml-3" %>
   </div>
   <% @giftrequests.each do |request| %>
     <div class="request-card">
@@ -10,17 +9,12 @@
       <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
       <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
 
-      <% if request.shopper %>
-        <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
+      <% if request.requester %>
+        <p> Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
       <% end %>
+
       <div id="status" onclick="statusupdate()">
-        <% if request.status == "pending" && request.requester == current_user %>
-          <p class="pill-button pill-button-pending"><%= request.status %></p>
-          <div class = "request-card-action-button">
-            <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request) %>
-            <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(request, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{request.recipient_name}?"} %>
-          </div>
-        <% elsif request.status == "accepted" %>
+        <% if request.status == "accepted" %>
           <p class="pill-button pill-button-accepted"><%= request.status %></p>
           <%= link_to "Upload Receipt", class: "request-card-action-button" if request.shopper_id == current_user.id %>
           <div id="change-status" class="d-none">
@@ -33,18 +27,11 @@
         <% elsif request.status == "purchased"  %>
           <p class="pill-button pill-button-purchased"><%= request.status %></p>
           <%= link_to "Pay now", "#", class: "request-card-action-button" %>
-          <div id="change-status" class="d-none">
-            <% GiftRequest::STATUSES.each do |status| %>
-              <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
-                <span class="pill-button pill-button-<%= status %>"><%= status %></span>
-              <% end %>
-            <% end %>
-          </div>
         <% elsif request.status == "paid"  %>
           <p class="pill-button pill-button-paid"><%= request.status %></p>
           <div id="change-status" class="d-none">
             <% GiftRequest::STATUSES.each do |status| %>
-              <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
+              <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch do %>
                 <span class="pill-button pill-button-<%= status %>"><%= status %></span>
               <% end %>
             <% end %>
@@ -63,36 +50,3 @@
     </div>
   <% end %>
 </div>
-
-<div class="gift_request d-none">
-  <header>
-    <div class="container">
-      <h1>Gift Requests in your Area</h1>
-    </div>
-  </header>
-
-  <main>
-    <div class="container">
-      <div class="row">
-        <%@opengiftrequests.each do |giftrequest| %>
-            <%= link_to gift_request_path(giftrequest) do %>
-              <div class="card-gift" class="col col-sm-6">
-                <%= image_tag(giftrequest.requester.profile_picture, class: "card-gift-user avatar-bordered" ) %>
-                <div class="card-gift-infos d-block">
-                  <p> <small> Created <%= giftrequest.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
-                  <p>Products: </p>
-                  <p>Gift for: <%= giftrequest.recipient_name%></p>
-                  <p class="card-gift-date"><%= giftrequest.delivery_due_date %></p>
-                </div>
-              </div>
-            <%end%>
-        <% end %>
-      </div>
-    </div>
-  </main>
-</div>
-
-
-
-
-
