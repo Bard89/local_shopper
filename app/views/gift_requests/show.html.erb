@@ -37,25 +37,23 @@
       <% end %>
     </div>
     
-    <% if @giftrequest.requester != current_user %>
-      <div class="col-4 ">
+    <div class="col-4 ">
+      <% if @giftrequest.requester != current_user %>
         <p>Requester:</p>
         <%= link_to profile_path(@giftrequest.requester) do %>
             <%= image_tag @giftrequest.requester.profile_picture, class: "avatar" %>
             <%= @giftrequest.requester.first_name %>
         <% end %>
         <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
-      </div>
-    <% elsif @giftrequest.shopper %>
-      <div class="col-4 ">
+      <% elsif @giftrequest.shopper %>
         <p>Shopper:</p>
         <%= link_to profile_path(@giftrequest.shopper) do %>
             <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar" %>
             <%= @giftrequest.shopper.first_name %>
         <% end %>
         <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
     
     </div>
 
