@@ -16,9 +16,10 @@
       </div>
     <% end %>
   </div>
-
-  <%= simple_form_for [ @chatroom, @message ], remote: true, authenticity_token: true do |f| %>
-    <%= f.hidden_field :gift_request_id, value: params[:gift_request_id] %>
-     <%= f.input :content, label: false, placeholder: "Type your message here"  %> <%#, placeholder: "Message ##{@chatroom.id}" %>
-  <% end %>
+  <div id="send-message">
+    <%= simple_form_for [ @chatroom, @message ], remote: true, authenticity_token: true do |f| %>
+      <%= f.hidden_field :gift_request_id, value: params[:gift_request_id] %>
+      <%= f.input :content, label: false, placeholder: "Type your message here"  %> <%#, placeholder: "Message ##{@chatroom.id}" %>
+    <% end %>
+  </div>
 </div>
