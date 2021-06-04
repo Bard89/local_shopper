@@ -26,7 +26,7 @@
         <% if @giftrequest.comment %>
           <%= @giftrequest.comment %>
         <% else %>
-          No Comment 
+          No Comment
         <% end %>
       </div>
 
@@ -37,10 +37,10 @@
         <% end %>
       </div>
       <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
-        <%= link_to "Take on #{@giftrequest.requester.first_name} 's request", accept_gift_request_path(@giftrequest, status: "accepted"), class: "btn btn-danger mt-3", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
+        <%= link_to "Take on #{@giftrequest.requester.first_name} 's request", accept_gift_request_path(@giftrequest, status: "accepted"), class: "btn btn-primary mt-3", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
       <% end %>
     </div>
-    
+
     <div class="col-4 ">
       <% if @giftrequest.requester != current_user %>
         <p>Requester:</p>
@@ -58,7 +58,7 @@
         <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
       <% end %>
     </div>
-    
+
     </div>
 
     <!-- Button trigger modal -->
