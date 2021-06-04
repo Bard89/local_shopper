@@ -207,7 +207,7 @@ GiftRequest.create(
 )
 
 GiftRequest.create(
-  recipient_name: "Konstantin",
+  recipient_name: "Charlotte",
   recipient_address: "Barcelona",
   budget: 20,
   packaging: "yellow bow around",
@@ -221,8 +221,8 @@ GiftRequest.create(
   recipient_name: "Emily",
   recipient_address: "Barcelona",
   budget: 20,
-  product1: "Friends 10 Season Pack",
-  requester: hannes
+  product1: "Friends All 10 Seasons",
+  requester: charles
 )
 
 GiftRequest.create(
@@ -231,6 +231,15 @@ GiftRequest.create(
   budget: 20,
   product1: "Package with local snacks",
   requester: berlinShopper
+)
+
+GiftRequest.create(
+  recipient_name: "Emily",
+  recipient_address: "Barcelona",
+  budget: 30,
+  product1: "Mechanical Keyboard",
+  product2: "Coder Mug",
+  requester: hannes
 )
 
 
@@ -319,13 +328,5 @@ Chatroom.create(
 Chatroom.create(
   gift_request_id:gift_for_chat_4.id
 )
-
-# Chatroom.create(
-#   gift_request_id:gift_for_chat_5.id
-# )
-
-# Chatroom.create(
-#   gift_request_id:gift_for_chat_6.id
-# )
 
 puts "---Done creating Seeds!"
