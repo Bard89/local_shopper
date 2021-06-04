@@ -2,7 +2,7 @@
 <div class="container dashboard">
   <div class="d-flex align-items-center">
     <h1>My Gift Requests</h1>
-    <%= link_to "New Gift Request", new_gift_request_path, class: "ml-3" %>
+    <%= link_to "New Gift Request", new_gift_request_path, class: "btn-primary ml-3" %>
   </div>
   <% @giftrequests.each do |request| %>
     <div class="request-card">
@@ -17,8 +17,8 @@
         <% if request.status == "pending" && request.requester == current_user %>
           <p class="pill-button pill-button-pending"><%= request.status %></p>
           <div class = "request-card-action-button">
-            <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request) %>
-            <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(request, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{request.recipient_name}?"} %>
+            <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request), class: "small-icon" %>
+            <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(request, status: "cancelled"), class: "small-icon", method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{request.recipient_name}?"} %>
           </div>
         <% elsif request.status == "accepted" %>
           <p class="pill-button pill-button-accepted"><%= request.status %></p>
