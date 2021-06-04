@@ -38,23 +38,23 @@
     </div>
     
     <% if @giftrequest.requester != current_user %>
-      <%= link_to profile_path(@giftrequest.requester) do %>
-        <div class="col-4 d-flex">
-          <p>Requester:</p>
-          <%= image_tag(@giftrequest.requester.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
-          <p><%= @giftrequest.requester.first_name %></p>
-          <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
-        </div>
-      <% end %>
+      <div class="col-4 ">
+        <p>Requester:</p>
+        <%= link_to profile_path(@giftrequest.requester) do %>
+            <%= image_tag @giftrequest.requester.profile_picture, class: "avatar" %>
+            <%= @giftrequest.requester.first_name %>
+        <% end %>
+        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
+      </div>
     <% elsif @giftrequest.shopper %>
-      <%= link_to profile_path(@giftrequest.shopper) do %>
-        <div class="col-4 d-flex">
-          <p>Shopper:</p>
-          <%= image_tag(@giftrequest.shopper.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
-          <p><%= @giftrequest.shopper.first_name %></p>
-          <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) %>
-        </div>
-      <% end %>
+      <div class="col-4 ">
+        <p>Shopper:</p>
+        <%= link_to profile_path(@giftrequest.shopper) do %>
+            <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar" %>
+            <%= @giftrequest.shopper.first_name %>
+        <% end %>
+        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
+      </div>
     <% end %>
     
     </div>
