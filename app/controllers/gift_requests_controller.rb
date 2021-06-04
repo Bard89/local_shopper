@@ -59,6 +59,15 @@ class GiftRequestsController < ApplicationController
     redirect_to dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
   end
 
+  def shopper_change_status
+    @giftrequest = GiftRequest.find(params[:id])
+    @giftrequest.update(status: params[:status])
+    # if params[:status].present? && GiftRequest::STATUSES.include?(params[:status].to_sym)
+    #   @giftrequest.update(status: params[:status])
+    # end
+    redirect_to shopper_dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
+  end
+
   def accept
     @giftrequest = GiftRequest.find(params[:id])
     @giftrequest.update(status: params[:status])
