@@ -1,6 +1,7 @@
 class GiftRequestsController < ApplicationController
   def index
     @giftrequests = GiftRequest.all
+    @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(created_at: :desc)
   end
 
 
