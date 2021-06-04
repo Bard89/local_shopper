@@ -158,7 +158,7 @@ gift_for_chat_2 = GiftRequest.create(
   shopper: grazShopper
 )
 
-# Shopped Gifts for the Barcelona Shopper
+# Shopped Gifts for the Barcelona Shopper (Eileen)
 gift_for_chat_3 = GiftRequest.create(
   recipient_name: "Irene",
   recipient_address: "Barcelona",
@@ -172,6 +172,12 @@ gift_for_chat_3 = GiftRequest.create(
   shopper: barcelonaShopper
 )
 
+Review.create(
+  rating: 5,
+  review: "My friend said Eileen was super nice when she delivered the gift, everything was perfect!",
+  gift_request_id: gift_for_chat_3.id
+)
+
 gift_for_chat_4 = GiftRequest.create(
   recipient_name: "Jessica",
   recipient_address: "Barcelona",
@@ -181,6 +187,12 @@ gift_for_chat_4 = GiftRequest.create(
   requester: berlinShopper,
   status: "paid",
   shopper: barcelonaShopper
+)
+
+Review.create(
+  rating: 4,
+  review: "Great communication, fast delivery.",
+  gift_request_id: gift_for_chat_4.id
 )
 
 # Open Gift Requests in Barcelona
@@ -220,6 +232,7 @@ GiftRequest.create(
   product1: "Package with local snacks",
   requester: berlinShopper
 )
+
 
 # gift_for_chat_5 = GiftRequest.create(
 #   recipient_name: "Coleen",
