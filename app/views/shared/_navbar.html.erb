@@ -15,37 +15,37 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto d-flex align-items-center">
         <% if user_signed_in? %>
-        <li id="shopper"> Shopper</li>
-        <li class="nav-item">
-          <% if request.fullpath == "/gift_requests"%>
-            <div>
-              <input type="checkbox" class="checkbox" id="checkbox">
-              <label for="checkbox" class="label">
-                <div class="ball"></div>
-              </label>
+        <li id="requester"> Requester</li>
+
+          <li class="nav-item">
+
+
+            <% if request.fullpath == "/"%>
+
+              <div>
+
+                <input type="checkbox" class="checkbox" id="checkbox">
+                <label for="checkbox" class="label">
+                  <div class="ball"></div>
+                </label>
+
+              </div>
+            <% end %>
+
+          </li>
+          <li id="shopper">Shopper</li>
+          <li class="nav-item dropdown">
+            <% if current_user.profile_picture %>
+              <%= image_tag(current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
+            <% else %>
+              <%= image_tag "https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <% end %>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
             </div>
-          <% else %>
-            <div>
-              <input type="checkbox" class="checkbox" id="checkbox" >
-              <label for="checkbox" class="label">
-                <div class="ball"></div>
-              </label>
-            </div>
-          <% end %>
-        </li>
-        <li id="requester">Requester</li>
-        <li class="nav-item dropdown">
-          <% if current_user.profile_picture %>
-            <%= image_tag(current_user.profile_picture, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false ) %>
-          <% else %>
-            <%= image_tag "https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-          <% end %>
-          <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-            <%= link_to "My Profile", profile_path(current_user), class: "dropdown-item" %>
-            <%= link_to "Dashboard", dashboard_path, class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
-          </div>
-        </li>
+          </li>
         <% else %>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
