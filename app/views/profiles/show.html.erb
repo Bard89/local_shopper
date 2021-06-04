@@ -25,18 +25,16 @@
     </div>
   </div>
 
-
   <div class="container">
     <h3 id="reviews">Reviews</h3>
-    <% @reviews.each do |review|%>
+    <% @reviews.each do |review| %>
       <% if @user.id == review.gift_request.shopper_id %>
-        <div class="container" id="review">
+        <div class="container pl-0" id="review">
           <p><strong>Rating:</strong> <%= review.rating %></p>
           <p><strong>Review:</strong> <%= review.review %></p>
         </div>
       <% end %>
     <% end %>
   </div>
-
 
 </div>

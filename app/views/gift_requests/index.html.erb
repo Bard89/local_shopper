@@ -6,21 +6,22 @@
 
 <main>
   <div class="container">
-    <div class="d-flex align-items-center" class="col col-lg-8">
-      <% @giftrequests.each do |giftrequest| %>
-        <% if giftrequest.status == "pending" && giftrequest.recipient_address == current_user.location %>
+    <div class="d-flex align-items-center flex-column">
+      <%@opengiftrequests.each do |giftrequest| %>
           <%= link_to gift_request_path(giftrequest) do %>
-            <div class="card-gift">
-              <%= image_tag(giftrequest.requester.profile_picture, class: "card-gift-user avatar-bordered" ) %>
-              <div class="card-gift-infos d-block">
-                <p> <small> Created <%= giftrequest.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
-                <p>Products: <%= giftrequest.product1 %></p>
-                <p>Gift for: <%= giftrequest.recipient_name%></p>
-                <p class="card-gift-date"><%= giftrequest.delivery_due_date %></p>
+            <div class="card-gift d-flex align-items-center" >
+              <div>
+                <%= image_tag(giftrequest.requester.profile_picture, class: "card-gift-user avatar-medium" ) %>
+              </div>
+              <div class="card-gift-infos">
+                <p id="card-gift-date"> <small> Created at <%= giftrequest.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
+                <div id=info>
+                  <p>Products: <%= giftrequest.product1 %> <%= "|" if giftrequest.product2 %> <%= giftrequest.product2 %> <%= "|" if giftrequest.product3 %> <%= giftrequest.product3 %></p>
+                  <p>Gift for: <%= giftrequest.recipient_name%></p>
+                </div>
               </div>
             </div>
           <%end%>
-        <%end %>
       <% end %>
     </div>
   </div>

@@ -84,7 +84,7 @@
                 <div class="card-gift-infos">
                   <p id="card-gift-date"> <small> Created at <%= giftrequest.created_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
                   <div id=info>
-                    <p>Products: </p>
+                    <p>Products: <%= giftrequest.product1 %> <%= "|" if giftrequest.product2 %> <%= giftrequest.product2 %> <%= "|" if giftrequest.product3 %> <%= giftrequest.product3 %></p>
                     <p>Gift for: <%= giftrequest.recipient_name%></p>
                   </div>
                 </div>
