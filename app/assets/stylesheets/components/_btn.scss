@@ -1,12 +1,38 @@
 .btn-primary {
+  background-color:#547748;
+  color:white;
+  border-radius:32px;
+  border:none;
+  padding:8px 16px;
+  transition:0.3s;
+}
+
+.btn-primary:active {
+  background-color:#547748;
+  border:none;
+}
+
+.btn-primary:focus {
+  background-color:#547748;
+  border:none;
+}
+
+.btn-primary:hover {
+  background-color:#314D28;
+  transition:0.3s;
+}
+
+
+#btn-sign-up {
   padding: 12px 24px;
   border-radius: 32px;
   background-color: #7484E1;
   font-family: 'Poppins', sans-serif;
   font-size: 1.1em;
+  color:white;
 }
 
-.btn-primary:hover {
+#btn-sign-up:hover {
   text-decoration: none;
   background-color: #4E5DB7;
 }
@@ -22,6 +48,7 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 16px;
+  margin-bottom:6px;
 }
 
 .pill-button-pending {
@@ -42,6 +69,11 @@
 
 .pill-button-delivered {
   background-color: rgb(170, 197, 172);
+}
+
+#aligner {
+  margin: 0px;
+  vertical-align: middle;
 }
 
 .label {
@@ -74,8 +106,14 @@
 .checkbox {
   opacity: 0;
   position: absolute;
+
 }
 
 .checkbox:checked + .label .ball {
   transform: translateX(10px);
 }
+#user-status{
+  margin-right: 10px;
+}
+
+

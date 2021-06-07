@@ -1,6 +1,7 @@
 class GiftRequestsController < ApplicationController
   def index
     @giftrequests = GiftRequest.all
+    @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(created_at: :desc)
   end
 
 
@@ -56,14 +57,24 @@ class GiftRequestsController < ApplicationController
     # if params[:status].present? && GiftRequest::STATUSES.include?(params[:status].to_sym)
     #   @giftrequest.update(status: params[:status])
     # end
-    redirect_to dashboard_path, notice: "Status updated to #{@giftrequest.status}"
+    redirect_to dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
+  end
+
+  def shopper_change_status
+    @giftrequest = GiftRequest.find(params[:id])
+    @giftrequest.update(status: params[:status])
+    # if params[:status].present? && GiftRequest::STATUSES.include?(params[:status].to_sym)
+    #   @giftrequest.update(status: params[:status])
+    # end
+    redirect_to shopper_dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
   end
 
   def accept
     @giftrequest = GiftRequest.find(params[:id])
     @giftrequest.update(status: params[:status])
     @giftrequest.update(shopper: current_user)
-    @chatroom = Chatroom.new(gift_request_id:@giftrequest.id) # I create the chatroom on accepting the request by the other user (need 2 users for that)
+    @chatroom = Chatroom.create(gift_request_id: @giftrequest.id) # I create the chatroom on accepting the request by the other user (need 2 users for that)
+    # was not working before as it was Chatroom.new instead of Chatroom.create
     redirect_to gift_request_path(@giftrequest), notice: "You've succesfully taken on #{@giftrequest.requester.first_name}'s' gift request!"
   end
 

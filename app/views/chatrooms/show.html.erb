@@ -1,17 +1,29 @@
-<h1>#<%= @chatroom.id %></h1> <!-- id replaed -->
-<div id="messages" data-chatroom-id="<%= @chatroom.id %>">
-  <% @chatroom.messages.each do |message| %>
-    <div class="message-container" id="message-<%= message.id %>">
-      <i class="author">
-        <span><%= message.user.first_name %></span>
-        <small><%= message.created_at.strftime("%a %b %e at %l:%M%p") %></small>
-      </i>
-      <p><%= message.content %></p>
-    </div>
+<div class="container">
+  <% if @chatroom.gift_request.requester != current_user %>
+    <%= link_to profile_path(@chatroom.gift_request.requester) do %>
+      <h1><%= image_tag @chatroom.gift_request.requester.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.requester.first_name %></h1>
+    <% end %>
+  <% else %>
+    <%= link_to profile_path(@chatroom.gift_request.shopper) do %>
+      <h1><%= image_tag @chatroom.gift_request.shopper.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.shopper.first_name %></h1>
+    <% end %>
   <% end %>
+   <!--  <h1>#<%= @chatroom.id %></h1> id replaed -->
+  <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
+    <% @chatroom.messages.each do |message| %>
+      <div class="message-container" id="message-<%= message.id %>">
+        <i class="author">
+          <span><%= message.user.first_name %></span>
+          <small><%= message.created_at.strftime("%-d.%-m.%Y at %l:%M%p") %></small>
+        </i>
+        <p><%= message.content %></p>
+      </div>
+    <% end %>
+  </div>
+  <div id="send-message">
+    <%= simple_form_for [ @chatroom, @message ], remote: true, authenticity_token: true do |f| %>
+      <%= f.hidden_field :gift_request_id, value: params[:gift_request_id] %>
+      <%= f.input :content, label: false, placeholder: "Type your message here"  %> <%#, placeholder: "Message ##{@chatroom.id}" %>
+    <% end %>
+  </div>
 </div>
-
-<%= simple_form_for [ @chatroom, @message ], remote: true, authenticity_token: true do |f| %>
-  <%= f.hidden_field :gift_request_id, value: params[:gift_request_id] %>
-  <%= f.input :content, label: false, placeholder: "Message ##{@chatroom.id}" %>
-<% end %>
