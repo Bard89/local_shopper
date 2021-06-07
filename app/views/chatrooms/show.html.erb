@@ -10,17 +10,23 @@
       <div class="message-container mb-2"> 
         <p class="text-center">
           <small>
-            <%= message.created_at.strftime("%l:%M%p") if !message.created_at == Time.now %>
-            <%= message.created_at.strftime("%-d.%-m.%Y at %l:%M%p") if !message.created_at.today?  %>
+            <%= message.created_at.strftime("%-d.%-m.%Y") if !message.created_at.today?  %>
           </small>
         </p>
         <% if message.user == current_user %>
           <div class="d-flex justify-content-end">
-            <p class="mb-0 message-current-user" id="message-<%= message.id %>"><small><%= message.content %></small></p>
+            <p class="mb-0 message-current-user" id="message-<%= message.id %>">
+              <span id="message-content"><%= message.content %></span>
+              <span class="d-block" id="message-sent-time"><%= message.created_at.strftime("%l:%M%p") %></span>
+            </p>
+            
           </div>
         <% else %>
           <div class="d-flex">
-            <p class="mb-0 message-other-user" id="message-<%= message.id %>"><small><%= message.content %></small></p>
+            <p class="mb-0 message-other-user" id="message-<%= message.id %>">
+              <span id="message-content"><%= message.content %></span>
+              <span class="d-block" id="message-sent-time"><%= message.created_at.strftime("%l:%M%p") %></span>
+            </p>
           </div>
         <% end %>
       </div>
