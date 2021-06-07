@@ -132,12 +132,15 @@ berlinShopper = User.create(
   profile_picture: "https://images.unsplash.com/photo-1548142813-c348350df52b?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
   )
 
+# prices added to the past gift request that have the paid status
+# careful, the budget is in euros and the price in eurocents
 # Past Gift Requests for Hannah
 gift_for_chat_1 = GiftRequest.create(
   recipient_name: "Vojtech",
   recipient_address: "Prague",
   delivery_due_date: "",
   budget: 70,
+  price_cents: 6543,
   packaging: "Gift Bag",
   product1: "Local Spa Voucher",
   status: "delivered",
@@ -162,6 +165,7 @@ gift_for_chat_3 = GiftRequest.create(
   recipient_name: "Irene",
   recipient_address: "Barcelona",
   budget: 200,
+  price_cents: 19999, # careful, the budget is in euros and the price in cents
   packaging: "Gift Bag, unwrapped",
   product1: "A tiny cactus", 
   product2: "Veganz Almond Chocolate", 
@@ -180,6 +184,7 @@ Review.create(
 gift_for_chat_4 = GiftRequest.create(
   recipient_name: "Jessica",
   recipient_address: "Barcelona",
+  price_cents: 19999,
   budget: 200,
   packaging: "Gift Basket",
   product1: "Craft Beer Mix",
@@ -195,6 +200,8 @@ Review.create(
 )
 
 # Open Gift Requests in Barcelona
+
+
 GiftRequest.create(
   recipient_name: "Theresa",
   recipient_address: "Barcelona",

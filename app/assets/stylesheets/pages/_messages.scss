@@ -1,3 +1,46 @@
+#chatroom {
+  height: 56vh;
+  ::-webkit-scrollbar-track {
+	  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    border-radius: 10px;
+    background-color: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar {
+    width: 12px;
+    background-color: #F5F5F5;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+    background-color: #F1DABF;
+  }
+}
+
 #messages {
-  height: 400px;
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.message-current-user {
+  border-radius: 15px;
+  text-align: right;
+  background-color: #F1DABF;
+  padding: 5px 20px;
+  margin-right: 25px;
+}
+
+.message-other-user {
+  border-radius: 15px;
+  background: white;
+  padding: 10px 20px;
+}
+
+#message-sent-time {
+  font-size: 10px;
+}
+
+#message-content {
+  font-size: 14px;
 }
