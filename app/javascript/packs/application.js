@@ -32,12 +32,14 @@ import {navbarToggle} from '../channels/navbar_toggle';
 // import { initSelect2 } from '../components/init_select2';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initStarRating } from '../plugins/init_star_rating';
+import { sidebar } from '../custom/sidebar';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  sidebar();
   initChatroomCable();
   navbarToggle();
   initSweetalert('#sweet-alert-demo', {
