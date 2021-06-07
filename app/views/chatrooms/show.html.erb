@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" id="chatroom">
   <% if @chatroom.gift_request.requester != current_user %>
     <%= link_to profile_path(@chatroom.gift_request.requester) do %>
       <h1><%= image_tag @chatroom.gift_request.requester.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.requester.first_name %></h1>
