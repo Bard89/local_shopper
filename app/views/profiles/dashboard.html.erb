@@ -13,6 +13,8 @@
 
         <% if request.shopper %>
           <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
+        <% else %>
+          <p class="text-muted">Waiting for Shopper to accept... </p>
         <% end %>
         <div id="status" onclick="statusupdate()">
           <% if request.status == "pending" && request.requester == current_user %>
