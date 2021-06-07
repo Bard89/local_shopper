@@ -3,14 +3,15 @@
     <h1>My Shoppings</h1>
     <%= link_to "Find Requests in your Area", gift_requests_path, class: "ml-3" %>
   </div>
+  <div class="row">
   <% @giftrequests.each do |request| %>
-    <div class="request-card">
+    <div class="col-12 col-lg-6 request-card">
       <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
       <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
       <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
 
       <% if request.requester %>
-        <p> Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
+        <p>Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
       <% end %>
 
       <div id="status" onclick="statusupdate()">
@@ -49,4 +50,5 @@
       </div>
     </div>
   <% end %>
+  </div>
 </div>
