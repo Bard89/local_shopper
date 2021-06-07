@@ -1,16 +1,16 @@
 <nav class="nav row flex-column" id="sidebar">
   <div id="sidebar_container">
-  <%= link_to dashboard_path, class: "sidebar-icon nav-link" do %>
-    <i class="fas fa-home"></i>
+  <%= link_to dashboard_path, class: "sidebar-icon nav-link", id: "home-icon" do %>
+    <%= image_tag "home.svg", class: "nav-icon" %>
   <% end %>
-  <%= link_to new_gift_request_path, class: "sidebar-icon nav-link", id: "new-gift" do %>
-    <%= image_tag("new_gift.svg") %>
+  <%= link_to new_gift_request_path, class: "sidebar-icon nav-link", id: "new-icon" do %>
+    <%= image_tag "new_request.svg", class: "nav-icon" %>
   <% end %>
   <%= link_to chatrooms_path, class: "sidebar-icon nav-link" do %>
-    <i class="fas fa-comments"></i>
+    <%= image_tag "chat.svg", class: "nav-icon" %>
   <% end %>
   <%= link_to gift_requests_path, class: "sidebar-icon nav-link" do %>
-    <i class="fas fa-search"></i>
+    <%= image_tag "find_request.svg", class: "nav-icon"  %>
   <% end %>
   </div>
 </nav>

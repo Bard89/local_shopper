@@ -15,8 +15,12 @@
 .sidebar-icon {
   color: white;
   padding-left:22px;
-  margin:16px 0 24px 0;
+  margin:16px 0 32px 0;
   font-size:2em;
+}
+
+.nav-icon {
+  color: white;
 }
 
 
@@ -28,6 +32,10 @@
   color: #011638;
 }
 
-#new-gift {
+#new-icon {
   padding-left:25px;
+}
+
+#home-icon {
+  padding-left:24px;
 }
