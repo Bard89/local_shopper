@@ -1,13 +1,16 @@
 <div class="container" id="chatroom">
-  <% if @chatroom.gift_request.requester != current_user %>
-    <%= link_to profile_path(@chatroom.gift_request.requester) do %>
-      <h1><%= image_tag @chatroom.gift_request.requester.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.requester.first_name %></h1>
+  <div class="d-flex justify-content-between align-items-center">
+    <% if @chatroom.gift_request.requester != current_user %>
+      <%= link_to profile_path(@chatroom.gift_request.requester) do %>
+        <h1><%= image_tag @chatroom.gift_request.requester.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.requester.first_name %></h1>
+      <% end %>
+    <% else %>
+      <%= link_to profile_path(@chatroom.gift_request.shopper) do %>
+        <h1><%= image_tag @chatroom.gift_request.shopper.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.shopper.first_name %></h1>
+      <% end %>
     <% end %>
-  <% else %>
-    <%= link_to profile_path(@chatroom.gift_request.shopper) do %>
-      <h1><%= image_tag @chatroom.gift_request.shopper.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.shopper.first_name %></h1>
-    <% end %>
-  <% end %>
+    <%= link_to icon('fas', 'expand-alt', 'View request'), gift_request_path(@chatroom.gift_request) %>
+  </div>
    <!--  <h1>#<%= @chatroom.id %></h1> id replaed -->
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
     <% @chatroom.messages.each do |message| %>
