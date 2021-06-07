@@ -20,14 +20,19 @@
   font-size:2em;
 }
 
+.current-icon {
+  border-bottom: 5px solid black;
+  background-color:black;
+}
+
 .nav-icon {
   color: white;
   padding-bottom:8px;
 }
 
-.sidebar-icon:focus {
-    border-bottom: 5px solid white;
-}
+// .sidebar-icon:focus {
+//     border-bottom: 5px solid white;
+// }
 
 .sidebar-icon:hover {
   color: #011638;
