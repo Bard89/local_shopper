@@ -32,14 +32,39 @@ class GiftRequestsController < ApplicationController
       flash[:error] = "Something went wrong"
       render 'new'
     end
-    # raise
+
+
+
+  end
+
+  # modify !!!! merge with the create controller?
+  def create_payment # to kinda add payment details to the already created gift_request
+
+    gift = GiftRequest.find(params[:id])
+    order  = GiftRequest.create!(teddy: teddy, teddy_sku: teddy.sku, amount: teddy.price, state: 'pending', user: current_user)
+    # this works with the stripe
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      line_items: [{
+        name: gift.sku,
+        images: [gift.photo_url],
+        amount: gift.price_cents,
+        currency: 'eur',
+        quantity: 1
+      }],
+      success_url: order_url(order), # where to go after doing the payment
+      cancel_url: order_url(order) # we wanna go to the showpage of the order
+    )
+
+    order.update(checkout_session_id: session.id)
+    redirect_to new_order_payment_path(order)
   end
 
   def edit
     @giftrequest = GiftRequest.find(params[:id])
   end
 
-  def update
+  def update # will also use for the what I added from stripe ...
     @giftrequest = GiftRequest.find(params[:id])
     if @giftrequest.update_attributes(giftrequest_params)
       flash[:success] = "GiftRequest was successfully updated"
@@ -80,6 +105,6 @@ class GiftRequestsController < ApplicationController
   private
   
   def giftrequest_params
-    params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :packaging, :comment, :status, :requester_id, :product1, :shop1, :product2, :shop2, :product3, :shop3)
+    params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :price_cents, :packaging, :comment, :status, :requester_id, :product1, :shop1, :product2, :shop2, :product3, :shop3)
   end
 end
