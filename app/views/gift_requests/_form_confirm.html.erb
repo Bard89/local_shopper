@@ -1,0 +1,34 @@
+
+<%= simple_form_for(@giftrequest) do |f| %>
+
+
+
+      <%= f.hidden_field :recipient_name, label: false, input_html: {placeholder: "Recipient Name"} %>
+      <%= f.hidden_field :recipient_address, label: false, input_html: {placeholder: "Recipient Address"} %>
+
+
+      <%= f.hidden_field :budget, as: :numeric, label: false, input_html: {placeholder: "Budget"} %>
+      <%= f.hidden_field :packaging, label: false, input_html: {placeholder: "Packaging"} %>
+      <%= f.hidden_field :delivery_due_date, :label => "Delivery Due Date" %>
+
+
+
+
+      <%= f.hidden_field :product1, label: false, input_html: {placeholder: "Product"} %>
+      <%= f.hidden_field :shop1, label: false, input_html: {placeholder: "Shop (optional)"} %>
+
+
+      <%= f.hidden_field :product2, label: false, input_html: {placeholder: "Product"} %>
+      <%= f.hidden_field :shop2, label: false, input_html: {placeholder: "Shop (optional)"} %>
+
+      <%= f.hidden_field :product3, label: false, input_html: {placeholder: "Product"} %>
+      <%= f.hidden_field :shop3, label: false, input_html: {placeholder: "Shop (optional)"} %>
+
+
+
+    <%= f.hidden_field :comment, label: false, input_html: {placeholder: "Leave a comment"} %>
+  <div class ="d-flex justify-content-around">
+    <%= f.submit "Confirm",class: "btn btn-primary mt-3" %>
+    <%= link_to "Cancel", dashboard_path, class: "btn-primary mt-3" %>
+  </div>
+<% end %>
