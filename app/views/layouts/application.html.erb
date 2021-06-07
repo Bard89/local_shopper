@@ -15,9 +15,14 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <% if user_signed_in? %>
-      <%= render 'shared/sidebar' %>
+      <div class="d-flex">
+        <%= render 'shared/sidebar' %>
+      <%= yield %>
+      </div>
+    <% else %>
+      <%= yield %>
     <% end %>
 
-    <%= yield %>
+
   </body>
 </html>
