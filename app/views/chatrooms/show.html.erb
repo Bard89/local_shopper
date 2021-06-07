@@ -1,8 +1,12 @@
 <div class="container">
   <% if @chatroom.gift_request.requester != current_user %>
-    <h1><%= image_tag @chatroom.gift_request.requester.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.requester.first_name %></h1>
+    <%= link_to profile_path(@chatroom.gift_request.requester) do %>
+      <h1><%= image_tag @chatroom.gift_request.requester.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.requester.first_name %></h1>
+    <% end %>
   <% else %>
-    <h1><%= image_tag @chatroom.gift_request.shopper.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.shopper.first_name %></h1>
+    <%= link_to profile_path(@chatroom.gift_request.shopper) do %>
+      <h1><%= image_tag @chatroom.gift_request.shopper.profile_picture, class: "avatar" %> <%= @chatroom.gift_request.shopper.first_name %></h1>
+    <% end %>
   <% end %>
    <!--  <h1>#<%= @chatroom.id %></h1> id replaed -->
   <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
