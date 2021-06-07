@@ -3,10 +3,10 @@
   <%= link_to dashboard_path, class: "sidebar-icon nav-link" do %>
     <i class="fas fa-home"></i>
   <% end %>
-  <%= link_to new_gift_request_path, class: "sidebar-icon nav-link" do %>
-    <i class="fas fa-gift"></i>
+  <%= link_to new_gift_request_path, class: "sidebar-icon nav-link", id: "new-gift" do %>
+    <%= image_tag("new_gift.svg") %>
   <% end %>
-  <%= link_to my_requests_gift_requests_path, class: "sidebar-icon nav-link" do %>
+  <%= link_to chatrooms_path, class: "sidebar-icon nav-link" do %>
     <i class="fas fa-comments"></i>
   <% end %>
   <%= link_to gift_requests_path, class: "sidebar-icon nav-link" do %>
