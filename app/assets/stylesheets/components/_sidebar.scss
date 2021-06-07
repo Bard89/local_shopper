@@ -22,8 +22,12 @@
 
 .nav-icon {
   color: white;
+  padding-bottom:8px;
 }
 
+.sidebar-icon:focus {
+    border-bottom: 5px solid white;
+}
 
 .sidebar-icon:hover {
   color: #011638;
