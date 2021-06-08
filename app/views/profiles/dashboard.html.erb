@@ -8,7 +8,7 @@
   <main>
     <div class="row">
       <% @giftrequests.each do |request| %>
-        <div class="col-12 col-lg-6">
+        <div class="col-12 col-lg-6 pl-0">
           <div class="request-card">
             <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
             <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
@@ -84,7 +84,7 @@
     <div class="container">
       <div class="row">
         <%@opengiftrequests.each do |giftrequest| %>
-          <div class="col-12 col-lg-4">
+          <div class="col-12 col-lg-4 pl-0">
             <%= link_to gift_request_path(giftrequest) do %>
               <div class="request-card">
                 <div>

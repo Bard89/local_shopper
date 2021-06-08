@@ -1,9 +1,11 @@
-<div class="container">
-  <div class="row py-4">
+<header>
+  <h1>Checkout summary</h1>
+</header>
+
+<main>
+  <div class="container">
     <div class="col-md-3"><%#=image_tag @order.teddy.photo_url, width: '100%' %></div>
-    <div class="col">
-      <h1>Checkout summary</h1>
-      <p>Purchase of <strong><%= @giftrequest.product1 %> and</strong> for implement if else for displaying the product 2 and product3<strong><%= humanized_money_with_symbol @giftrequest.price_cents %></strong></p>
+      <p>Purchase of <strong><%= @giftrequest.product1 %> <%= "|" if @giftrequest.product2 %> <%= @giftrequest.product2 %> <%= "|" if @giftrequest.product3 %> </strong> - <strong><%= humanized_money_with_symbol @giftrequest.price_cents %></strong></p>
 
       <button id="pay" class="btn btn-primary">Pay</button>
       <script src="https://js.stripe.com/v3/"></script>
@@ -18,4 +20,5 @@
       </script>
     </div>
   </div>
-</div>
+</main>
+
