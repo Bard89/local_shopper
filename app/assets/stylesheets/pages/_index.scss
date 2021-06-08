@@ -3,6 +3,8 @@
 @import "messages";
 @import "profile";
 
+html { overflow-y: scroll; }
+
 h1 {
   padding-top: 1.25rem;
 }
