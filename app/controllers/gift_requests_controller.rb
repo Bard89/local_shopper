@@ -4,13 +4,11 @@ class GiftRequestsController < ApplicationController
     @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(created_at: :desc)
   end
 
-
   def show
     @giftrequest = GiftRequest.find(params[:id])
     @review = Review.new
     # raise
   end
-
 
   def new
     @giftrequest = GiftRequest.new
@@ -18,7 +16,6 @@ class GiftRequestsController < ApplicationController
   end
 
   def create
-
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
 
@@ -51,14 +48,12 @@ class GiftRequestsController < ApplicationController
   end
 
   def confirm
-
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
     unless @giftrequest.valid?
       render :action => :new
     else
     end
-
   end
 
   def edit
@@ -92,6 +87,11 @@ class GiftRequestsController < ApplicationController
     #   @giftrequest.update(status: params[:status])
     # end
     redirect_to shopper_dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
+  end
+
+  def add_price
+    @giftrequest.price_cents = params[:price_cents]
+    redirect_to gift_request_path(@giftrequest)
   end
 
   def accept

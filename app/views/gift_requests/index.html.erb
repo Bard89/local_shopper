@@ -4,11 +4,11 @@
   </div>
 </header>
 
-<main data-aos="fade-left" data-aos-duration="1000">
+<main >
   <div class="container">
     <div class="row">
       <%@opengiftrequests.each do |giftrequest| %>
-        <div class="col-4">
+        <div class="col-4 pl-0">
           <%= link_to gift_request_path(giftrequest) do %>
             <div class="request-card">
               <div>

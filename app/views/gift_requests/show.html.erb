@@ -24,8 +24,6 @@
         <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
         <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
       </div>
-
-
       <div>
         <b></b>
         <p><b>Comment</b></p>
@@ -35,7 +33,7 @@
           No Comment
         <% end %>
       </div>
-
+  
       <div class = "pt-3">
         <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
           <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(@giftrequest) %>

@@ -4,9 +4,17 @@
 @import "profile";
 
 h1 {
-  padding-top: 1.5rem;
+  padding-top: 1.25rem;
 }
 
 .container {
-  margin-top: 2rem;
+  margin-top: 1.35rem;
+}
+
+a {
+  color:inherit;
+}
+
+a:hover {
+  color:#547748;
 }

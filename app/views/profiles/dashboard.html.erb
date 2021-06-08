@@ -29,7 +29,7 @@
                 </div>
               <% elsif request.status == "accepted" %>
                 <p class="pill-button pill-button-accepted"><%= request.status %></p>
-                <%= link_to "Upload Receipt", class: "request-card-action-button" if request.shopper_id == current_user.id %>
+                
                 <div id="change-status" class="d-none">
                   <% GiftRequest::STATUSES.each do |status| %>
                     <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
