@@ -11,14 +11,12 @@ class ProfilesController < ApplicationController
     @giftrequests = GiftRequest.where(requester_id: current_user).order(created_at: :desc)
     @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(created_at: :desc)
 
-
     if params[:confirm]
       flash[:notice] = "Your Request has been succecfully made"
     end
     # @chatrooms = Chatroom.where(gift_request: @giftrequest)
-    # raise
   end
-
+  # the stripe should be here
   def shopper_dashboard
     @giftrequests = GiftRequest.where(shopper_id: current_user).order(created_at: :desc)
   end
