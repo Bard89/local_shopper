@@ -18,11 +18,11 @@
           <p>Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
         <% end %>
 
-        <div id="status" onclick="statusupdate()">
+        <div id="status" onclick="statusupdate() if request.shopper == current_user">
           <% if request.status == "accepted" %>
             <p class="pill-button pill-button-accepted"><%= request.status %></p>
-            <%= link_to "Upload Receipt", gift_price_gift_request_path(request),class: "request-card-action-button" if request.shopper_id == current_user.id %>
-            
+            <%= link_to "Upload Receipt", gift_price_gift_request_path(request)  %>
+
             <div id="change-status" class="d-none">
               <% GiftRequest::STATUSES.each do |status| %>
                 <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch do %>
