@@ -2,20 +2,29 @@
   justify-content: space-between;
   background: white;
   align-items:inline;
-  margin-bottom: 20px;
+  margin-bottom: 60px;
+  padding: 0.5rem 2.2rem;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-lewagon .navbar-brand {
+  padding-bottom: 0.8em;
+}
+
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 180px;
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: #011638;
   font-weight:500;
+}
+
+#navbarDropdown {
+    margin-left: 26px;
 }
 
 #transparent_nav {
@@ -25,6 +34,7 @@
 .info label {
   margin-bottom: 0px;
 }
-#shopper{
+
+#shopper {
   margin-right: 10px;
 }

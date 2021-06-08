@@ -4,6 +4,7 @@
     <title>LocalShopper</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= favicon_link_tag %>
 
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -17,15 +18,13 @@
     <%= render 'shared/navbar' %>
     <%= render 'shared/flashes' %>
     <% if user_signed_in? %>
-      <div class="d-flex">
+      <div class="d-grid mb-5">
         <%= render 'shared/sidebar' %>
-      <%= yield %>
+        <%= yield %>
       </div>
     <% else %>
       <%= yield %>
     <% end %>
-
-
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

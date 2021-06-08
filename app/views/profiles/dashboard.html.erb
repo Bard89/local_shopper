@@ -1,73 +1,77 @@
 <div class="container dashboard d-none">
-  <div class="d-flex align-items-center mb-4">
-    <h1 class="my-0">My Gift Requests</h1>
-    <%= link_to "New Gift Request", new_gift_request_path, class: "btn-primary ml-3 mt-1" %>
-  </div>
-  <div class="row">
-    <% @giftrequests.each do |request| %>
-      <div class="col-12 col-lg-6">
-      <div class="request-card">
-        <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
-        <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
-        <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
+  <header>
+    <div class="d-flex align-items-center mb-4">
+      <h1>My Gift Requests</h1>
+      <%= link_to "New Gift Request", new_gift_request_path, class: "btn-primary ml-3 mt-3" %>
+    </div>
+  </header>
+  <main>
+    <div class="row">
+      <% @giftrequests.each do |request| %>
+        <div class="col-12 col-lg-6">
+          <div class="request-card">
+            <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
+            <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
+            <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
 
-        <% if request.shopper %>
-          <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
-        <% else %>
-          <p class="text-muted">Waiting for Shopper to accept... </p>
-        <% end %>
-        <div id="status" onclick="statusupdate()">
-          <% if request.status == "pending" && request.requester == current_user %>
-            <p class="pill-button pill-button-pending"><%= request.status %></p>
-            <div class = "request-card-action-button">
-              <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request), class: "small-icon" %>
-              <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(request, status: "cancelled"), class: "small-icon", method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{request.recipient_name}?"} %>
-            </div>
-          <% elsif request.status == "accepted" %>
-            <p class="pill-button pill-button-accepted"><%= request.status %></p>
-            <%= link_to "Upload Receipt", class: "request-card-action-button" if request.shopper_id == current_user.id %>
-            <div id="change-status" class="d-none">
-              <% GiftRequest::STATUSES.each do |status| %>
-                <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
-                  <span class="pill-button pill-button-<%= status %>"><%= status %></span>
-                <% end %>
+            <% if request.shopper %>
+              <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
+            <% else %>
+              <p class="text-muted">Waiting for Shopper to accept... </p>
+            <% end %>
+            <div id="status" onclick="statusupdate()">
+              <% if request.status == "pending" && request.requester == current_user %>
+                <p class="pill-button pill-button-pending"><%= request.status %></p>
+                <div class = "request-card-action-button">
+                  <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request), class: "small-icon" %>
+                  <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(request, status: "cancelled"), class: "small-icon", method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{request.recipient_name}?"} %>
+                </div>
+              <% elsif request.status == "accepted" %>
+                <p class="pill-button pill-button-accepted"><%= request.status %></p>
+                <%= link_to "Upload Receipt", class: "request-card-action-button" if request.shopper_id == current_user.id %>
+                <div id="change-status" class="d-none">
+                  <% GiftRequest::STATUSES.each do |status| %>
+                    <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
+                      <span class="pill-button pill-button-<%= status %>"><%= status %></span>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% elsif request.status == "purchased"  %>
+                <p class="pill-button pill-button-purchased"><%= request.status %></p>
+                <div class="request-card-action-button">
+                  <%= link_to "Pay now", new_gift_request_payment_path(request)%>
+                </div>
+                <div id="change-status" class="d-none">
+                  <% GiftRequest::STATUSES.each do |status| %>
+                    <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
+                      <span class="pill-button pill-button-<%= status %>"><%= status %></span>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% elsif request.status == "paid"  %>
+                <p class="pill-button pill-button-paid"><%= request.status %></p>
+                <div id="change-status" class="d-none">
+                  <% GiftRequest::STATUSES.each do |status| %>
+                    <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
+                      <span class="pill-button pill-button-<%= status %>"><%= status %></span>
+                    <% end %>
+                  <% end %>
+                </div>
+              <% elsif request.status == "delivered"  %>
+                <p class="pill-button pill-button-delivered"><%= request.status %></p>
+                <!-- Leave Review -->
+                <div class="request-card-action-button">
+                  <%= link_to "Leave a review ⭐", "#" %>
+                </div>
+              <% elsif request.status == "cancelled"  %>
+                <p class="pill-button"><%= request.status %></p>
               <% end %>
             </div>
-          <% elsif request.status == "purchased"  %>
-            <p class="pill-button pill-button-purchased"><%= request.status %></p>
-            <div class="request-card-action-button">
-               <%= link_to "Pay now", new_gift_request_payment_path(request)%>
-            </div>
-            <div id="change-status" class="d-none">
-              <% GiftRequest::STATUSES.each do |status| %>
-                <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
-                  <span class="pill-button pill-button-<%= status %>"><%= status %></span>
-                <% end %>
-              <% end %>
-            </div>
-          <% elsif request.status == "paid"  %>
-            <p class="pill-button pill-button-paid"><%= request.status %></p>
-            <div id="change-status" class="d-none">
-              <% GiftRequest::STATUSES.each do |status| %>
-                <%= link_to change_status_gift_request_path(request, status: status), method: :patch do %>
-                  <span class="pill-button pill-button-<%= status %>"><%= status %></span>
-                <% end %>
-              <% end %>
-            </div>
-          <% elsif request.status == "delivered"  %>
-            <p class="pill-button pill-button-delivered"><%= request.status %></p>
-            <!-- Leave Review -->
-            <div class="request-card-action-button">
-              <%= link_to "Leave a review ⭐", "#" %>
-            </div>
-          <% elsif request.status == "cancelled"  %>
-            <p class="pill-button"><%= request.status %></p>
-          <% end %>
-      </div>
+          </div>
         </div>
-      </div>
-    <% end %>
-  </div>
+      <% end %>
+    </div>
+  </main>
 </div>
 
 <div class="gift_request d-none">
@@ -77,7 +81,7 @@
     </div>
   </header>
 
-  <main>
+  <main data-aos="fade-left" data-aos-duration="1000">
     <div class="container">
       <div class="row">
         <%@opengiftrequests.each do |giftrequest| %>
@@ -101,7 +105,15 @@
   </main>
 </div>
 
+<!-- <div class="popup d-none" id="popup-1">
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="close-btn">×</div>
+    <h1>Coool</h1>
+    <p>your request have been succecfully created</p>
+  </div>
+</div>
 
-
+ -->
 
 

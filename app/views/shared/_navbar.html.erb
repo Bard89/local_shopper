@@ -4,7 +4,7 @@
   <div class="navbar navbar-expand-sm navbar-light navbar-lewagon sticky-top">
 <% end %>
   <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag("gift.svg") %>
+    <%= image_tag("logo.svg") %>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -17,7 +17,7 @@
         <% if user_signed_in? %>
 
 
-            <% if request.fullpath == "/"%>
+            <%# if request.fullpath == "/"%>
               <li class="nav-item">
               <li id="user-status">Requester</li>
               <div>
@@ -27,8 +27,8 @@
                 </label>
               </div>
               <li >Shopper</li>
-            <% end %>
-          </li>
+            <%# end %>
+            </li>
 
           <li class="nav-item dropdown">
             <% if current_user.profile_picture %>
