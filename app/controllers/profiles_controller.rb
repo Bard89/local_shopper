@@ -17,6 +17,12 @@ class ProfilesController < ApplicationController
     end
     # @chatrooms = Chatroom.where(gift_request: @giftrequest)
     # raise
+    @markers = @opengiftrequests.geocoded.map do |opengiftrequest|
+      {
+      lat: opengiftrequest.latitude,
+      lng: opengiftrequest.longitude
+      }
+    end
   end
 
   def shopper_dashboard
