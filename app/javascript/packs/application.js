@@ -40,6 +40,7 @@ document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   //sidebar();
+  AOS.init();
   initChatroomCable();
   navbarToggle();
   initSweetalert('#sweet-alert-demo', {
@@ -48,6 +49,5 @@ document.addEventListener('turbolinks:load', () => {
     icon: "success"
   });
   initStarRating();
-  AOS.init();
 });
 
