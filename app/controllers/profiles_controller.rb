@@ -10,10 +10,10 @@ class ProfilesController < ApplicationController
   def dashboard
     @giftrequests = GiftRequest.where(requester_id: current_user).order(created_at: :desc)
     @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(created_at: :desc)
+    #raise
     # @chatrooms = Chatroom.where(gift_request: @giftrequest)
-    # raise
   end
-
+  # the stripe should be here
   def shopper_dashboard
     @giftrequests = GiftRequest.where(shopper_id: current_user).order(created_at: :desc)
   end

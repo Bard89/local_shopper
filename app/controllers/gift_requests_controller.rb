@@ -8,20 +8,46 @@ class GiftRequestsController < ApplicationController
   def show
     @giftrequest = GiftRequest.find(params[:id])
     @review = Review.new
+    # already created since I have the gift request which is an order of sorts
+    # order  = Order.create!(teddy: teddy, teddy_sku: teddy.sku, amount: teddy.price, state: 'pending', user: current_user)
     # raise
+    # this works with the stripe, sends some data to stripe, so the stripe knows what the user is paying for ... some of it will be on the receipt then
+
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ['card'],
+      # we are passing an array of hashes, each hash represents one order/ one gift in out case
+      # do some if statemnt to check id there are more than one gifts
+      line_items: [{
+        name: "gift", # maybe not rigt for the financial sevices, but let's not list the products
+        # images: [gift_request.photo_url],
+        amount: @giftrequest.price_cents,
+        currency: 'eur',
+        description: @giftrequest.comment,
+        quantity: 1 # we will always have 1, we don't have the option to change it, user would have to pick the same item multiple times
+      }]#,
+      # problem here is that we only have the price as a whole
+      # {name: @giftrequest.product2,},
+      # {}],
+      # success_url: gift_request_url(@giftrequest), # where to go after doing the payment
+      # cancel_url: gift_request_url(@giftrequest) # we wanna go to the showpage of the order
+    )
+
+    # order.update(checkout_session_id: session.id)
+    # redirect_to new_order_payment_path(order)
   end
 
 
   def new
     @giftrequest = GiftRequest.new
     @chatroom = Chatroom.new # now added, should it be here? ...
+
   end
 
   def create
 
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
-
+    #raise
     if @giftrequest.save
       flash[:success] = "GiftRequest successfully created"
       redirect_to dashboard_path
@@ -30,24 +56,7 @@ class GiftRequestsController < ApplicationController
       render 'new'
     end
 
-    #this works with the stripe, sends some data to stripe, so the stripe knows what the user is paying for ...
-    # session = Stripe::Checkout::Session.create(
-    #   payment_method_types: ['card'],
-    #   line_items: [{
-    #     #name: giftrequest.product1 # this needs to be pu into into an array? and put al the products there?, so the stripe knows for what all to pay
-    #     # :product1 #, :shop1, :product2, :shop2, :product3, :shop3
-    #     #images: [gift_request.photo_url],
-    #     #amount: @gift_request.price_cents,
-    #     #currency: 'eur',
-    #     #quantity: 1 # we will always have 1, we don't have the option to change it, user would have to pick the same item multiple times
-    #   }],
-    #   success_url: order_url(order), # where to go after doing the payment
-    #   cancel_url: order_url(order) # we wanna go to the showpage of the order
-    # )
 
-    # order.update(checkout_session_id: session.id)
-    # redirect_to new_order_payment_path(order)
-    # raise
   end
 
   def confirm
