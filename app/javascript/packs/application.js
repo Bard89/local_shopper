@@ -40,13 +40,6 @@ import AOS from 'aos';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
-<<<<<<< HEAD
-  // sidebar();
-  // Turbolinks.clearCache()
-=======
-  //sidebar();
-
->>>>>>> master
   initChatroomCable();
   navbarToggle();
   initSweetalert('#sweet-alert-demo', {
