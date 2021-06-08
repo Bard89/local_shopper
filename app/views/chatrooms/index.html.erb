@@ -2,7 +2,7 @@
   <h1>Messages</h1>
 </header>
 
-<main>
+<main data-aos="fade-left" data-aos-duration="1000">
   <div class="container">
     <% @chatrooms.each do |chatroom| %>
       <% if chatroom.gift_request.requester == current_user || chatroom.gift_request.shopper == current_user  %>

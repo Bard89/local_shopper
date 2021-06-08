@@ -1,43 +1,46 @@
 <%#= simple_form_for (@giftrequest, as: :gift_request, method: :get, url: confirm_gift_requests_path) do |f| %>
-<%= simple_form_for(@giftrequest, url: confirm_gift_requests_path, method: :post ) do |f| %>
+<div>
+  <%= simple_form_for(@giftrequest, url: confirm_gift_requests_path, method: :post ) do |f| %>
 
-  <div class="d-flex">
-    <div class="col-8 pl-0 pr-1">
-      <p><b>Recipient</b></p>
-      <%= f.input :recipient_name, label: false, input_html: {placeholder: "Recipient Name"} %>
-      <%= f.input :recipient_address, label: false, input_html: {placeholder: "Recipient Address"} %>
+    <div class="d-flex">
+      <div class="col-8 pl-0 pr-1">
+        <p><b>Recipient</b></p>
+        <%= f.input :recipient_name, label: false, input_html: {placeholder: "Recipient Name"} %>
+        <%= f.input :recipient_address, label: false, input_html: {placeholder: "Recipient Address"} %>
+      </div>
+      <div class="col-4 pr-0 pl-1">
+        <p><b>Details</b></p>
+        <%= f.input :budget, as: :numeric, label: false, input_html: {placeholder: "Budget"} %>
+        <%= f.input :packaging, label: false, input_html: {placeholder: "Packaging"} %>
+        <%= f.date_select :delivery_due_date, :label => "Delivery Due Date" %>
+      </div>
     </div>
-    <div class="col-4 pr-0 pl-1">
-      <p><b>Details</b></p>
-      <%= f.input :budget, as: :numeric, label: false, input_html: {placeholder: "Budget"} %>
-      <%= f.input :packaging, label: false, input_html: {placeholder: "Packaging"} %>
-      <%= f.date_select :delivery_due_date, :label => "Delivery Due Date" %>
+
+    <p><b>Gifts</b></p>
+    <div class="d-flex">
+      <div class="w-100 mr-2">
+        <%= f.input :product1, label: false, input_html: {placeholder: "Product"} %>
+        <%= f.input :shop1, label: false, input_html: {placeholder: "Shop (optional)"} %>
+        <%#= link_to icon('fas', 'plus', 'Add another product') %>
+      </div>
+      <div class="w-100 mr-2">
+        <%= f.input :product2, label: false, input_html: {placeholder: "Product"} %>
+        <%= f.input :shop2, label: false, input_html: {placeholder: "Shop (optional)"} %>
+      </div>
+      <div class="w-100">
+        <%= f.input :product3, label: false, input_html: {placeholder: "Product"} %>
+        <%= f.input :shop3, label: false, input_html: {placeholder: "Shop (optional)"} %>
+      </div>
     </div>
-  </div>
 
-  <p><b>Gifts</b></p>
-  <div class="d-flex">
-    <div class="w-100 mr-2">
-      <%= f.input :product1, label: false, input_html: {placeholder: "Product"} %>
-      <%= f.input :shop1, label: false, input_html: {placeholder: "Shop (optional)"} %>
-      <%#= link_to icon('fas', 'plus', 'Add another product') %>
+    <p><b>Comment</b></p>
+    <div class="d-flex">
+      <div class="w-100">
+        <%= f.input :comment, label: false, input_html: {placeholder: "Leave a comment"} %>
+      </div>
     </div>
-    <div class="w-100 mr-2">
-      <%= f.input :product2, label: false, input_html: {placeholder: "Product"} %>
-      <%= f.input :shop2, label: false, input_html: {placeholder: "Shop (optional)"} %>
+    <div class="d-flex justify-content-end">
+      <%= f.submit class: "btn btn-primary" %>
     </div>
-    <div class="w-100">
-      <%= f.input :product3, label: false, input_html: {placeholder: "Product"} %>
-      <%= f.input :shop3, label: false, input_html: {placeholder: "Shop (optional)"} %>
-    </div>
-  </div>
-
-  <p><b>Comment</b></p>
-  <div>
-    <%= f.input :comment, label: false, input_html: {placeholder: "Leave a comment"} %>
-  </div>
-  <%= f.submit class: "btn btn-primary" %>
-<% end %>
-
-
-
+  <% end %>
+</div>
