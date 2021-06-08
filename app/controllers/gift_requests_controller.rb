@@ -4,7 +4,6 @@ class GiftRequestsController < ApplicationController
     @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(created_at: :desc)
   end
 
-
   def show
     @giftrequest = GiftRequest.find(params[:id])
     @review = Review.new
@@ -36,7 +35,6 @@ class GiftRequestsController < ApplicationController
     #redirect_to new_gift_request_payment_path(@giftrequest)
   end
 
-
   def new
     @giftrequest = GiftRequest.new
     @chatroom = Chatroom.new # now added, should it be here? ...
@@ -44,7 +42,6 @@ class GiftRequestsController < ApplicationController
   end
 
   def create
-
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
     #raise
@@ -55,12 +52,9 @@ class GiftRequestsController < ApplicationController
       flash[:error] = "Something went wrong"
       render 'new'
     end
-
-
   end
 
   def confirm
-
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
 
@@ -68,7 +62,6 @@ class GiftRequestsController < ApplicationController
     render :action => :new
     else
     end
-
   end
 
   def edit
@@ -102,6 +95,11 @@ class GiftRequestsController < ApplicationController
     #   @giftrequest.update(status: params[:status])
     # end
     redirect_to shopper_dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
+  end
+
+  def gift_price
+    @giftrequest.price_cents = params[:price_cents]
+    redirect_to gift_request_path(@giftrequest)
   end
 
   def accept
