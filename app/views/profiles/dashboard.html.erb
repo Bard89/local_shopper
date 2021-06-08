@@ -36,7 +36,7 @@
           <% elsif request.status == "purchased"  %>
             <p class="pill-button pill-button-purchased"><%= request.status %></p>
             <div class="request-card-action-button">
-              <%= link_to "Pay now -> go inside/expand for now", "#" %>
+               <%= link_to "Pay now", new_gift_request_payment_path(request)%>
             </div>
             <div id="change-status" class="d-none">
               <% GiftRequest::STATUSES.each do |status| %>

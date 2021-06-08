@@ -35,15 +35,6 @@
           No Comment
         <% end %>
       </div>
-      <div>
-        <%= link_to "Pay now", new_gift_request_payment_path(@giftrequest), class: 'btn btn-primary' %>
-      </div>
-      <div>
-        <%#= form_tag gift_request_path do %>
-        <%#= hidden_field_tag 'giftrequest_id', @giftrequest.id %>
-        <%#= submit_tag 'Pay now', class: 'btn btn-primary' %>
-        <%# end %>
-      </div>
 
       <div class = "pt-3">
         <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
