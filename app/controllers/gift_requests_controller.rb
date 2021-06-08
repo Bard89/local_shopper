@@ -18,6 +18,7 @@ class GiftRequestsController < ApplicationController
   end
 
   def create
+
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
 
@@ -49,6 +50,17 @@ class GiftRequestsController < ApplicationController
     # raise
   end
 
+  def confirm
+
+    @giftrequest = GiftRequest.new(giftrequest_params)
+    @giftrequest.requester = current_user
+    unless @giftrequest.valid?
+      render :action => :new
+    else
+    end
+
+  end
+
   def edit
     @giftrequest = GiftRequest.find(params[:id])
   end
@@ -63,7 +75,7 @@ class GiftRequestsController < ApplicationController
       render 'edit'
     end
   end
-    
+
   def change_status
     @giftrequest = GiftRequest.find(params[:id])
     @giftrequest.update(status: params[:status])
@@ -92,7 +104,7 @@ class GiftRequestsController < ApplicationController
   end
 
   private
-  
+
   def giftrequest_params
     params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :price_cents, :packaging, :comment, :status, :requester_id, :product1, :shop1, :product2, :shop2, :product3, :shop3)
   end
