@@ -20,4 +20,5 @@ class ProfilesController < ApplicationController
   def shopper_dashboard
     @giftrequests = GiftRequest.where(shopper_id: current_user).order(created_at: :desc)
   end
+
 end
