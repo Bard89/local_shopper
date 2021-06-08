@@ -7,7 +7,7 @@
 
 #sidebar_container {
   background-color:#F1DABF;
-  height:650px;
+  height:75vh;
   width:80px;
   border-radius:16px;
   box-shadow: 2px 4px 10px 0px #00000014;
@@ -15,37 +15,24 @@
 
 .sidebar-icon {
   color: white;
-  padding-left:22px;
   margin:16px 0 32px 0;
   font-size:2em;
 }
 
 .current-icon {
-  border-bottom: 5px solid black;
-  background-color:black;
+    display: flex;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    background: #FBF5EF;
+    margin: auto;
+    border-radius: 12px;
 }
 
 .nav-icon {
   color: white;
-  padding-bottom:8px;
-}
-
-// .sidebar-icon:focus {
-//     border-bottom: 5px solid white;
-// }
-
-.sidebar-icon:hover {
-  color: #011638;
-}
-
-.sidebar-icon:active {
-  color: #011638;
-}
-
-#new-icon {
-  padding-left:25px;
-}
-
-#home-icon {
-  padding-left:24px;
+  padding: 5px;
+  margin: auto;
+  display: block;
+  vertical-align: middle;
 }
