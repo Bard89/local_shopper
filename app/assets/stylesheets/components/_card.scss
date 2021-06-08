@@ -46,14 +46,15 @@ a {
   margin-top: 10px;
 }
 
+// Card Request
 .request-card {
-  box-shadow: 0 0 15px rgba(105, 105, 105, 0.2);
-  margin: 16px 0px;
-  font-size: 14px;
-  border-radius: 5px;
+  background: #FFFFFF;
+  box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
   position: relative;
   color:black;
   padding: 20px 30px;
+  font-size: 14px;
 }
 
 .request-card .small-icon {
