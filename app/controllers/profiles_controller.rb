@@ -15,6 +15,15 @@ class ProfilesController < ApplicationController
       flash[:notice] = "Your Request has been succecfully made"
     end
     # @chatrooms = Chatroom.where(gift_request: @giftrequest)
+
+    # raise
+    @markers = @opengiftrequests.geocoded.map do |opengiftrequest|
+      {
+      lat: opengiftrequest.latitude,
+      lng: opengiftrequest.longitude
+      }
+    end
+
   end
   # the stripe should be here
   def shopper_dashboard
