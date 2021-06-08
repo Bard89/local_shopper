@@ -31,6 +31,5 @@ Rails.application.routes.draw do
   end
 
   resources :profiles, only: :show
-
   resources :chatrooms, only: :index
 end

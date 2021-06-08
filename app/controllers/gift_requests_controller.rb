@@ -99,7 +99,8 @@ class GiftRequestsController < ApplicationController
 
   def gift_price
     @giftrequest = GiftRequest.find(params[:id])
-    @giftrequest.price_cents = 10
+    @giftrequest.update(price_cents: 10000)
+    @giftrequest.update(status: "purchased")
     redirect_to gift_request_path(@giftrequest)
   end
 

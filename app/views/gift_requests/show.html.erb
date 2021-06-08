@@ -2,9 +2,9 @@
   <h1>Gift request for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1>
 </header>
 
-<div class="container" data-aos="fade-left" data-aos-duration="1000">
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-9">
+    <div class="col-9 pl-0">
       <div>
         <p><b>Details</b></p>
         <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
