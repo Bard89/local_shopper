@@ -21,7 +21,9 @@
                     <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(request, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{request.recipient_name}?"} %>
                   <% end %>
                   <%= link_to "Pay now", new_gift_request_payment_path(request) if request.status == "purchased" && request.requester == current_user %>
-                  <%= link_to "Leave a review ⭐", "#" if request.status == "delivered" && request.requester == current_user %>
+                  <% if request.status == "delivered" && request.requester == current_user %>
+                    <a type="button" data-toggle="modal" data-target="#leaveAReview">Leave Review</a>
+                  <% end %>
                 </div>
               </div>
 
@@ -39,6 +41,8 @@
               <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
             </div>
           </div>
+           <!-- Partial Modal (needs to be rendered at the end, otherwise problem with being displayed inside card) -->
+           <%= render partial: 'reviews/new', locals: { gift_request: request, review: Review.new } %>
         <% end %>
       </div>
     </div>

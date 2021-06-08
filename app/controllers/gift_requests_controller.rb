@@ -39,7 +39,7 @@ class GiftRequestsController < ApplicationController
     @giftrequest.requester = current_user
 
     unless @giftrequest.valid?
-    render :action => :new
+      render :action => :new
     else
     end
   end
@@ -76,22 +76,26 @@ class GiftRequestsController < ApplicationController
     # end
     redirect_to shopper_dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
   end
-
   
   def accept
     @giftrequest = GiftRequest.find(params[:id])
-    @giftrequest.update(status: params[:status])
+    @giftrequest.update(status: "accepted")
     @giftrequest.update(shopper: current_user)
     @chatroom = Chatroom.create(gift_request_id: @giftrequest.id) # I create the chatroom on accepting the request by the other user (need 2 users for that)
     # was not working before as it was Chatroom.new instead of Chatroom.create
-    redirect_to gift_request_path(@giftrequest), notice: "You've succesfully taken on #{@giftrequest.requester.first_name}'s' gift request!"
+    redirect_to shopper_dashboard_path, notice: "You've succesfully taken on #{@giftrequest.requester.first_name}'s gift request!"
   end
   
   def gift_price
     @giftrequest = GiftRequest.find(params[:id])
-    @giftrequest.update(price_cents: 10000)
+    @giftrequest.update(price_cents: price_params)
     @giftrequest.update(status: "purchased")
-    redirect_to gift_request_path(@giftrequest)
+    if @giftrequest.update_attributes(price_params)
+      redirect_to gift_request_path(@giftrequest)
+    else
+      flash[:error] = "Something went wrong"
+      render 'edit'
+    end
   end
 
   def pay
@@ -124,6 +128,10 @@ class GiftRequestsController < ApplicationController
   private
 
   def giftrequest_params
-    params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :price_cents, :packaging, :comment, :status, :requester_id, :product1, :shop1, :product2, :shop2, :product3, :shop3)
+    params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :price_cents, :packaging, :comment, :status, :requester_id, :product1, :shop1, :product2, :shop2, :product3, :shop3, :price_cents)
+  end
+
+  def price_params
+    params.require(:gift_request).permit(:price_cents)
   end
 end
