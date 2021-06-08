@@ -29,28 +29,26 @@ import "bootstrap";
 import { initChatroomCable } from '../channels/chatroom_channel';
 import {navbarToggle} from '../channels/navbar_toggle';
 import { initMapbox } from '../plugins/init_mapbox';
+
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
-import { initSweetalert } from '../plugins/init_sweetalert';
+// import { initSweetalert } from '../plugins/init_sweetalert';
 import { initStarRating } from '../plugins/init_star_rating';
-import { sidebar } from '../custom/sidebar';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
-
-
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
   initStarRating();
+  navbarToggle();
   AOS.init();
   initMapbox();
   initChatroomCable();
-  initSweetalert('#sweet-alert-demo', {
-    title: "A nice alert",
-    text: "This is a great alert, isn't it?",
-    icon: "success"
-  });
-  navbarToggle();
+  // initSweetalert('#sweet-alert-demo', {
+  //   title: "A nice alert",
+  //   text: "This is a great alert, isn't it?",
+  //   icon: "success"
+  // });
 });
 

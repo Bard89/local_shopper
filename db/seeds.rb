@@ -138,7 +138,7 @@ berlinShopper = User.create(
 gift_for_chat_1 = GiftRequest.create(
   recipient_name: "Vojtech",
   recipient_address: "Prague",
-  delivery_due_date: "",
+  delivery_due_date: "2021-09-01",
   budget: 70,
   price_cents: 6543,
   packaging: "Gift Bag",
@@ -227,6 +227,7 @@ GiftRequest.create(
   recipient_name: "Emily",
   recipient_address: "Barcelona",
   budget: 20,
+  delivery_due_date: "2021-09-01",
   product1: "Friends All 10 Seasons",
   requester: charles
 )
@@ -243,6 +244,7 @@ GiftRequest.create(
   recipient_name: "Emily",
   recipient_address: "Barcelona",
   budget: 30,
+  delivery_due_date: "2021-09-01",
   product1: "Mechanical Keyboard",
   product2: "Coder Mug",
   requester: hannes
