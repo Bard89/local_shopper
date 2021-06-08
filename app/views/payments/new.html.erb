@@ -1,0 +1,24 @@
+<header>
+  <h1>Checkout summary</h1>
+</header>
+
+<main>
+  <div class="container">
+    <div class="col-md-3"><%#=image_tag @order.teddy.photo_url, width: '100%' %></div>
+      <p>Purchase of <strong><%= @giftrequest.product1 %> <%= "|" if @giftrequest.product2 %> <%= @giftrequest.product2 %> <%= "|" if @giftrequest.product3 %> </strong> - <strong><%= humanized_money_with_symbol @giftrequest.price_cents %></strong></p>
+
+      <button id="pay" class="btn btn-primary">Pay</button>
+      <script src="https://js.stripe.com/v3/"></script>
+      <script>
+        const paymentButton = document.getElementById('pay');
+        paymentButton.addEventListener('click', () => {
+          const stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: '<%= @giftrequest.checkout_session_id %>'
+          });
+        });
+      </script>
+    </div>
+  </div>
+</main>
+

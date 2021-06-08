@@ -1,23 +1,28 @@
-<div class="container dashboard">
+<header>
   <div class="d-flex align-items-center">
     <h1>My Shoppings</h1>
     <%= link_to "Find Requests in your Area", gift_requests_path, class: "ml-3" %>
   </div>
+</header>
+
+<div class="container dashboard">
   <div class="row">
   <% @giftrequests.each do |request| %>
-    <div class="col-12 col-lg-6">
+    <div class="col-12 col-lg-6 pl-0">
       <div class="request-card" data-aos="fade-in" data-aos-duration="1000">
         <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
-        <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
+        <p> <small> Delivery Due Date: <%= request.delivery_due_date.strftime("%-d.%-m.%Y, %H:%M") if request.delivery_due_date %> </small></p>
         <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
 
         <% if request.requester %>
           <p>Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
         <% end %>
 
-        <div id="status" onclick="statusupdate()">
+        <div id="status" onclick="statusupdate() if request.shopper == current_user">
           <% if request.status == "accepted" %>
             <p class="pill-button pill-button-accepted"><%= request.status %></p>
+            <%= link_to "Upload Receipt", gift_price_gift_request_path(request)  %>
+
             <div id="change-status" class="d-none">
               <% GiftRequest::STATUSES.each do |status| %>
                 <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch do %>

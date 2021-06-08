@@ -1,21 +1,30 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: rgba(238, 221, 210, 0.6);
   align-items:inline;
-  margin-bottom: 60px;
+  margin-bottom: 40px;
+  padding: 0.5rem 2.2rem;
 }
 
 .navbar-lewagon .navbar-collapse {
   flex-grow: 0;
 }
 
+.navbar-lewagon .navbar-brand {
+  padding-bottom: 0.8em;
+}
+
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 180px;
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: #011638;
   font-weight:500;
+}
+
+#navbarDropdown {
+  margin-left: 26px;
 }
 
 #transparent_nav {

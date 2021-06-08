@@ -55,15 +55,17 @@ a {
   color:black;
   padding: 20px 30px;
   font-size: 14px;
+  margin-bottom: 1em;
+  // border: 2px solid white;
 }
 
 .request-card .small-icon {
   margin-left:12px;
 }
 
-
 .request-card:hover {
-  transform: scaleY(1.005);
+  transform: scale(1.01);
+  // border: 2px solid #F1DABF;
 }
 
 .request-card-action-button {
@@ -84,10 +86,4 @@ a {
   right: 20px;
 }
 
-a {
-  color:inherit;
-}
 
-a:hover {
-  color:#547748;
-}
