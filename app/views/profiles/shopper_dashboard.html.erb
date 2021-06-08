@@ -9,7 +9,7 @@
   <div class="row">
   <% @giftrequests.each do |request| %>
     <div class="col-12 col-lg-6 pl-0">
-      <div class="request-card" data-aos="fade-in" data-aos-duration="1000">
+      <div class="request-card" data-aos="fade-in" data-aos-duration="1300">
         <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
         <p> <small> Delivery Due Date: <%= request.delivery_due_date.strftime("%-d.%-m.%Y, %H:%M") if request.delivery_due_date %> </small></p>
         <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
@@ -23,7 +23,7 @@
           <% elsif request.status == "paid"  %>
             <div id="change-status" class="d-none">
               <% GiftRequest::STATUSES.each do |status| %>
-                <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch do %>
+                <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch, data: { confirm: "Do you want to change the status for #{request.recipient_name}'s gift to delivered?"} do %>
                   <span class="pill-button pill-button-<%= status %>"><%= status %></span>
                 <% end %>
               <% end %>
