@@ -1,5 +1,6 @@
 .btn-primary {
-  background-color:#547748;
+  background-color: #8994D2;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.16);
   color:white;
   border-radius:32px;
   border:none;
@@ -8,18 +9,27 @@
 }
 
 .btn-primary:active {
-  background-color:#547748;
+  background-color:#8994D2;
   border:none;
+  transition:0.3s;
 }
 
 .btn-primary:focus {
-  background-color:#547748;
+  background-color:#8994D2;
   border:none;
+  box-shadow:  0px 4px 4px 0px rgba(0, 0, 0, 0.16);
 }
 
 .btn-primary:hover {
-  background-color:#314D28;
+  background-color:#8994D2;
   transition:0.3s;
+  transform: scale(1.03);
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary.active:not(:disabled):not(.disabled), .show > .btn-primary.dropdown-toggle {
+    color: #fff;
+    background-color: #8994D2;
+    border-color: #8994D2;
 }
 
 
