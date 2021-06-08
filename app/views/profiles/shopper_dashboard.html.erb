@@ -14,26 +14,13 @@
         <p> <small> Delivery Due Date: <%= request.delivery_due_date.strftime("%-d.%-m.%Y, %H:%M") if request.delivery_due_date %> </small></p>
         <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
 
-        <% if request.requester %>
-          <p>Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
-        <% end %>
+        <p>Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
 
-        <div id="status" onclick="statusupdate() if request.shopper == current_user">
+        <div id="status" onclick="statusupdate()">
+          <p class="pill-button pill-button-<%= request.status %>"><%= request.status %></p>
           <% if request.status == "accepted" %>
-            <p class="pill-button pill-button-accepted"><%= request.status %></p>
-            <%= link_to "Upload Receipt", gift_price_gift_request_path(request)  %>
-
-            <div id="change-status" class="d-none">
-              <% GiftRequest::STATUSES.each do |status| %>
-                <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch do %>
-                  <span class="pill-button pill-button-<%= status %>"><%= status %></span>
-                <% end %>
-              <% end %>
-            </div>
-          <% elsif request.status == "purchased"  %>
-            <p class="pill-button pill-button-purchased"><%= request.status %></p>
+            <%= link_to "Upload Receipt", gift_price_gift_request_path(request) if request.shopper == current_user %>
           <% elsif request.status == "paid"  %>
-            <p class="pill-button pill-button-paid"><%= request.status %></p>
             <div id="change-status" class="d-none">
               <% GiftRequest::STATUSES.each do |status| %>
                 <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch do %>
@@ -41,10 +28,6 @@
                 <% end %>
               <% end %>
             </div>
-          <% elsif request.status == "delivered"  %>
-            <p class="pill-button pill-button-delivered"><%= request.status %></p>
-          <% elsif request.status == "cancelled"  %>
-            <p class="pill-button"><%= request.status %></p>
           <% end %>
         </div>
       </div>
