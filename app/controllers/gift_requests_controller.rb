@@ -52,8 +52,6 @@ class GiftRequestsController < ApplicationController
       flash[:error] = "Something went wrong"
       render 'new'
     end
-
-
   end
 
   def confirm
@@ -99,7 +97,7 @@ class GiftRequestsController < ApplicationController
     redirect_to shopper_dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
   end
 
-  def add_price
+  def gift_price
     @giftrequest.price_cents = params[:price_cents]
     redirect_to gift_request_path(@giftrequest)
   end
