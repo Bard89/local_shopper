@@ -20,7 +20,7 @@ class GiftRequestsController < ApplicationController
       line_items: [{
         name: "gift", # maybe not rigt for the financial sevices, but let's not list the products
         # images: [gift_request.photo_url],
-        amount: @giftrequest.price_cents,
+        amount: @giftrequest.price_cents, # this can't be 0 here
         currency: 'eur',
         description: @giftrequest.comment,
         quantity: 1 # we will always have 1, we don't have the option to change it, user would have to pick the same item multiple times
@@ -33,7 +33,7 @@ class GiftRequestsController < ApplicationController
     )
 
     @giftrequest.update(checkout_session_id: session.id)
-    redirect_to new_gift_request_payment_path(@giftrequest)
+    #redirect_to new_gift_request_payment_path(@giftrequest)
   end
 
 
