@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .card-gift .card-gift-infos {
   justify-content: space-between;
   align-items: flex-end;
@@ -33,7 +37,7 @@
   padding: 16px;
 }
 
-#info{
+#info {
   margin-bottom: 30px;
 }
 
@@ -56,9 +60,6 @@
   margin-left:12px;
 }
 
-.dashboard a {
-  text-decoration: none;
-}
 
 .request-card:hover {
   transform: scaleY(1.005);

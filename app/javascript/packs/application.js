@@ -33,6 +33,8 @@ import {navbarToggle} from '../channels/navbar_toggle';
 import { initSweetalert } from '../plugins/init_sweetalert';
 import { initStarRating } from '../plugins/init_star_rating';
 import { sidebar } from '../custom/sidebar';
+import 'aos/dist/aos.css';
+import AOS from 'aos';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
@@ -46,5 +48,6 @@ document.addEventListener('turbolinks:load', () => {
     icon: "success"
   });
   initStarRating();
+  AOS.init();
 });
 

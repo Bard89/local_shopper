@@ -14,7 +14,9 @@
   <%#= f.submit %>
 <%# end %>
 
-<%= simple_form_for @giftrequest do |f| %>
+<%#= simple_form_for (@giftrequest, as: :gift_request, method: :get, url: confirm_gift_requests_path) do |f| %>
+<%= simple_form_for(@giftrequest, url: confirm_gift_requests_path, method: :post ) do |f| %>
+
   <div class="d-flex">
     <div class="col-8 pl-0 pr-1">
       <p><b>Recipient</b></p>
@@ -52,3 +54,6 @@
   </div>
   <%= f.submit %>
 <% end %>
+
+
+
