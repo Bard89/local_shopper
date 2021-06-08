@@ -35,12 +35,18 @@ import { initStarRating } from '../plugins/init_star_rating';
 import { sidebar } from '../custom/sidebar';
 import 'aos/dist/aos.css';
 import AOS from 'aos';
+//import {togglePopup} from '../channels/pop_up';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+<<<<<<< HEAD
   // sidebar();
   // Turbolinks.clearCache()
+=======
+  //sidebar();
+
+>>>>>>> master
   initChatroomCable();
   navbarToggle();
   initSweetalert('#sweet-alert-demo', {
@@ -50,5 +56,6 @@ document.addEventListener('turbolinks:load', () => {
   });
   initStarRating();
   AOS.init();
+//  togglePopup();
 });
 

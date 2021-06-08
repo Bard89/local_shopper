@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   resources :gift_requests do
     resource :chatrooms, only: :show # singular -> omits the id at the end
+    resources :payments, only: :new # added for stripe
     collection do
       post :confirm
     end

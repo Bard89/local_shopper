@@ -27,8 +27,22 @@
 
 
     <%= f.hidden_field :comment, label: false, input_html: {placeholder: "Leave a comment"} %>
-  <div class ="d-flex justify-content-around">
-    <%= f.submit "Confirm",class: "btn btn-primary mt-3" %>
-    <%= link_to "Cancel", dashboard_path, class: "btn-primary mt-3" %>
+  <div class ="d-flex justify-content-end align-items-center">
+
+    <%= link_to "Cancel", dashboard_path, class: "btn btn-flat mt-3 mr-2"%>
+    <%= f.submit "Confirm", class: "btn btn-primary mt-3"%>
+
   </div>
 <% end %>
+
+<!-- <div class="popup" id="popup-1">
+  <div class="overlay"></div>
+  <div class="content">
+    <div class="close-btn" onclick="togglePopup()">×</div>
+    <h1>Coool</h1>
+    <p>your request have been succecfully created</p>
+  </div>
+</div>
+<button onclick="togglePopup()">Show Popup</button>
+
+ -->

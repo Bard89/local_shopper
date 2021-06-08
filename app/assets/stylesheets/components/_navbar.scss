@@ -9,13 +9,21 @@
   flex-grow: 0;
 }
 
+.navbar-lewagon .navbar-brand {
+  padding-bottom: 0.8em;
+}
+
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 180px;
 }
 
 .navbar-light .navbar-nav .nav-link {
   color: #011638;
   font-weight:500;
+}
+
+#navbarDropdown {
+    margin-left: 26px;
 }
 
 #transparent_nav {
