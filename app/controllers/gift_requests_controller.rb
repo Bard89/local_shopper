@@ -24,16 +24,16 @@ class GiftRequestsController < ApplicationController
         currency: 'eur',
         description: @giftrequest.comment,
         quantity: 1 # we will always have 1, we don't have the option to change it, user would have to pick the same item multiple times
-      }]#,
+      }],
       # problem here is that we only have the price as a whole
       # {name: @giftrequest.product2,},
       # {}],
-      # success_url: gift_request_url(@giftrequest), # where to go after doing the payment
-      # cancel_url: gift_request_url(@giftrequest) # we wanna go to the showpage of the order
+      success_url: gift_request_url(@giftrequest), # where to go after doing the payment
+      cancel_url: gift_request_url(@giftrequest) # we wanna go to the showpage of the order
     )
 
-    # order.update(checkout_session_id: session.id)
-    # redirect_to new_order_payment_path(order)
+    @giftrequest.update(checkout_session_id: session.id)
+    redirect_to new_order_payment_path(order)
   end
 
 
