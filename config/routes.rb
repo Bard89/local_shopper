@@ -32,4 +32,6 @@ Rails.application.routes.draw do
   resources :profiles, only: :show
 
   resources :chatrooms, only: :index
+
+  # mount StripeEvent::Engine, at: '/stripe-webhooks'
 end
