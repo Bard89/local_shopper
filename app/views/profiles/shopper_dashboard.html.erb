@@ -6,7 +6,7 @@
   <div class="row">
   <% @giftrequests.each do |request| %>
     <div class="col-12 col-lg-6">
-      <div class="request-card">
+      <div class="request-card" data-aos="fade-in" data-aos-duration="1000">
         <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
         <p> <small> Created at: <%= request.created_at.strftime("%-d.%-m.%Y, %H:%M") %> | Updated at: <%= request.updated_at.strftime("%-d.%-m.%Y, %H:%M") %> </small></p>
         <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>

@@ -11,6 +11,11 @@
           <p><%= @giftrequest.delivery_due_date.strftime("%-d.%-m.%Y")%></p>
         <% end %>
         <p>€ <%= @giftrequest.budget%></p>
+
+        <!-- show the price only when the package is purchases, paid, delivered? -->
+        <% if @giftrequest.status == "purchased" ||  @giftrequest.status == "paid" ||  @giftrequest.status == "delivered"%>
+          <p>price (to be removed?) -> € <%= @giftrequest.price%></p> <!-- automatically conveted from eurosents to euros  -->
+        <% end %>
         <p><%= @giftrequest.packaging %></p>
       </div>
       <div>
@@ -19,6 +24,7 @@
         <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
         <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
       </div>
+
 
       <div>
         <b></b>

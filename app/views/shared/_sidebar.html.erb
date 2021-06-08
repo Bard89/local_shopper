@@ -1,0 +1,18 @@
+<nav class="nav row flex-column" id="sidebar">
+  <div id="sidebar_container">
+    <div class="<%= "current-icon" if controller_name == 'profiles' && action_name == 'dashboard' %>">
+      <%= link_to dashboard_path, class: "sidebar-icon nav-link", id: "home-icon" do %>
+        <%= image_tag "home.svg", class: "nav-icon" %>
+      <% end %>
+    </div>
+    <%= link_to new_gift_request_path, class: "sidebar-icon nav-link", id: "new-icon" do %>
+      <%= image_tag "new_request.svg", class: "nav-icon" %>
+    <% end %>
+    <%= link_to chatrooms_path, class: "sidebar-icon nav-link" do %>
+      <%= image_tag "chat.svg", class: "nav-icon" %>
+    <% end %>
+    <%= link_to gift_requests_path, class: "sidebar-icon nav-link" do %>
+      <%= image_tag "find_request.svg", class: "nav-icon"  %>
+    <% end %>
+  </div>
+</nav>
