@@ -18,6 +18,7 @@ class GiftRequestsController < ApplicationController
   end
 
   def create
+
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
 
@@ -25,6 +26,7 @@ class GiftRequestsController < ApplicationController
     # add create chatroom and assign the newly created chatroom to the gift request
     # @chatroom = Chatroom.new(gift_request_id:@giftrequest.id)
     # @giftrequest.chatroom = @chatroom # reduntant
+
 
     if @giftrequest.save
       flash[:success] = "GiftRequest successfully created"
@@ -34,6 +36,17 @@ class GiftRequestsController < ApplicationController
       render 'new'
     end
     # raise
+  end
+
+  def confirm
+
+    @giftrequest = GiftRequest.new(giftrequest_params)
+    @giftrequest.requester = current_user
+    unless @giftrequest.valid?
+      render :action => :new
+    else
+    end
+
   end
 
   def edit
@@ -50,7 +63,7 @@ class GiftRequestsController < ApplicationController
       render 'edit'
     end
   end
-    
+
   def change_status
     @giftrequest = GiftRequest.find(params[:id])
     @giftrequest.update(status: params[:status])
@@ -79,7 +92,7 @@ class GiftRequestsController < ApplicationController
   end
 
   private
-  
+
   def giftrequest_params
     params.require(:gift_request).permit(:recipient_name, :recipient_address, :delivery_due_date, :budget, :packaging, :comment, :status, :requester_id, :product1, :shop1, :product2, :shop2, :product3, :shop3)
   end
