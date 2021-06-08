@@ -50,7 +50,7 @@ class GiftRequestsController < ApplicationController
     #raise
     if @giftrequest.save
       flash[:success] = "GiftRequest successfully created"
-      redirect_to dashboard_path
+      redirect_to dashboard_path(confirm: true)
     else
       flash[:error] = "Something went wrong"
       render 'new'
@@ -63,8 +63,9 @@ class GiftRequestsController < ApplicationController
 
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
+
     unless @giftrequest.valid?
-      render :action => :new
+    render :action => :new
     else
     end
 
