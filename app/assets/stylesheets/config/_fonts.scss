@@ -5,6 +5,10 @@
 $body-font: "Poppins", "Helvetica", "sans-serif";
 $headers-font: "Poppins", "Helvetica", "serif";
 
+h1, h2, h3, h4, h5, body, p {
+  color: #011638;
+}
+
 // To use a font file (.woff) uncomment following lines
 // @font-face {
 //   font-family: "Font Name";
