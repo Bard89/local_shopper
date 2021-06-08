@@ -42,16 +42,15 @@ import AOS from 'aos';
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   // initSelect2();
+  initStarRating();
+  AOS.init();
+  initMapbox();
   initChatroomCable();
-  navbarToggle();
   initSweetalert('#sweet-alert-demo', {
     title: "A nice alert",
     text: "This is a great alert, isn't it?",
     icon: "success"
   });
-  initStarRating();
-  AOS.init();
-  initMapbox();
-
+  navbarToggle();
 });
 
