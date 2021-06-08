@@ -20,18 +20,18 @@
 }
 
 .current-icon {
-    display: flex;
-    justify-content: center;
-    width: 52px;
-    height: 52px;
-    background: #FBF5EF;
-    margin: auto;
-    border-radius: 12px;
+  display: flex;
+  justify-content: center;
+  // width: 52px;
+  // height: 52px;
+  background: #FBF5EF;
+  margin: auto;
+  border-radius: 12px;
 }
 
 .nav-icon {
   color: white;
-  padding: 5px;
+  padding: 7px 2px; // changed by Hannah
   margin: auto;
   display: block;
   vertical-align: middle;
