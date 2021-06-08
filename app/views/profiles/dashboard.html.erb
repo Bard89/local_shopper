@@ -59,7 +59,7 @@
           <div class="col-12 col-lg-4 pl-0">
             <%= link_to gift_request_path(giftrequest) do %>
               <div class="request-card">
-                <p><small><%= "Delivery Due Date: #{giftrequest.delivery_due_date.strftime("%-d.%-m.%Y, %H:%M")}" if giftrequest.delivery_due_date %></small></p>
+                <p><small><%= "Delivery Due Date: #{giftrequest.delivery_due_date.strftime("%-d.%-m.%Y")}" if giftrequest.delivery_due_date %></small></p>
                 <p><b>Products: </b><%= giftrequest.product1 %> <%= "|" if giftrequest.product2 %> <%= giftrequest.product2 %> <%= "|" if giftrequest.product3 %> <%= giftrequest.product3 %></p>
                 <p><b>Gift for: </b> <%= giftrequest.recipient_name%></p>
                 <%= image_tag(giftrequest.requester.profile_picture, class: "avatar", id: "request-card-avatar") %>
