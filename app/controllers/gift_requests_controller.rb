@@ -98,7 +98,8 @@ class GiftRequestsController < ApplicationController
   end
 
   def gift_price
-    @giftrequest.price_cents = params[:price_cents]
+    @giftrequest = GiftRequest.find(params[:id])
+    @giftrequest.price_cents = 10
     redirect_to gift_request_path(@giftrequest)
   end
 
