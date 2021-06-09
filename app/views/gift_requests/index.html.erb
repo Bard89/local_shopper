@@ -7,6 +7,8 @@
 <main>
   <div class="container">
     <div class="row">
+      <div id="map" style="width: 80%; height: 600px; margin-top: 20px;" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
+
       <% @opengiftrequests.each do |giftrequest| %>
         <div class="col-12 col-lg-4 pl-0">
           <%= link_to gift_request_path(giftrequest) do %>
@@ -23,6 +25,6 @@
 
     <%# Map Implementation %>
     <div id="map" style="width: 80%; height: 600px; margin-top: 20px;" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-  
+
   </div>
 </main>

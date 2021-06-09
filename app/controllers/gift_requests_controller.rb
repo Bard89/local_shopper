@@ -6,7 +6,9 @@ class GiftRequestsController < ApplicationController
     @markers = @opengiftrequests.geocoded.map do |opengiftrequest|
       {
       lat: opengiftrequest.latitude,
-      lng: opengiftrequest.longitude
+      lng: opengiftrequest.longitude,
+      info_window: render_to_string(partial: "profiles/info_window", locals: {opengiftrequest: opengiftrequest})
+
       }
     end
   end
@@ -81,7 +83,7 @@ class GiftRequestsController < ApplicationController
     # end
     redirect_to shopper_dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
   end
-  
+
   def accept
     @giftrequest = GiftRequest.find(params[:id])
     @giftrequest.update(status: "accepted")
@@ -90,7 +92,7 @@ class GiftRequestsController < ApplicationController
     # was not working before as it was Chatroom.new instead of Chatroom.create
     redirect_to shopper_dashboard_path, notice: "You've succesfully taken on #{@giftrequest.requester.first_name}'s gift request!"
   end
-  
+
   def gift_price
     @giftrequest = GiftRequest.find(params[:id])
     @giftrequest.update(price_cents: price_params)

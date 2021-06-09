@@ -1,2 +1,6 @@
-<h2><%= opengiftrequest.recipient_name %></h2>
-<p><%= opengiftrequest.product1 %></p>
+<%= link_to gift_request_path(opengiftrequest) do %>
+  <div class = mapCard>
+    <h2><%= opengiftrequest.recipient_name %></h2>
+    <p><b>Products: </b><%= opengiftrequest.product1 %> <%= "|" if opengiftrequest.product2 %> <%= opengiftrequest.product2 %> <%= "|" if opengiftrequest.product3 %> <%= opengiftrequest.product3 %></p>
+  </div>
+<%end%>
