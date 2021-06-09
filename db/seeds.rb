@@ -407,7 +407,7 @@ osloShopper = User.create(
     price_cents: 19500,
     budget: 200,
     packaging: "Gift Basket",
-    product1: "Sensitive Skin Handcreme",
+    product1: "Fast delivery!",
     requester: barcelonaShopper,
     status: "delivered",
     shopper: osloShopper
@@ -417,7 +417,7 @@ osloShopper = User.create(
   )
   Review.create(
     rating: 5,
-    review: "Bjorn delivered on time and was a real gentlemen",
+    review: "Everything was great 😊",
     gift_request_id: osloDone2.id
   )
   osloDone3 = GiftRequest.create(
@@ -518,7 +518,7 @@ sofia = User.create(
   )
   Review.create(
     rating: 5,
-    review: "Bjorn delivered on time and was a real gentlemen",
+    review: "Everything was great 😊",
     gift_request_id: sofiaPastGift.id
   )
 
