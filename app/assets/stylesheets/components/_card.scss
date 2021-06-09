@@ -1,50 +1,41 @@
-a {
-  text-decoration: none;
-}
+// .card-gift .card-gift-infos {
+//   justify-content: space-between;
+//   align-items: flex-end;
+//   position: relative;
+//   padding-left: 18px;
+// }
 
-.card-gift .card-gift-infos {
-  justify-content: space-between;
-  align-items: flex-end;
-  position: relative;
-  padding-left: 18px;
-}
+// .card-gift {
+//   box-shadow: 0 0 15px rgba(105, 105, 105, 0.2);
+//   margin-bottom: 10px;
+//   padding: 16px 30px;
+//   border-radius: 5px;
+//   position: relative;
+//   width:1140px;
+// }
 
-.card-gift {
-  box-shadow: 0 0 15px rgba(105, 105, 105, 0.2);
-  margin-bottom: 10px;
-  padding: 16px 30px;
-  border-radius: 5px;
-  position: relative;
-  width:1140px;
-}
+// .card-trip h2 {
+//   font-size: 16px;
+//   font-weight: bold;
+//   margin: 0;
+//   font-size: 80%;
+// }
 
-.card-trip h2 {
-  font-size: 16px;
-  font-weight: bold;
-  margin: 0;
-  font-size: 80%;
-}
+// .card-gift p {
+//   font-size: 80%;
+//   line-height: 1.4;
+//   opacity: .7;
+//   margin-bottom: 0;
+//   margin-top: 10px;
+// }
 
-.card-gift p {
-  font-size: 80%;
-  line-height: 1.4;
-  opacity: .7;
-  margin-bottom: 0;
-  margin-top: 10px;
-}
+// .card-gift-infos .card-gift-user {
+//   padding: 16px;
+// }
 
-.card-gift-infos .card-gift-user {
-  padding: 16px;
-}
-
-#info {
-  margin-bottom: 30px;
-}
-
-.container a {
-  text-decoration: none;
-  margin-top: 10px;
-}
+// #info {
+//   margin-bottom: 30px;
+// }
 
 // Card Request
 .request-card {
@@ -56,11 +47,8 @@ a {
   padding: 20px 30px;
   font-size: 14px;
   margin-bottom: 1em;
+  height: 90%;
   // border: 2px solid white;
-}
-
-.request-card .small-icon {
-  margin-left:12px;
 }
 
 .request-card:hover {
@@ -68,22 +56,16 @@ a {
   // border: 2px solid #F1DABF;
 }
 
-.request-card-action-button {
+#request-card-expand-button {
   position: absolute;
-  top: 16px;
-  right: 20px;
-}
-
-#request-card-message-button {
-  position: absolute;
-  bottom: 5px;
+  bottom: 20px;
   right: 30px;
 }
 
-#request-card-expand-button {
+#request-card-avatar {
   position: absolute;
-  bottom: 16px;
-  right: 20px;
+  bottom: 20px;
+  right: 30px;
 }
 
 

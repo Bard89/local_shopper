@@ -9,44 +9,35 @@
   <div class="row">
   <% @giftrequests.each do |request| %>
     <div class="col-12 col-lg-6 pl-0">
-      <div class="request-card" data-aos="fade-in" data-aos-duration="1000">
-        <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
-        <p> <small> Delivery Due Date: <%= request.delivery_due_date.strftime("%-d.%-m.%Y, %H:%M") if request.delivery_due_date %> </small></p>
-        <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
+      <div class="request-card" data-aos="fade-in" data-aos-duration="1300">
+        <div class="d-flex justify-content-between">
+          <p><small> <%= "Delivery Due Date: #{request.delivery_due_date.strftime("%-d.%-m.%Y")}" if request.delivery_due_date %> </small></p>
+          <div>
+            <% if request.status == "accepted" && request.shopper == current_user %>
+              <%# Add Price (Receipt) to shopped gift %>
+              <a type="button" data-toggle="modal" data-target="#priceModal">Upload Receipt</a>
+              <%= render partial: 'gift_requests/gift_price', locals: { gift_request: request } %>  
+            <% end %>
+          </div>
+        </div>
+        <p><small><%= "Delivery Due Date: #{request.delivery_due_date.strftime("%-d.%-m.%Y")}" if request.delivery_due_date %></small></p>
+        <p>Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
+        <p>Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
 
-        <% if request.requester %>
-          <p>Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
-        <% end %>
-
-        <div id="status" onclick="statusupdate() if request.shopper == current_user">
-          <% if request.status == "accepted" %>
-            <p class="pill-button pill-button-accepted"><%= request.status %></p>
-            <%= link_to "Upload Receipt", gift_price_gift_request_path(request)  %>
-
+        <div id="status" onclick="statusupdate()">
+          <p class="pill-button pill-button-<%= request.status %>"><%= request.status %></p>
+          <% if request.status == "paid"  %>
             <div id="change-status" class="d-none">
               <% GiftRequest::STATUSES.each do |status| %>
-                <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch do %>
+                <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch, data: { confirm: "Do you want to change the status for #{request.recipient_name}'s gift to delivered?"} do %>
                   <span class="pill-button pill-button-<%= status %>"><%= status %></span>
                 <% end %>
               <% end %>
             </div>
-          <% elsif request.status == "purchased"  %>
-            <p class="pill-button pill-button-purchased"><%= request.status %></p>
-          <% elsif request.status == "paid"  %>
-            <p class="pill-button pill-button-paid"><%= request.status %></p>
-            <div id="change-status" class="d-none">
-              <% GiftRequest::STATUSES.each do |status| %>
-                <%= link_to shopper_change_status_gift_request_path(request, status: status), method: :patch do %>
-                  <span class="pill-button pill-button-<%= status %>"><%= status %></span>
-                <% end %>
-              <% end %>
-            </div>
-          <% elsif request.status == "delivered"  %>
-            <p class="pill-button pill-button-delivered"><%= request.status %></p>
-          <% elsif request.status == "cancelled"  %>
-            <p class="pill-button"><%= request.status %></p>
           <% end %>
         </div>
+        
+        <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
       </div>
     </div>
   <% end %>

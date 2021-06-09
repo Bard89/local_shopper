@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
 
   def dashboard
     @giftrequests = GiftRequest.where(requester_id: current_user).order(created_at: :desc)
-    @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(created_at: :desc)
+    @opengiftrequests = GiftRequest.near(current_user.location, 10).where(shopper_id: nil, status: "pending").order(created_at: :desc)
     if params[:confirm]
       flash[:notice] = "Your Request has been succecfully made"
     end
