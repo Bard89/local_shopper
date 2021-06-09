@@ -163,7 +163,7 @@ gift_for_chat_1 = GiftRequest.create(
 # Shopped Gifts for the Barcelona Shopper (Eileen)
 gift_for_chat_3 = GiftRequest.create(
   recipient_name: "Irene",
-  recipient_address: "Barcelona",
+  recipient_address: "Ciutat Vella, Barcelona",
   budget: 200,
   price_cents: 19999, # careful, the budget is in euros and the price in cents
   packaging: "Gift Bag, unwrapped",
@@ -183,7 +183,7 @@ Review.create(
 
 gift_for_chat_4 = GiftRequest.create(
   recipient_name: "Jessica",
-  recipient_address: "Barcelona",
+  recipient_address: "El Carmel, Barcelona",
   price_cents: 19999,
   budget: 200,
   packaging: "Gift Basket",
@@ -204,7 +204,7 @@ Review.create(
 
 GiftRequest.create(
   recipient_name: "Theresa",
-  recipient_address: "Barcelona",
+  recipient_address: "La Teixonera, Barcelona",
   budget: 200,
   packaging: "gift bag",
   product1: "Jojo Moyes Book", 
@@ -214,7 +214,7 @@ GiftRequest.create(
 
 GiftRequest.create(
   recipient_name: "Charlotte",
-  recipient_address: "Barcelona",
+  recipient_address: "El Besòs i el Maresme, Barcelona",
   budget: 20,
   packaging: "yellow bow around",
   product1: "Wallet",
@@ -225,7 +225,7 @@ GiftRequest.create(
 
 GiftRequest.create(
   recipient_name: "Emily",
-  recipient_address: "Barcelona",
+  recipient_address: "La Vall d’Hebron, Barcelona",
   budget: 20,
   delivery_due_date: "2021-09-01",
   product1: "Friends All 10 Seasons",
@@ -234,7 +234,7 @@ GiftRequest.create(
 
 GiftRequest.create(
   recipient_name: "Sophie",
-  recipient_address: "Barcelona",
+  recipient_address: "La Verneda i la Pau, Barcelona",
   budget: 20,
   product1: "Package with local snacks",
   requester: berlinShopper
@@ -242,12 +242,22 @@ GiftRequest.create(
 
 GiftRequest.create(
   recipient_name: "Emily",
-  recipient_address: "Barcelona",
+  recipient_address: "Vila de Gràcia, Barcelona",
   budget: 30,
   delivery_due_date: "2021-09-01",
   product1: "Mechanical Keyboard",
   product2: "Coder Mug",
   requester: hannes
+)
+
+GiftRequest.create(
+  recipient_name: "Don Carlos",
+  recipient_address: "Mitte, Berlin",
+  budget: 300,
+  delivery_due_date: "2021-09-01",
+  product1: "Mechanical Keyboard",
+  product2: "Coder Mug",
+  requester: eileen
 )
 
 
