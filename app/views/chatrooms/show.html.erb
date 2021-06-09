@@ -22,7 +22,7 @@
     <!--  <h1>#<%= @chatroom.id %></h1> id replaed -->
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
-        <div class="message-container mb-2"> 
+        <div class="message-container mb-2">
           <p class="text-center">
             <small>
               <%= message.created_at.strftime("%-d.%-m.%Y") if !message.created_at.today?  %>
@@ -46,11 +46,13 @@
         </div>
       <% end %>
       <div id="send-message">
-        <%= simple_form_for [ @chatroom, @message ], remote: true, authenticity_token: true do |f| %>
+        <%= simple_form_for [ @chatroom, @message ], remote: true, authenticity_token: true, html: { class: "d-flex mt-2"} do |f| %>
           <%= f.hidden_field :gift_request_id, value: params[:gift_request_id] %>
           <%= f.input :content, label: false, placeholder: "Type your message here"  %> <%#, placeholder: "Message ##{@chatroom.id}" %>
         <% end %>
       </div>
+
     </div>
+
   </div>
 </main>

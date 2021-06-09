@@ -1,5 +1,5 @@
 #chatroom {
-  height: 40vh;
+  height: 60vh;
   ::-webkit-scrollbar-track {
 	  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
     border-radius: 10px;
@@ -18,8 +18,8 @@
   }
 
   #send-message {
-    position: absolute;
-    bottom: 15px;
+    position: sticky;
+    bottom: -16px;
   }
 }
 
@@ -52,5 +52,9 @@
 
 #chatroom a:hover {
   color: rgb(85, 85, 85);
+}
+
+.form-group.string.required.message_content {
+  width: 98%;
 }
 
