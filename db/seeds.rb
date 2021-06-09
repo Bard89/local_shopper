@@ -316,16 +316,16 @@ barcelonaShopper = User.create(
   profile_picture: "https://images.unsplash.com/photo-1502378735452-bc7d86632805?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=aa3a807e1bbdfd4364d1f449eaa96d82"
 )
 pragueShopper = User.create(
-  location: "Prague",
-  first_name: "Konstantin",
-  last_name: "Müller",
+  location: "Los Angeles",
+  first_name: "Sebastian",
+  last_name: "Miller",
   email: 'konstantin@localshopper.com',
   password: '123456',
-  profile_picture: "https://images-na.ssl-images-amazon.com/images/M/MV5BNTk2OGU4NzktODhhOC00Nzc2LWIyNzYtOWViMjljZGFiNTMxXkEyXkFqcGdeQXVyMTE1NTQwOTk@._V1_UY256_CR12,0,172,256_AL_.jpg"
+  profile_picture: "https://m.media-amazon.com/images/M/MV5BNGIwMDVkNjktMzM3MC00ZmZmLTg3ZDYtZGEzZjU5NDI3ZTkyXkEyXkFqcGdeQXVyNTcxNDk1MA@@._V1_UX172_CR0,0,172,256_AL_.jpg"
   )
 grazShopper = User.create(
   location: "Graz",
-  first_name: "Theresa",
+  first_name: "Lisa",
   last_name: "Steiner",
   email: 'theresa@localshopper.com',
   password: '123456',
@@ -385,9 +385,10 @@ osloShopper = User.create(
     recipient_name: "Jessica",
     recipient_address: "Aker Brygge, Oslo",
     price_cents: 19500,
-    budget: 200,
-    packaging: "Gift Basket",
-    product1: "Craft Beer Mix",
+    budget: 40,
+    packaging: "yellow bow around",
+    product1: "Wallet",
+    product2: "Picture Frame",
     requester: pragueShopper,
     status: "delivered",
     shopper: osloShopper
@@ -406,7 +407,7 @@ osloShopper = User.create(
     price_cents: 19500,
     budget: 200,
     packaging: "Gift Basket",
-    product1: "Craft Beer Mix",
+    product1: "Sensitive Skin Handcreme",
     requester: barcelonaShopper,
     status: "delivered",
     shopper: osloShopper
@@ -441,48 +442,52 @@ osloShopper = User.create(
 
 # Oslo Open Gift Requests
 GiftRequest.create(
-  recipient_name: "Jessica",
+  recipient_name: "Astrid",
   recipient_address: "Frogner, Oslo",
-  price_cents: 19500,
+  delivery_due_date: "2021-07-01",
   budget: 200,
   packaging: "Gift Basket",
-  product1: "Craft Beer Mix",
+  product1: "Michael Kors Parfume",
+  product2: "Local Ice Cream Voucher",
   requester: sandra
 )
 GiftRequest.create(
-  recipient_name: "Jessica",
+  recipient_name: "Rasmus",
   recipient_address: "Majorstuen, Oslo",
-  price_cents: 19500,
-  budget: 200,
-  packaging: "Gift Basket",
+  delivery_due_date: "2021-06-14",
+  budget: 60,
+  packaging: "Sparkly Wrapping",
   product1: "Craft Beer Mix",
+  product2: "Cuba Cigars",
   requester: john
 )
 GiftRequest.create(
-  recipient_name: "Jessica",
+  recipient_name: "Camilla",
   recipient_address: "Sentrum, Oslo",
-  price_cents: 19500,
-  budget: 200,
+  delivery_due_date: "2021-07-04",
+  budget: 70,
   packaging: "Gift Basket",
-  product1: "Craft Beer Mix",
+  product1: "Oslo Gin",
+  product2: "Funny socks",
   requester: pragueShopper
 )
 GiftRequest.create(
-  recipient_name: "Jessica",
-  recipient_address: "Sofienberg, Oslo",
-  price_cents: 19500,
-  budget: 200,
+  recipient_name: "Lars",
+  recipient_address: "Gamle Aker, Oslo",
+  delivery_due_date: "2021-06-10",
+  budget: 45,
   packaging: "Gift Basket",
-  product1: "Craft Beer Mix",
+  product1: "Coffee Beans",
+  product2: "Espresso Set",
   requester: louiz
 )
 GiftRequest.create(
-  recipient_name: "Jessica",
+  recipient_name: "Ivar",
   recipient_address: "Sofienberg, Oslo",
-  price_cents: 19500,
-  budget: 200,
+  delivery_due_date: "2021-06-22",
+  budget: 100,
   packaging: "Gift Basket",
-  product1: "Craft Beer Mix",
+  product1: "Candle",
   requester: mia
 )
 
@@ -522,9 +527,10 @@ GiftRequest.create(
     recipient_name: "Georgios",
     recipient_address: "Paleochora, Crete",
     price_cents: 19500,
-    budget: 200,
-    packaging: "Gift Basket",
-    product1: "Craft Beer Mix",
+    budget: 150,
+    packaging: "Traditional Basket",
+    product1: "Native Olive Oil",
+    product2: "Silver Necklace",
     requester: barcelonaShopper
   )
 GiftRequest.create(
@@ -542,7 +548,8 @@ GiftRequest.create(
   price_cents: 19500,
   budget: 200,
   packaging: "Gift Basket",
-  product1: "Craft Beer Mix",
+  product1: "Native Olive Oil",
+  product2: "Silver Necklace",
   requester: mia
 )
 
