@@ -15,4 +15,7 @@ class GiftRequest < ApplicationRecord
   monetize :price_cents
   geocoded_by :recipient_address
   after_validation :geocode, if: :will_save_change_to_recipient_address?
+
+  def euros_to_cents
+  end
 end
