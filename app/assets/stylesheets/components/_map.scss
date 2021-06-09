@@ -1,6 +1,11 @@
 .mapboxgl-popup {
   max-width: 1030px;
   height: 450px;
+
+}
+
+.mapboxgl-marker.mapboxgl-marker-anchor-center svg g {
+  fill:#8994D2;
 }
 
 .mapboxgl-popup-content {
