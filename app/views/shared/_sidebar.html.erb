@@ -1,7 +1,7 @@
 <nav class="nav row flex-column" id="sidebar">
   <div id="sidebar_container">
 
-    <%= link_to dashboard_path, class: "sidebar-icon nav-link", id: "home-icon" do %>
+    <%= link_to root_path, class: "sidebar-icon nav-link", id: "home-icon" do %>
       <div class="<%= "current-icon" if controller_name == 'profiles' && action_name == 'dashboard' %>">
         <%= image_tag "home.svg", class: "nav-icon" %>
       </div>

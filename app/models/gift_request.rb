@@ -13,4 +13,6 @@ class GiftRequest < ApplicationRecord
 
   # to enable the monetisation -> just sayin wchich column is the price
   monetize :price_cents
+  geocoded_by :recipient_address
+  after_validation :geocode, if: :will_save_change_to_recipient_address?
 end

@@ -1,37 +1,35 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-8">
-      <div class="mb-4">
-        <h2>Gift request for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %></h2>
-      </div>
+<header>
+  <div>
+    <h1>Gift request for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %></h1>
+  </div>
+</header>
 
-      <div>
-        <p><b>Details</b></p>
-        <p>€ <%= @giftrequest.budget%></p>
-        <p><%= @giftrequest.packaging %></p>
-      </div>
-      <div>
-        <p><b>Products</b></p>
-        <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
-        <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
-        <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
-      </div>
+<main>
+  <div class="container">
+    <div>
+      <p><b>Details</b></p>
+      <p>€ <%= @giftrequest.budget%></p>
+      <p><%= @giftrequest.packaging %></p>
+    </div>
+    
+    <div>
+      <p><b>Products</b></p>
+      <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
+      <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
+      <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
+    </div>
 
-      <div>
-        <b></b>
-        <p><b>Comment</b></p>
-        <% if @giftrequest.comment %>
-          <%= @giftrequest.comment %>
-        <% else %>
-          No Comment
-        <% end %>
-      </div>
+    <div>
+      <b></b>
+      <p><b>Comment</b></p>
+      <% if @giftrequest.comment %>
+        <%= @giftrequest.comment %>
+      <% else %>
+        No Comment
+      <% end %>
+    </div>
 
     <%#= link_to "Confirm", gift_requests_path(nil, gift_request:@giftrequest), method: :post, class: "btn btn-primary mt-3" %>
     <%= render 'form_confirm', gift_request: @giftrequest %>
-
-
-
   </div>
-</div>
-
+</main>

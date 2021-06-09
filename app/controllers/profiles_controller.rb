@@ -13,9 +13,19 @@ class ProfilesController < ApplicationController
     if params[:confirm]
       flash[:notice] = "Your Request has been succecfully made"
     end
+    # @chatrooms = Chatroom.where(gift_request: @giftrequest)
+
+    # raise
+    @markers = @opengiftrequests.geocoded.map do |opengiftrequest|
+      {
+      lat: opengiftrequest.latitude,
+      lng: opengiftrequest.longitude
+      }
+    end
   end
 
   def shopper_dashboard
     @giftrequests = GiftRequest.where(shopper_id: current_user).order(created_at: :desc)
   end
+
 end

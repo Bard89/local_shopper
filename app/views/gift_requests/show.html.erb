@@ -2,9 +2,9 @@
   <h1>Gift request for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1>
 </header>
 
-<div class="container" data-aos="fade-left" data-aos-duration="1000">
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-9">
+    <div class="col-9 pl-0">
       <div>
         <p><b>Details</b></p>
         <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
@@ -24,8 +24,6 @@
         <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
         <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
       </div>
-
-
       <div>
         <b></b>
         <p><b>Comment</b></p>
@@ -35,7 +33,7 @@
           No Comment
         <% end %>
       </div>
-
+  
       <div class = "pt-3">
         <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
           <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(@giftrequest) %>
@@ -64,7 +62,6 @@
         <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
       <% end %>
     </div>
-
     </div>
 
     <!-- Button trigger modal -->

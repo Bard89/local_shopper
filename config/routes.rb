@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :gift_requests do
     resource :chatrooms, only: :show # singular -> omits the id at the end
     resources :payments, only: :new # added for stripe
+    resources :gift_request, only: :pay
     collection do
       post :confirm
     end
@@ -25,12 +26,12 @@ Rails.application.routes.draw do
       patch :change_status
       patch :shopper_change_status
       patch :accept
+      get :gift_price
     end
     resources :reviews, only: [:create]
   end
 
-  resources :profiles, only: :show
-
+  resources :profiles, only: [:show]
   resources :chatrooms, only: :index
 
   mount StripeEvent::Engine, at: '/stripe-webhooks'
