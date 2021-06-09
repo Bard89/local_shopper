@@ -12,9 +12,9 @@
 </header>
 
 <main>
-  <div class="container mt-3" data-aos="fade-up" data-aos-duration="1000">
+  <div class="container mt-4" data-aos="fade-up" data-aos-duration="1000">
     <div class="row">
-      <div class="col-3 request-card" id="profile">
+      <div class="col-3" id="profile">
 
         <div class="row" id="name_logo">
           <% if @user.profile_picture %>
@@ -24,10 +24,12 @@
           <% end %>
         </div>
 
-        <div class="col" id="profile_details">
-          <h5 id="profile-name"> <%= @user.first_name %> <%= @user.last_name %></h5>
-          <p> <%= @user.email %> </p>
-          <p> Shopping in <span id="profile-location"><%= @user.location %></span> </p>
+        <div class="row">
+          <div class="col" id="profile_details">
+            <h5 id="profile-name"> <%= @user.first_name %> <%= @user.last_name %></h5>
+            <p> <%= @user.email %> </p>
+            <p> Shopping in <span id="profile-location"><%= @user.location %></span> </p>
+          </div>
         </div>
 
         <div class="row" id="edit-profile">
@@ -37,7 +39,7 @@
         </div>
       </div>
 
-      <div class="col ml-4 mt-4">
+      <div class="col ml-5 mt-4">
         <h3 id="reviews" class="mb-0">Reviews</h3>
         <% @reviews.each do |review| %>
           <% if @user.id == review.gift_request.shopper_id %>

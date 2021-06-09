@@ -17,17 +17,16 @@
   align-items:center;
   margin-bottom:32px;
   height: 424px;
-}
-
-#profile:hover {
-  border: 3px solid white;
+  box-shadow: none;
 }
 
 #name_logo {
   justify-content: center;
-  margin-top: 16px;
 }
 
+#profile {
+  padding-left: 0;
+}
 
 #profile_details {
   text-align:center;
@@ -43,7 +42,9 @@
 
 
 #user_profile_photo {
-  margin:8px;
+  margin-bottom: 16px;
+  width: 225px;
+  height: 225px;
 }
 
 #profile-name {
