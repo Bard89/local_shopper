@@ -1,9 +1,14 @@
 class GiftRequestsController < ApplicationController
   def index
     @giftrequests = GiftRequest.all
-    @opengiftrequests = GiftRequest.where(shopper_id: nil, status: "pending", recipient_address: current_user.location).order(created_at: :desc)
-#    the `geocoded` scope filters only flats with coordinates (latitude & longitude
-
+    @opengiftrequests = GiftRequest.near(current_user.location, 10).where(shopper_id: nil, status: "pending").order(created_at: :desc)
+    # the `geocoded` scope filters only flats with coordinates (latitude & longitude
+    @markers = @opengiftrequests.geocoded.map do |opengiftrequest|
+      {
+      lat: opengiftrequest.latitude,
+      lng: opengiftrequest.longitude
+      }
+    end
   end
 
   def show
