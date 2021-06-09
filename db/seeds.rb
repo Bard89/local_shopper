@@ -473,7 +473,7 @@ GiftRequest.create(
 )
 GiftRequest.create(
   recipient_name: "Lars",
-  recipient_address: "Sofienberg, Oslo",
+  recipient_address: "Gamle Aker, Oslo",
   delivery_due_date: "2021-06-10",
   budget: 45,
   packaging: "Gift Basket",
