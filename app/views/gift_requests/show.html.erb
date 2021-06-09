@@ -17,7 +17,7 @@
 
         <!-- show the price only when the package is purchases, paid, delivered? -->
         <% if @giftrequest.status == "purchased" ||  @giftrequest.status == "paid" ||  @giftrequest.status == "delivered"%>
-          <p class="text-danger">price (to be removed?) -> € <%= @giftrequest.price%></p> <!-- automatically conveted from eurosents to euros  -->
+          <p>Price: € <%= @giftrequest.price%></p> <!-- automatically conveted from eurosents to euros  -->
         <% end %>
         <p><%= @giftrequest.packaging %></p>
       </div>
