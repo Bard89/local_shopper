@@ -20,7 +20,7 @@
             <% end %>
           </div>
         </div>
-        
+        <p><small><%= "Delivery Due Date: #{request.delivery_due_date.strftime("%-d.%-m.%Y")}" if request.delivery_due_date %></small></p>
         <p>Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
         <p>Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
 
