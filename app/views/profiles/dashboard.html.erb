@@ -1,13 +1,13 @@
 <div class="dashboard d-none">
   <header>
-    <div class="d-flex align-items-center mb-4">
+    <div class="d-flex align-items-center mb-2 pb-2">
       <h1>My Gift Requests</h1>
       <%= link_to "New Gift Request", new_gift_request_path, class: "btn-primary ml-4 mt-3" %>
     </div>
   </header>
 
   <main>
-    <div class="container">
+    <div class="container mt-0">
       <div class="row">
         <% @giftrequests.each do |request| %>
           <div class="col-12 col-lg-6 pl-0">
@@ -28,7 +28,7 @@
               </div>
 
               <p> Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
-              
+
               <%# Shopper assigned? %>
               <% if request.shopper %>
                 <p> Shopper: <%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
@@ -51,13 +51,16 @@
 
 <div class="gift_request d-none">
   <header>
-    <div class="container mb-3">
+    <div class="d-flex align-items-center mb-2 pb-2">
       <h1>Gift Requests in your Area</h1>
     </div>
+<!--     <div class="container mb-3">
+      <h1>Gift Requests in your Area</h1>
+    </div> -->
   </header>
 
   <main>
-    <div class="container">
+    <div class="container mt-0">
       <div class="row">
         <% @opengiftrequests.each do |giftrequest| %>
           <div class="col-12 col-lg-4 pl-0">
@@ -75,7 +78,7 @@
 
       <%# Map Implementation %>
       <div id="map" style="width: 80%; height: 600px; margin-top: 20px;" data-markers="<%= @markers.to_json %>"data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"></div>
-    
+
     </div>
   </main>
 </div>
