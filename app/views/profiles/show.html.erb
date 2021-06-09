@@ -42,7 +42,38 @@
         <% @reviews.each do |review| %>
           <% if @user.id == review.gift_request.shopper_id %>
             <div class="pl-0" id="review">
-              <p><strong>Rating:</strong> <%= review.rating %></p>
+              <% if review.rating == 1 %>
+                <div class="stars">
+                  <i class="fa fa-star"></i>
+                </div>
+              <% elsif review.rating == 2 %>
+                <div class="stars">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              <% elsif review.rating == 3 %>
+                <div class="stars">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              <% elsif review.rating == 4 %>
+                <div class="stars">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              <% elsif review.rating == 5 %>
+                <div class="stars">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              <% else %>
+              <% end %>
               <p>"<%= review.review %>"</p>
             </div>
           <% end %>
