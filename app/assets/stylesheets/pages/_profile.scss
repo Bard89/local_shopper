@@ -12,17 +12,25 @@
 #profile {
   align-items:center;
   margin-bottom:32px;
+  height: 424px;
+}
+
+#profile:hover {
+  border: 3px solid white;
 }
 
 #name_logo {
-  text-align:left;
+  justify-content: center;
+  margin-top: 16px;
 }
 
 
 #profile_details {
-  text-align:left;
+  text-align:center;
   align-self:flex-end;
   padding-bottom:12px;
+  padding-left: 0;
+  margin-top: 16px;
 }
 
 #user_name {
@@ -32,4 +40,16 @@
 
 #user_profile_photo {
   margin:8px;
+}
+
+#profile-name {
+  margin-bottom: 16px;
+}
+
+#profile-location {
+  font-weight: 600;
+}
+
+#edit-profile {
+  justify-content: center;
 }
