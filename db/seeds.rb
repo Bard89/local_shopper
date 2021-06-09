@@ -257,7 +257,7 @@ GiftRequest.create(
   delivery_due_date: "2021-09-01",
   product1: "Mechanical Keyboard",
   product2: "Coder Mug",
-  requester: eileen
+  requester: barcelonaShopper
 )
 
 
