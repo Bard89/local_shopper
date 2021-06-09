@@ -9,20 +9,20 @@ class ProfilesController < ApplicationController
 
   def dashboard
     @giftrequests = GiftRequest.where(requester_id: current_user).order(created_at: :desc)
-    @opengiftrequests = GiftRequest.near(current_user.location, 10).where(shopper_id: nil, status: "pending").order(created_at: :desc)
+    @mygiftrequests = GiftRequest.where(shopper_id: current_user).order(created_at: :desc)
     if params[:confirm]
       flash[:notice] = "Your Request has been succecfully made"
     end
     # @chatrooms = Chatroom.where(gift_request: @giftrequest)
-
-    # raise
-    @markers = @opengiftrequests.geocoded.map do |opengiftrequest|
-      {
-      lat: opengiftrequest.latitude,
-      lng: opengiftrequest.longitude,
-      info_window: render_to_string(partial: "info_window", locals: {opengiftrequest: opengiftrequest})
-      }
-    end
+    
+    # @opengiftrequests = GiftRequest.near(current_user.location, 10).where(shopper_id: nil, status: "pending").order(created_at: :desc)
+    # @markers = @opengiftrequests.geocoded.map do |opengiftrequest|
+    #   {
+    #   lat: opengiftrequest.latitude,
+    #   lng: opengiftrequest.longitude,
+    #   info_window: render_to_string(partial: "info_window", locals: {opengiftrequest: opengiftrequest})
+    #   }
+    # end
   end
 
   def shopper_dashboard
