@@ -3,33 +3,43 @@
 <%# <p>add a link from gift_request to be able to get here</p> %>
 <%# <p>add the edit and then revrite the devise eddit> or override it somewhere else ?</p> %>
 <%# <p>put a map with the location in here??</p> %>
-<div class="container text-center mt-4" id="profile_container" data-aos="fade-up" data-aos-duration="1000">
-  <div class="row" id="profile">
-    <div class="col" id="name_logo">
-      <h1 id="user_name"> <%= @user.first_name %></h1>
-      <% if @user.profile_picture %>
-        <%= image_tag(@user.profile_picture, options = {class: "avatar-large", id: "user_profile_photo"} ) %>
-      <% else %>
-        <img src="https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif" alt="user-avatar" class="avatar-large">
-      <% end %>
-      <%= link_to icon('fas fa-edit', "Edit"), edit_user_registration_path(current_user), options = { class: "btn pt-0 pr-0 text-muted", id: "edit_profile" } %>
-    </div>
-    <div class="col-8" id="profile_details">
-      <p> <strong>Name:</strong>  <%= @user.first_name %> <%= @user.last_name %></p>
-      <p> <strong>Email:</strong>  <%= @user.email %> </p>
-      <p> <strong>Location:</strong> <%= @user.location %> </p>
-    </div>
-  </div>
 
-  <div>
-    <h3 id="reviews" class="mb-0">Reviews</h3>
-    <% @reviews.each do |review| %>
-      <% if @user.id == review.gift_request.shopper_id %>
-        <div class="pl-0" id="review">
-          <p><strong>Rating:</strong> <%= review.rating %></p>
-          <p><strong>Review:</strong> <%= review.review %></p>
-        </div>
-      <% end %>
-    <% end %>
+<header>
+<!--   <h1 id="user_name"> <%= @user.first_name %></h1> -->
+  <div class="d-flex align-items-center mb-2 pb-2">
+      <h1><%= @user.first_name %></h1>
   </div>
-</div>
+</header>
+
+<main>
+  <div class="container mt-0" data-aos="fade-up" data-aos-duration="1000">
+    <div class="row" id="profile">
+      <div class="col" id="name_logo">
+
+        <% if @user.profile_picture %>
+          <%= image_tag(@user.profile_picture, options = {class: "avatar-large", id: "user_profile_photo"} ) %>
+        <% else %>
+          <img src="https://medgoldresources.com/wp-content/uploads/2018/02/avatar-placeholder-300x300.gif" alt="user-avatar" class="avatar-large">
+        <% end %>
+        <%= link_to icon('fas fa-edit', "Edit"), edit_user_registration_path(current_user), options = { class: "btn pt-0 pr-0 text-muted", id: "edit_profile" } %>
+      </div>
+      <div class="col-8" id="profile_details">
+        <p> <strong>Name:</strong>  <%= @user.first_name %> <%= @user.last_name %></p>
+        <p> <strong>Email:</strong>  <%= @user.email %> </p>
+        <p> <strong>Location:</strong> <%= @user.location %> </p>
+      </div>
+    </div>
+
+    <div>
+      <h3 id="reviews" class="mb-0">Reviews</h3>
+      <% @reviews.each do |review| %>
+        <% if @user.id == review.gift_request.shopper_id %>
+          <div class="pl-0" id="review">
+            <p><strong>Rating:</strong> <%= review.rating %></p>
+            <p><strong>Review:</strong> <%= review.review %></p>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</main>
