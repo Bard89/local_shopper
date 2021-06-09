@@ -22,7 +22,7 @@ class GiftRequestsController < ApplicationController
         # images: [gift_request.photo_url],
         amount: @giftrequest.price_cents, # this can't be 0 here
         currency: 'eur',
-        description: @giftrequest.comment,
+        # description: @giftrequest.comment,
         quantity: 1 # we will always have 1, we don't have the option to change it, user would have to pick the same item multiple times
       }],
       # problem here is that we only have the price as a whole
