@@ -26,7 +26,7 @@ Rails.application.routes.draw do
       patch :change_status
       patch :shopper_change_status
       patch :accept
-      get :gift_price
+      patch :gift_price
     end
     resources :reviews, only: [:create]
   end
