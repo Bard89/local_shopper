@@ -6,7 +6,9 @@ class GiftRequestsController < ApplicationController
     @markers = @opengiftrequests.geocoded.map do |opengiftrequest|
       {
       lat: opengiftrequest.latitude,
-      lng: opengiftrequest.longitude
+      lng: opengiftrequest.longitude,
+      info_window: render_to_string(partial: "profiles/info_window", locals: {opengiftrequest: opengiftrequest})
+
       }
     end
   end
@@ -81,7 +83,7 @@ class GiftRequestsController < ApplicationController
     # end
     redirect_to shopper_dashboard_path, notice: "Status for #{@giftrequest.recipient_name}'s gift updated to #{@giftrequest.status}"
   end
- #ad7bd65f2ee3adce587b61aca8e5ac646053fccf
+
   def accept
     @giftrequest = GiftRequest.find(params[:id])
     @giftrequest.update(status: "accepted")

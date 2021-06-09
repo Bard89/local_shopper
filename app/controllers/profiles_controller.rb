@@ -19,7 +19,8 @@ class ProfilesController < ApplicationController
     @markers = @opengiftrequests.geocoded.map do |opengiftrequest|
       {
       lat: opengiftrequest.latitude,
-      lng: opengiftrequest.longitude
+      lng: opengiftrequest.longitude,
+      info_window: render_to_string(partial: "info_window", locals: {opengiftrequest: opengiftrequest})
       }
     end
   end
