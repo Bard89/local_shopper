@@ -2,7 +2,10 @@
   width:80px;
   align-items:center;
   float:left;
-  margin:0px 48px 0px 80px;
+  margin:40px 48px 0px 80px;
+  position: sticky;
+  top: 110px;
+  z-index: 2;
 }
 
 #sidebar_container {
@@ -35,4 +38,9 @@
   margin: auto;
   display: block;
   vertical-align: middle;
+}
+
+
+.nav-icon:hover {
+  opacity: 60%;
 }

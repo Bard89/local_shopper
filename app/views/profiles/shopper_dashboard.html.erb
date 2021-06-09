@@ -1,5 +1,5 @@
 <header>
-  <div class="d-flex align-items-center">
+  <div class="d-flex align-items-center pb-2">
     <h1>My Shoppings</h1>
     <%= link_to "Find Requests in your Area", gift_requests_path, class: "ml-3" %>
   </div>
@@ -16,11 +16,11 @@
             <% if request.status == "accepted" && request.shopper == current_user %>
               <%# Add Price (Receipt) to shopped gift %>
               <a type="button" data-toggle="modal" data-target="#priceModal">Upload Receipt</a>
-              <%= render partial: 'gift_requests/gift_price', locals: { gift_request: request } %>  
+              <%= render partial: 'gift_requests/gift_price', locals: { gift_request: request } %>
             <% end %>
           </div>
         </div>
-        <p><small><%= "Delivery Due Date: #{request.delivery_due_date.strftime("%-d.%-m.%Y")}" if request.delivery_due_date %></small></p>
+
         <p>Recipient: <%= request.recipient_name %> | <%= request.recipient_address %></p>
         <p>Requester: <%= request.requester.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request)  %></p>
 
@@ -36,7 +36,7 @@
             </div>
           <% end %>
         </div>
-        
+
         <%= link_to icon('fas', 'expand-alt'), gift_request_path(request), id: "request-card-expand-button" %>
       </div>
     </div>

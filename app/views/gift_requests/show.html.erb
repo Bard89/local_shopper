@@ -1,8 +1,11 @@
 <header>
-  <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1>
+  <div class="d-flex align-items-center mb-2 pb-2">
+    <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1>
+  </div>
+  <!-- <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1> -->
 </header>
 
-<div class="container">
+<div class="container mt-0">
   <div class="row justify-content-center">
     <div class="col-9">
       <div>
@@ -33,7 +36,7 @@
           No Comment
         <% end %>
       </div>
-  
+
       <div class = "pt-3">
         <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
           <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(@giftrequest) %>

@@ -10,7 +10,6 @@ class ProfilesController < ApplicationController
   def dashboard
     @giftrequests = GiftRequest.where(requester_id: current_user).order(created_at: :desc)
     @opengiftrequests = GiftRequest.near(current_user.location, 10).where(shopper_id: nil, status: "pending").order(created_at: :desc)
-
     if params[:confirm]
       flash[:notice] = "Your Request has been succecfully made"
     end
@@ -24,9 +23,8 @@ class ProfilesController < ApplicationController
       info_window: render_to_string(partial: "info_window", locals: {opengiftrequest: opengiftrequest})
       }
     end
-
   end
-  # the stripe should be here
+
   def shopper_dashboard
     @giftrequests = GiftRequest.where(shopper_id: current_user).order(created_at: :desc)
   end

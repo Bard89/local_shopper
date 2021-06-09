@@ -1,9 +1,14 @@
-<header>
-  <h1>New Gift Request</h1>
-</header>
+<div>
+  <header>
+    <div class="d-flex align-items-center mb-2 pb-2">
+      <h1>New Gift Request</h1>
+    </div>
+<!--     <h1>New Gift Request</h1> -->
+  </header>
 
-<main>
-  <div class="container">
-    <%= render 'form', gift_request: @giftrequest %>
-  </div>
-</main>
+  <main>
+    <div class="container mt-0">
+      <%= render 'form', gift_request: @giftrequest %>
+    </div>
+  </main>
+</div>
