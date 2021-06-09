@@ -1,13 +1,14 @@
 class ReviewsController < ApplicationController
   def create
-      @gift_request = GiftRequest.find(params[:gift_request_id])
-      @review = Review.new(review_params)
-      @review.gift_request = @gift_request
-      if @review.save
-        redirect_to gift_request_path(@gift_request)
-      else
-        render "gift_requests/show"
-      end
+    @gift_request = GiftRequest.find(params[:gift_request_id])
+    @review = Review.new(review_params)
+    @review.gift_request = @gift_request
+    if @review.save
+      redirect_to gift_request_path(@gift_request)
+      # redirect_to profile_path(@gift_request.shopper)
+    else
+      render "gift_requests/show"
+    end
   end
 
   private

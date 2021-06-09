@@ -6,7 +6,7 @@ class GiftRequest < ApplicationRecord
   has_one :chatroom # every gift_request has only one chatroom -> gives me access
 
   validates :status, presence: true
-  STATUSES = [:purchased, :paid, :delivered]
+  STATUSES = [:delivered]
 
   validates :recipient_name, presence: true
   validates :recipient_address, presence: true

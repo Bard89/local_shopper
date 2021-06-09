@@ -3,6 +3,8 @@
 @import "messages";
 @import "profile";
 
+html { overflow-y: scroll; }
+
 h1 {
   padding-top: 1.25rem;
 }
@@ -12,9 +14,11 @@ h1 {
 }
 
 a {
+  text-decoration: none;
   color:inherit;
 }
 
 a:hover {
-  color:#547748;
+  text-decoration: none;
+  color:#8994D2;
 }
