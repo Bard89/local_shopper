@@ -382,11 +382,12 @@ osloShopper = User.create(
   profile_picture: "https://uifaces.co/our-content/donated/cZSdIsrF.png"
   )
   osloDone1 = GiftRequest.create(
-    recipient_name: "Jessica",
-    recipient_address: "Aker Brygge, Oslo",
-    price_cents: 19500,
-    budget: 40,
-    packaging: "yellow bow around",
+    recipient_name: "Konstantin",
+    recipient_address: "Uranienborg, Oslo",
+    delivery_due_date: "2021-04-18",
+    budget: 45,
+    price_cents: 4500,
+    packaging: "Yellow bow around",
     product1: "Wallet",
     product2: "Picture Frame",
     requester: alicia,
@@ -402,10 +403,11 @@ osloShopper = User.create(
     gift_request_id: osloDone1.id
   )
   osloDone2 = GiftRequest.create(
-    recipient_name: "Jessica",
-    recipient_address: "Aker Brygge, Oslo",
-    price_cents: 19500,
-    budget: 200,
+    recipient_name: "Hansen",
+    recipient_address: "Nordstrand, Oslo",
+    delivery_due_date: "2021-04-22",
+    budget: 100,
+    price_cents: 9500,
     packaging: "Gift Basket",
     product1: "Fast delivery!",
     requester: barcelonaShopper,
@@ -423,8 +425,9 @@ osloShopper = User.create(
   osloDone3 = GiftRequest.create(
     recipient_name: "Jessica",
     recipient_address: "Aker Brygge, Oslo",
-    price_cents: 19500,
-    budget: 200,
+    delivery_due_date: "2021-05-01",
+    budget: 150,
+    price_cents: 10000,
     packaging: "Gift Basket",
     product1: "Craft Beer Mix",
     requester: grazShopper,
@@ -505,6 +508,7 @@ sofia = User.create(
   sofiaPastGift= GiftRequest.create(
     recipient_name: "Elena",
     recipient_address: "Mitte, Berlin",
+    delivery_due_date: "2021-04-28",
     price_cents: 4000,
     budget: 40,
     packaging: "Gift Basket",
@@ -526,18 +530,17 @@ sofia = User.create(
 GiftRequest.create(
     recipient_name: "Georgios",
     recipient_address: "Paleochora, Crete",
-    price_cents: 19500,
+    delivery_due_date: "2021-10-22",
     budget: 150,
     packaging: "Traditional Basket",
     product1: "Native Olive Oil",
     product2: "Silver Necklace",
-    requester: barcelonaShopper,
-    shopper: osloShopper
+    requester: barcelonaShopper
   )
 GiftRequest.create(
   recipient_name: "Maria",
   recipient_address: "Koutsouras, Crete",
-  price_cents: 19500,
+  delivery_due_date: "2021-06-20",
   budget: 200,
   packaging: "Gift Basket",
   product1: "Craft Beer Mix",
@@ -546,7 +549,7 @@ GiftRequest.create(
 GiftRequest.create(
   recipient_name: "Alexa",
   recipient_address: "Rethimno, Crete",
-  price_cents: 19500,
+  delivery_due_date: "2021-08-01",
   budget: 200,
   packaging: "Gift Basket",
   product1: "Native Olive Oil",

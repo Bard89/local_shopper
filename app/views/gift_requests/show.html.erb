@@ -55,14 +55,14 @@
             <%= image_tag @giftrequest.requester.profile_picture, class: "avatar" %>
             <%= @giftrequest.requester.first_name %>
         <% end %>
-        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
+        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary btn-small" if @giftrequest.status != "pending" %>
       <% elsif @giftrequest.shopper %>
         <p><b>Shopper:</b></p>
         <%= link_to profile_path(@giftrequest.shopper) do %>
             <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar" %>
             <%= @giftrequest.shopper.first_name %>
         <% end %>
-        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
+        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary btn-small" if @giftrequest.status != "pending" %>
       <% end %>
     </div>
     </div>

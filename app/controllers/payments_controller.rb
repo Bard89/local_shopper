@@ -25,7 +25,7 @@ class PaymentsController < ApplicationController
 
       @giftrequest.update(checkout_session_id: session.id)
       #redirect_to new_gift_request_payment_path(@giftrequest)
-      @giftrequest.update(status: "pending") # here it's just being processed by stripe, should be pending
+      @giftrequest.update(status: "payment pending") # here it's just being processed by stripe, should be pending
     end
   end
 end

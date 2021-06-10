@@ -12,11 +12,9 @@
         <p><b>Details</b></p>
         <div class ="d-inline-flex justify-content-between">
         <div style="width:40%"  <%= f.input :budget, as: :numeric, label: false, input_html: {placeholder: "Budget"} %>
-          <input type="date" id="date" name="date " style="color:grey; height:calc(1.5em + 0.75rem + 2px); width:60%; margin-left: 7px;">
+          <input type="date" id="date" name="date" style="color:grey; height:calc(1.5em + 0.75rem + 2px); width:60%; margin-left: 7px;">
         </div>
         <%= f.input :packaging, label: false, input_html: {placeholder: "Packaging"} %>
-
-
         <%#= f.date_select :delivery_due_date, :label => "Delivery Due Date" %>
       </div>
     </div>
