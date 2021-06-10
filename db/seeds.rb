@@ -531,7 +531,8 @@ GiftRequest.create(
     packaging: "Traditional Basket",
     product1: "Native Olive Oil",
     product2: "Silver Necklace",
-    requester: barcelonaShopper
+    requester: barcelonaShopper,
+    shopper: osloShopper
   )
 GiftRequest.create(
   recipient_name: "Maria",
