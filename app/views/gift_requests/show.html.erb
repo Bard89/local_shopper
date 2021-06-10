@@ -67,14 +67,14 @@
                 <%= image_tag @giftrequest.requester.profile_picture, class: "avatar", id: "show-avatar" %>
                 <%= @giftrequest.requester.first_name %>
             <% end %>
-              <%= link_to "Chat", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary", id: "show-chat" if @giftrequest.status != "pending" %>
+              <%= link_to "Messsage #{@giftrequest.requester.first_name}", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary ml-3" if @giftrequest.status != "pending" %>
           <% elsif @giftrequest.shopper %>
             <p class="show-title">SHOPPER</p>
             <%= link_to profile_path(@giftrequest.shopper) do %>
                 <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar", id: "show-avatar" %>
                 <%= @giftrequest.shopper.first_name %>
             <% end %>
-              <%= link_to "Chat", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary", id: "show-chat" if @giftrequest.status != "pending" %>
+              <%= link_to "Message #{@giftrequest.shopper.first_name}", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary ml-3" if @giftrequest.status != "pending" %>
           <% end %>
         </div>
       </div>
