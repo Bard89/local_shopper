@@ -89,7 +89,7 @@ class GiftRequestsController < ApplicationController
     @giftrequest.update(shopper: current_user)
     @chatroom = Chatroom.create(gift_request_id: @giftrequest.id) # I create the chatroom on accepting the request by the other user (need 2 users for that)
     # was not working before as it was Chatroom.new instead of Chatroom.create
-    redirect_to dashboard_path, notice: "You've succesfully taken on #{@giftrequest.requester.first_name}'s gift request!"
+    redirect_to root_path, notice: "You've succesfully taken on #{@giftrequest.requester.first_name}'s gift request!"
   end
 
   def gift_price
