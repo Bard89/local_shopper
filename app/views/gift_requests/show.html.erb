@@ -73,7 +73,7 @@
           </div>
           <div class="pl-1">
             <%= link_to profile_path(@giftrequest.requester) do %>
-                <%= image_tag @giftrequest.requester.profile_picture, class: "avatar" %>
+                <%= image_tag @giftrequest.requester.profile_picture, class: "avatar", id: "show-avatar" %>
                 <%= @giftrequest.requester.first_name %>
             <% end %>
             <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
