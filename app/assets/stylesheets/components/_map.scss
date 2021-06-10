@@ -1,5 +1,5 @@
 .mapboxgl-popup {
-  max-width: 1030px;
+  max-width: 1000px;
   height: 450px;
 
 }
@@ -10,25 +10,34 @@
 
 .mapboxgl-popup-content {
   text-align: center;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  border: none;
+  padding: none;
+
 }
 
-.mapCard{
+.mapCard {
   background: #FFFFFF;
-  border-radius: 15px;
+  border-radius: 8px;
   color:black;
-  padding: 20px 30px;
+  width:200px;
   font-size: 14px;
-  margin-bottom: 2em;
-  height:100px;
-  text-align: center;
+  height:auto;
+
 }
 
 .mapCard h2 {
-  font-size: 24px;
+  font-size: 15px;
+
 }
 #map{
   margin-bottom:15px;
+  border-radius: 5px;
+
+}
+.mapCard-products p {
+
+margin-bottom: 2px;
 
 }
 
