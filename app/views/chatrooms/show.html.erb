@@ -30,12 +30,6 @@
           </p>
 
           <% if message.user == current_user %>
-            <%= render 'messages/message', message: message, css_class: 'message-current-user' %>
-          <% else %>
-            <%= render 'messages/message', message: message, css_class: 'received-message' %>
-          <% end %>
-
-          <% if message.user == current_user %>
             <div class="d-flex justify-content-end">
               <p class="mb-0 message-current-user" id="message-<%= message.id %>">
                 <span id="message-content"><%= message.content %></span>

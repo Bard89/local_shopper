@@ -44,7 +44,7 @@
   border-radius: 8px;
   position: relative;
   color:black;
-  padding: 20px 30px;
+  padding: 20px 30px 8px 30px;
   font-size: 14px;
   margin-bottom: 1em;
   height: 90%;
@@ -68,17 +68,24 @@
   color: #c2b9b6;
 }
 
-#request-card-expand-button {
-  position: absolute;
-  font-size: 20px;
-  bottom: 20px;
-  right: 30px;
+.request-card-button {
+  font-size: 13px;
   color: #7484E1;
+}
+
+.request-card-button-see {
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.16);
+  color:#7484E1;
+  border: 1px solid #7484E1;
+  padding: 5px 15px;
+  border-radius: 16px;
+  transition:0.3s;
+  font-size: 13px;
 }
 
 #request-card-avatar {
   position: absolute;
-  bottom: 20px;
+  top: 20px;
   right: 30px;
 }
 
