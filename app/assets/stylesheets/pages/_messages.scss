@@ -18,8 +18,9 @@
   }
 
   #send-message {
-    position: sticky;
-    bottom: -16px;
+    position: absolute;
+    bottom: 15px;
+    width: 70%;
   }
 }
 

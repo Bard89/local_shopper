@@ -1,6 +1,6 @@
 <header>
   <div class="d-flex align-items-center mb-2 pb-2">
-    <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1>
+    <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address.split(",").last %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1>
   </div>
   <!-- <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1> -->
 </header>

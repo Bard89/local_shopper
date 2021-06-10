@@ -389,7 +389,7 @@ osloShopper = User.create(
     packaging: "yellow bow around",
     product1: "Wallet",
     product2: "Picture Frame",
-    requester: pragueShopper,
+    requester: alicia,
     status: "delivered",
     shopper: osloShopper
   )
