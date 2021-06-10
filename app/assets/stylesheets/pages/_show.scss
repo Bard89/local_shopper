@@ -1,0 +1,33 @@
+.show-title {
+  // letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 18px;
+  // color: #afa7a4;
+}
+
+
+.show-subtitle {
+  letter-spacing: 1.05px;
+  font-weight: 600;
+  font-size: 14px;
+  color: #afa7a4;
+  margin-bottom:8px;
+}
+
+
+#show-avatar {
+  margin-right: 8px;
+  width: 50px;
+  height: 50px;
+}
+
+
+#show-chat {
+  margin-left: 8px;
+  padding: 6px 10px;
+  font-size: 14px;
+}
+
+#cancel-btn:hover {
+  color:#8994D2;
+}
