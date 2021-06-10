@@ -8,7 +8,6 @@ class GiftRequestsController < ApplicationController
       lat: opengiftrequest.latitude,
       lng: opengiftrequest.longitude,
       info_window: render_to_string(partial: "profiles/info_window", locals: {opengiftrequest: opengiftrequest})
-
       }
     end
   end
