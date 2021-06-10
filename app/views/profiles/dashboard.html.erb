@@ -37,7 +37,6 @@
                   <p class="text-muted mb-0">Waiting for Shopper to accept... </p>
                 <% end %>
                 <div>
-              
                   <%# if request.status == "pending" && request.requester == current_user %>
                     <%#= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request), class: "btn btn-primary" %>
                     <%#= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(request, status: "cancelled"), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{request.recipient_name}?"} %>

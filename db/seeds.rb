@@ -321,7 +321,7 @@ pragueShopper = User.create(
   last_name: "Miller",
   email: 'sebastian@localshopper.com',
   password: '123456',
-  profile_picture: "https://m.media-amazon.com/images/M/MV5BNGIwMDVkNjktMzM3MC00ZmZmLTg3ZDYtZGEzZjU5NDI3ZTkyXkEyXkFqcGdeQXVyNTcxNDk1MA@@._V1_UX172_CR0,0,172,256_AL_.jpg"
+  profile_picture: "https://uifaces.co/our-content/donated/oztASP4n.jpg"
   )
 grazShopper = User.create(
   location: "Graz",
