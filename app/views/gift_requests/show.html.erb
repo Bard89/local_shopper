@@ -22,7 +22,7 @@
           <!-- show the price only when the package is purchases, paid, delivered? -->
           <% if @giftrequest.status == "purchased" ||  @giftrequest.status == "paid" ||  @giftrequest.status == "delivered"%>
             <p class="show-subtitle"><%= "PRICE" if @giftrequest.price %> </p>
-            <p>€ <%= @giftrequest.price%></p> <!-- automatically conveted from eurosents to euros  -->
+            <p><%= humanized_money_with_symbol(@giftrequest.price)%></p> <!-- automatically conveted from eurosents to euros  -->
           <% end %>
           <p class="show-subtitle">PACKAGING</p>
           <p><%= @giftrequest.packaging %></p>
@@ -55,6 +55,7 @@
           <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
           <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
         </div>
+
       </div>
 
       <div class="col-8">
@@ -91,6 +92,7 @@
         <% end %>
       </div>
 
+
             <!-- Button trigger modal -->
       <% if @giftrequest.status == "delivered" && @giftrequest.requester == current_user %>
       <div class="ml-2 mt-3">
@@ -101,6 +103,7 @@
 
       <!-- Partial Modal -->
       <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
+
       <% end %>
 
     </div>

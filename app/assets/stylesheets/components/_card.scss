@@ -55,10 +55,25 @@
   border: 3px solid #edddd1;
 }
 
+.card-recipient {
+  letter-spacing: 1.05px;
+  font-weight: 600;
+  font-size: 10px;
+  color: #afa7a4;
+  text-transform: uppercase;
+}
+
+.card-date {
+  font-size: 10px;
+  color: #c2b9b6;
+}
+
 #request-card-expand-button {
   position: absolute;
+  font-size: 20px;
   bottom: 20px;
   right: 30px;
+  color: #7484E1;
 }
 
 #request-card-avatar {
@@ -70,5 +85,3 @@
 .chatroom-user {
   margin: auto 0 auto 8px;
 }
-
-

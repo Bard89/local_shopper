@@ -319,7 +319,7 @@ pragueShopper = User.create(
   location: "Los Angeles",
   first_name: "Sebastian",
   last_name: "Miller",
-  email: 'konstantin@localshopper.com',
+  email: 'sebastian@localshopper.com',
   password: '123456',
   profile_picture: "https://m.media-amazon.com/images/M/MV5BNGIwMDVkNjktMzM3MC00ZmZmLTg3ZDYtZGEzZjU5NDI3ZTkyXkEyXkFqcGdeQXVyNTcxNDk1MA@@._V1_UX172_CR0,0,172,256_AL_.jpg"
   )
@@ -531,7 +531,8 @@ GiftRequest.create(
     packaging: "Traditional Basket",
     product1: "Native Olive Oil",
     product2: "Silver Necklace",
-    requester: barcelonaShopper
+    requester: barcelonaShopper,
+    shopper: osloShopper
   )
 GiftRequest.create(
   recipient_name: "Maria",

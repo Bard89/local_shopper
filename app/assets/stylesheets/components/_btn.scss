@@ -27,11 +27,16 @@
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary.active:not(:disabled):not(.disabled), .show > .btn-primary.dropdown-toggle {
-    color: #fff;
-    background-color: #8994D2;
-    border-color: #8994D2;
+  color: #fff;
+  background-color: #8994D2;
+  border-color: #8994D2;
 }
 
+.btn-small {
+  font-size: 13px;
+  padding: 5px 10px;
+  border-radius: 16px;
+}
 
 #btn-sign-up {
   padding: 12px 24px;
@@ -58,7 +63,6 @@
   display: inline-block;
   cursor: pointer;
   border-radius: 16px;
-  margin-bottom:6px;
 }
 
 .pill-button-pending {
