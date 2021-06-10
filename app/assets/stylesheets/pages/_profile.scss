@@ -1,5 +1,5 @@
 #review {
-  padding:16px;
+  margin: 24px 0 32px 0;
   text-align:left;
 }
 
@@ -9,20 +9,31 @@
   margin-bottom:16px;
 }
 
+.stars {
+  margin-bottom: 12px;
+}
+
 #profile {
   align-items:center;
   margin-bottom:32px;
+  height: 424px;
+  box-shadow: none;
 }
 
 #name_logo {
-  text-align:left;
+  justify-content: center;
 }
 
+#profile {
+  padding-left: 0;
+}
 
 #profile_details {
-  text-align:left;
+  text-align:center;
   align-self:flex-end;
   padding-bottom:12px;
+  padding-left: 0;
+  margin-top: 16px;
 }
 
 #user_name {
@@ -31,10 +42,19 @@
 
 
 #user_profile_photo {
-  margin:8px;
+  margin-bottom: 16px;
+  width: 225px;
+  height: 225px;
 }
 
-#profile_container {
-  max-width:800px;
+#profile-name {
+  margin-bottom: 16px;
 }
 
+#profile-location {
+  font-weight: 600;
+}
+
+#edit-profile {
+  justify-content: center;
+}
