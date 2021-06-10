@@ -9,7 +9,7 @@
       </div>
         <%= simple_form_for gift_request, url: gift_price_gift_request_path(gift_request), method: :patch do |f| %>
           <div class="modal-body">
-            <%= f.input :price_cents, label: false %>
+            <%= f.input :price, label: false %>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-flat" data-dismiss="modal">Close</button>
