@@ -57,13 +57,6 @@
         </div>
       </div>
 
-      <div class = "pt-3">
-        <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
-          <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(@giftrequest) %>
-          <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"} %>
-        <% end %>
-      </div>
-
       <div class="col-8">
         <% if @giftrequest.requester != current_user %>
           <div>
@@ -88,6 +81,13 @@
       <div class="ml-2 mt-3">
         <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
           <%= link_to "Take on #{@giftrequest.requester.first_name}'s request", accept_gift_request_path(@giftrequest), class: "btn btn-primary mt-3", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
+        <% end %>
+      </div>
+
+      <div class = "pt-3">
+        <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
+          <%= link_to "Edit Request", edit_gift_request_path(@giftrequest), class: "btn btn-primary ml-3 mt-3" %>
+          <%= link_to "Cancel Request", change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"}, class: "btn ml-3 mt-3", id: "cancel-btn" %>
         <% end %>
       </div>
 
