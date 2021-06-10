@@ -95,8 +95,9 @@ class GiftRequestsController < ApplicationController
 
   def gift_price
     @giftrequest = GiftRequest.find(params[:id])
-    @giftrequest.update(price_cents: price_params) # need to conert this from euros input to cents
+    @giftrequest.update(price_cents: price_params)
     @giftrequest.update(status: "purchased")
+    @giftrequest.price = params[:gift_request][:price].to_i
     if @giftrequest.update_attributes(price_params)
       redirect_to gift_request_path(@giftrequest)
     else
