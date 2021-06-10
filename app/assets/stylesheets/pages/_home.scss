@@ -26,13 +26,37 @@
 
 #logo-text {
   color: #011638;
-  font-family: 'DM Serif Display', serif;
-  font-size:8em;
-  margin-top:60px;
+  font-size: 56px;
+  line-height: 84px;
+  margin-top: 60px;
 }
 
 #description {
-  margin: 12px 0 24px 0;
-  line-height: 1.7;
-  width: 900px;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 44px;
+  margin: 28px 0 32px 0;
+  // width: 900px;
+}
+
+////////
+
+#home-img {
+  padding-top: 80px;
+  width: 380px;
+}
+
+#sign-up-btn {
+  font-size: 22px;
+  padding:8px 40px;
+}
+
+#how-it-works-img {
+  width: 1083px;
+}
+
+#local-shopper-team-img {
+  width: 860px;
+  display:block;
+  margin: 0 auto;
 }
