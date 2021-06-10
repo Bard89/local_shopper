@@ -9,7 +9,7 @@
 
       <%= f.hidden_field :budget, as: :numeric, label: false, input_html: {placeholder: "Budget"} %>
       <%= f.hidden_field :packaging, label: false, input_html: {placeholder: "Packaging"} %>
-      <%= f.hidden_field :delivery_due_date, :label => "Delivery Due Date" %>
+      <%= f.hidden_field :delivery_due_date, as: :date, :label => "Delivery Due Date" %>
 
 
 

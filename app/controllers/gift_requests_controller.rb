@@ -43,6 +43,7 @@ class GiftRequestsController < ApplicationController
   def confirm
     @giftrequest = GiftRequest.new(giftrequest_params)
     @giftrequest.requester = current_user
+    @giftrequest.delivery_due_date = params["delivery_due_date"]
 
     unless @giftrequest.valid?
       render :action => :new
