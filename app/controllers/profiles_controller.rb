@@ -8,8 +8,8 @@ class ProfilesController < ApplicationController
   end
 
   def dashboard
-    @giftrequest = GiftRequest.find(params[:id])
-    @reviews = Review.new
+    # @giftrequest = GiftRequest.find(params[:id])
+    # @reviews = Review.new
     @giftrequests = GiftRequest.where(requester_id: current_user).order(created_at: :desc)
     @mygiftrequests = GiftRequest.where(shopper_id: current_user).order(created_at: :desc)
     if params[:confirm]
