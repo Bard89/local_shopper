@@ -5,11 +5,11 @@
   <!-- <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1> -->
 </header>
 
-<div class="container mt-0">
-  <div class="row justify-content-center">
-    <div class="col-9">
-      <div>
-        <p><b>Details</b></p>
+<div class="container mt-4">
+  <div>
+    <div class="d-flex row">
+      <div class="col-4">
+        <p><b>DETAILS</b></p>
         <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
           <p><%= @giftrequest.delivery_due_date.strftime("%-d.%-m.%Y") if @giftrequest.delivery_due_date %></p>
         <% end %>
@@ -21,20 +21,25 @@
         <% end %>
         <p><%= @giftrequest.packaging %></p>
       </div>
-      <div>
-        <p><b>Products</b></p>
+
+      <div class="col-8">
+        <p><b>COMMENT</b></p>
+        <% if @giftrequest.comment %>
+          <p><%= @giftrequest.comment %></p>
+        <% else %>
+          <p>No Comment</p>
+        <% end %>
+      </div>
+
+    </div>
+
+    <div class="d-flex row">
+
+      <div class="col-4">
+        <p><b>PRODUCTS</b></p>
         <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
         <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
         <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
-      </div>
-      <div>
-        <b></b>
-        <p><b>Comment</b></p>
-        <% if @giftrequest.comment %>
-          <%= @giftrequest.comment %>
-        <% else %>
-          No Comment
-        <% end %>
       </div>
 
       <div class = "pt-3">
@@ -46,24 +51,24 @@
       <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
         <%= link_to "Take on #{@giftrequest.requester.first_name}'s request", accept_gift_request_path(@giftrequest), class: "btn btn-primary mt-3", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
       <% end %>
-    </div>
 
-    <div class="col-3 align-self-center">
-      <% if @giftrequest.requester != current_user %>
-        <p><b>Requester:</b></p>
-        <%= link_to profile_path(@giftrequest.requester) do %>
-            <%= image_tag @giftrequest.requester.profile_picture, class: "avatar" %>
-            <%= @giftrequest.requester.first_name %>
+      <div class="col-8">
+        <% if @giftrequest.requester != current_user %>
+          <p><b>REQUESTER</b></p>
+          <%= link_to profile_path(@giftrequest.requester) do %>
+              <%= image_tag @giftrequest.requester.profile_picture, class: "avatar" %>
+              <%= @giftrequest.requester.first_name %>
+          <% end %>
+          <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
+        <% elsif @giftrequest.shopper %>
+          <p><b>Shopper:</b></p>
+          <%= link_to profile_path(@giftrequest.shopper) do %>
+              <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar" %>
+              <%= @giftrequest.shopper.first_name %>
+          <% end %>
+          <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
         <% end %>
-        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
-      <% elsif @giftrequest.shopper %>
-        <p><b>Shopper:</b></p>
-        <%= link_to profile_path(@giftrequest.shopper) do %>
-            <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar" %>
-            <%= @giftrequest.shopper.first_name %>
-        <% end %>
-        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest) if @giftrequest.status != "pending" %>
-      <% end %>
+      </div>
     </div>
     </div>
 
