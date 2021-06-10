@@ -10,7 +10,7 @@
     <div class="d-flex row">
       <div class="col-4">
         <div>
-          <p class="show-title">DETAILS</p>
+          <p class="show-title">Details</p>
         </div>
         <div class="pl-1">
           <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
@@ -31,7 +31,7 @@
 
       <div class="col-8">
         <div>
-          <p class="show-title">COMMENT</p>
+          <p class="show-title">Comment</p>
         </div>
         <div class="pl-1">
           <% if @giftrequest.comment %>
@@ -48,7 +48,7 @@
 
       <div class="col-4">
         <div>
-          <p class="show-title">PRODUCTS</p>
+          <p class="show-title">Products</p>
         </div>
         <div class="pl-1">
           <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
@@ -60,7 +60,7 @@
       <div class="col-8">
         <% if @giftrequest.requester != current_user %>
           <div>
-            <p class="show-title">GIFTER</p>
+            <p class="show-title">Gifter</p>
           </div>
           <div class="pl-1">
             <%= link_to profile_path(@giftrequest.requester) do %>
@@ -69,7 +69,7 @@
             <% end %>
               <%= link_to "Messsage #{@giftrequest.requester.first_name}", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary ml-3" if @giftrequest.status != "pending" %>
           <% elsif @giftrequest.shopper %>
-            <p class="show-title">SHOPPER</p>
+            <p class="show-title">Shopper</p>
             <%= link_to profile_path(@giftrequest.shopper) do %>
                 <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar", id: "show-avatar" %>
                 <%= @giftrequest.shopper.first_name %>
