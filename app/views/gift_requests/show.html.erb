@@ -50,7 +50,7 @@
 
     <div class="col-3 align-self-center">
       <% if @giftrequest.requester != current_user %>
-        <p><b>Requester:</b></p>
+        <p><b>Gifter:</b></p>
         <%= link_to profile_path(@giftrequest.requester) do %>
             <%= image_tag @giftrequest.requester.profile_picture, class: "avatar" %>
             <%= @giftrequest.requester.first_name %>
