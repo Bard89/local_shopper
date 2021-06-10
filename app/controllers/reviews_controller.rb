@@ -4,7 +4,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @review.gift_request = @gift_request
     if @review.save
-      redirect_to gift_request_path(@gift_request)
+      redirect_to profile_path(@gift_request.shopper)
       # redirect_to profile_path(@gift_request.shopper)
     else
       render "gift_requests/show"
