@@ -30,12 +30,6 @@
           </p>
 
           <% if message.user == current_user %>
-            <%= render 'messages/message', message: message, css_class: 'message-current-user' %>
-          <% else %>
-            <%= render 'messages/message', message: message, css_class: 'received-message' %>
-          <% end %>
-
-          <% if message.user == current_user %>
             <div class="d-flex justify-content-end">
               <p class="mb-0 message-current-user" id="message-<%= message.id %>">
                 <span id="message-content"><%= message.content %></span>
@@ -53,9 +47,9 @@
         </div>
       <% end %>
       <div id="send-message">
-        <%= simple_form_for [ @chatroom, @message ], remote: true, authenticity_token: true, html: { class: "d-flex mt-2"} do |f| %>
+        <%= simple_form_for [ @chatroom, @message ], remote: true, authenticity_token: true, html: { class: "d-flex mt-2", autocomplete: "off"} do |f| %>
           <%= f.hidden_field :gift_request_id, value: params[:gift_request_id] %>
-          <%= f.input :content, label: false, placeholder: "Type your message here"  %> <%#, placeholder: "Message ##{@chatroom.id}" %>
+          <%= f.input :content, label: false, placeholder: "Type your message here" %> <%#, placeholder: "Message ##{@chatroom.id}" %>
         <% end %>
       </div>
 

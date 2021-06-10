@@ -59,3 +59,11 @@
   width: 98%;
 }
 
+input#message_content {
+  border-radius: 32px;
+}
+
+input#message_content:focus {
+  border-color: #edddd1;
+  box-shadow: 0 0 0 0.2rem rgb(239, 231, 224);
+}
