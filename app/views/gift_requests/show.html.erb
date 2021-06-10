@@ -75,9 +75,9 @@
             <% end %>
               <%= link_to "Chat", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary", id: "show-chat" if @giftrequest.status != "pending" %>
           <% elsif @giftrequest.shopper %>
-            <p><b>Shopper:</b></p>
+            <p class="show-title">SHOPPER</p>
             <%= link_to profile_path(@giftrequest.shopper) do %>
-                <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar" %>
+                <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar", id: "show-avatar" %>
                 <%= @giftrequest.shopper.first_name %>
             <% end %>
               <%= link_to "Chat", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary", id: "show-chat" if @giftrequest.status != "pending" %>
@@ -90,17 +90,21 @@
         <% end %>
       </div>
 
+            <!-- Button trigger modal -->
+      <% if @giftrequest.status == "delivered" && @giftrequest.requester == current_user %>
+      <div class="ml-2 mt-3">
+        <button type="button" class="btn btn-primary ml-3 mt-3" data-toggle="modal" data-target="#leaveAReview">
+          Leave Review
+        </button>
+      </div>
+
+      <!-- Partial Modal -->
+      <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
+      <% end %>
+
     </div>
     </div>
 
-    <!-- Button trigger modal -->
-    <% if @giftrequest.status == "delivered" && @giftrequest.requester == current_user %>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveAReview">
-      Leave Review
-    </button>
 
-    <!-- Partial Modal -->
-    <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
-    <% end %>
   </div>
 </div>
