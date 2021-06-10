@@ -5,76 +5,109 @@
   <!-- <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1> -->
 </header>
 
-<div class="container mt-0">
-  <div class="row justify-content-center">
-    <div class="col-9">
-      <div>
-        <p><b>Details</b></p>
-        <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
-          <p><%= @giftrequest.delivery_due_date.strftime("%-d.%-m.%Y") if @giftrequest.delivery_due_date %></p>
-        <% end %>
-        <p> <%= "Budget: €" if @giftrequest.budget %><%= @giftrequest.budget %></p>
+<div class="container mt-4">
+  <div>
+    <div class="d-flex row">
+      <div class="col-4">
+        <div>
+          <p class="show-title">Details</p>
+        </div>
+        <div class="pl-1">
+          <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
+            <p><%= @giftrequest.delivery_due_date.strftime("%-d.%-m.%Y") if @giftrequest.delivery_due_date %></p>
+          <% end %>
+          <p class="show-subtitle"> <%= "BUDGET" if @giftrequest.budget %></p>
+          <p> <%= "€" if @giftrequest.budget %><%= @giftrequest.budget %></p>
 
-        <!-- show the price only when the package is purchases, paid, delivered? -->
-        <% if @giftrequest.status == "purchased" ||  @giftrequest.status == "paid" ||  @giftrequest.status == "delivered"%>
-          <p>Price: <%= humanized_money_with_symbol(@giftrequest.price)%></p> <!-- automatically conveted from eurosents to euros  -->
-        <% end %>
-        <p><%= @giftrequest.packaging %></p>
+          <!-- show the price only when the package is purchases, paid, delivered? -->
+          <% if @giftrequest.status == "purchased" ||  @giftrequest.status == "paid" ||  @giftrequest.status == "delivered"%>
+            <p class="show-subtitle"><%= "PRICE" if @giftrequest.price %> </p>
+            <p><%= humanized_money_with_symbol(@giftrequest.price)%></p> <!-- automatically conveted from eurosents to euros  -->
+          <% end %>
+          <p class="show-subtitle">PACKAGING</p>
+          <p><%= @giftrequest.packaging %></p>
+        </div>
       </div>
-      <div>
-        <p><b>Products</b></p>
-        <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
-        <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
-        <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
+
+      <div class="col-8">
+        <div>
+          <p class="show-title">Comment</p>
+        </div>
+        <div class="pl-1">
+          <% if @giftrequest.comment %>
+            <p><%= @giftrequest.comment %></p>
+          <% else %>
+            <p>No Comment</p>
+          <% end %>
+        </div>
       </div>
-      <div>
-        <b></b>
-        <p><b>Comment</b></p>
-        <% if @giftrequest.comment %>
-          <%= @giftrequest.comment %>
-        <% else %>
-          No Comment
+
+    </div>
+
+    <div class="d-flex row mt-5">
+
+      <div class="col-4">
+        <div>
+          <p class="show-title">Products</p>
+        </div>
+        <div class="pl-1">
+          <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
+          <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
+          <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
+        </div>
+
+      </div>
+
+      <div class="col-8">
+        <% if @giftrequest.requester != current_user %>
+          <div>
+            <p class="show-title">Gifter</p>
+          </div>
+          <div class="pl-1">
+            <%= link_to profile_path(@giftrequest.requester) do %>
+                <%= image_tag @giftrequest.requester.profile_picture, class: "avatar", id: "show-avatar" %>
+                <%= @giftrequest.requester.first_name %>
+            <% end %>
+              <%= link_to "Messsage #{@giftrequest.requester.first_name}", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary ml-3" if @giftrequest.status != "pending" %>
+          <% elsif @giftrequest.shopper %>
+            <p class="show-title">Shopper</p>
+            <%= link_to profile_path(@giftrequest.shopper) do %>
+                <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar", id: "show-avatar" %>
+                <%= @giftrequest.shopper.first_name %>
+            <% end %>
+              <%= link_to "Message #{@giftrequest.shopper.first_name}", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary ml-3" if @giftrequest.status != "pending" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="ml-2 mt-3">
+        <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
+          <%= link_to "Take on #{@giftrequest.requester.first_name}'s request", accept_gift_request_path(@giftrequest), class: "btn btn-primary mt-3", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
         <% end %>
       </div>
 
       <div class = "pt-3">
         <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
-          <%= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(@giftrequest) %>
-          <%= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"} %>
+          <%= link_to "Edit Request", edit_gift_request_path(@giftrequest), class: "btn btn-primary ml-3 mt-3" %>
+          <%= link_to "Cancel Request", change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"}, class: "btn ml-3 mt-3", id: "cancel-btn" %>
         <% end %>
       </div>
-      <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
-        <%= link_to "Take on #{@giftrequest.requester.first_name}'s request", accept_gift_request_path(@giftrequest), class: "btn btn-primary mt-3", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
+
+            <!-- Button trigger modal -->
+      <% if @giftrequest.status == "delivered" && @giftrequest.requester == current_user %>
+      <div class="ml-2 mt-3">
+        <button type="button" class="btn btn-primary ml-3 mt-3" data-toggle="modal" data-target="#leaveAReview">
+          Leave Review
+        </button>
+      </div>
+
+      <!-- Partial Modal -->
+      <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
+
       <% end %>
-    </div>
 
-    <div class="col-3 align-self-center">
-      <% if @giftrequest.requester != current_user %>
-        <p><b>Gifter:</b></p>
-        <%= link_to profile_path(@giftrequest.requester) do %>
-            <%= image_tag @giftrequest.requester.profile_picture, class: "avatar" %>
-            <%= @giftrequest.requester.first_name %>
-        <% end %>
-        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary btn-small" if @giftrequest.status != "pending" %>
-      <% elsif @giftrequest.shopper %>
-        <p><b>Shopper:</b></p>
-        <%= link_to profile_path(@giftrequest.shopper) do %>
-            <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar" %>
-            <%= @giftrequest.shopper.first_name %>
-        <% end %>
-        <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary btn-small" if @giftrequest.status != "pending" %>
-      <% end %>
     </div>
     </div>
 
-    <!-- Button trigger modal -->
-    <% if @giftrequest.status == "delivered" && @giftrequest.requester == current_user %>
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#leaveAReview">
-      Leave Review
-    </button>
 
-    <!-- Partial Modal -->
-    <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
-    <% end %>
   </div>
 </div>
