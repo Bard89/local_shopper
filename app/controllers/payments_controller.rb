@@ -19,8 +19,8 @@ class PaymentsController < ApplicationController
         # problem here is that we only have the price as a whole
         # {name: @giftrequest.product2,},
         # {}],
-        success_url: root_path, notice: "Payment successfull" # where to go after doing the payment
-        cancel_url: root_path # we wanna go to the showpage of the order
+        success_url: gift_request_url(@giftrequest), # where to go after doing the payment
+        cancel_url: gift_request_url(@giftrequest) # we wanna go to the showpage of the order
       )
 
       @giftrequest.update(checkout_session_id: session.id)
