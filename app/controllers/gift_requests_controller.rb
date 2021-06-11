@@ -58,7 +58,7 @@ class GiftRequestsController < ApplicationController
   def update # will also use for the what I added from stripe ...
     @giftrequest = GiftRequest.find(params[:id])
     if @giftrequest.update_attributes(giftrequest_params)
-      flash[:success] = "Gift request  successfully updated"
+      flash[:success] = "Gift request successfully updated"
       redirect_to dashboard_path
     else
       flash[:error] = "Something went wrong"
