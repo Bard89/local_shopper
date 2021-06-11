@@ -31,19 +31,14 @@
 
           <% if message.user == current_user %>
             <div class="d-flex justify-content-end">
-              <p class="mb-0 message-current-user" id="message-<%= message.id %>">
-                <span id="message-content"><%= message.content %></span>
-                <span class="d-block" id="message-sent-time"><%= message.created_at.strftime("%l:%M%p") %></span>
-              </p>
+              <%= render 'chatrooms/message', message: message, css_class: 'sent-message' %>
             </div>
           <% else %>
             <div class="d-flex">
-              <p class="mb-0 message-other-user" id="message-<%= message.id %>">
-                <span id="message-content"><%= message.content %></span>
-                <span class="d-block" id="message-sent-time"><%= message.created_at.strftime("%l:%M%p") %></span>
-              </p>
+            <%= render 'chatrooms/message', message: message, css_class: 'received-message' %>
             </div>
           <% end %>
+
         </div>
       <% end %>
       <div id="send-message">

@@ -409,7 +409,9 @@ osloShopper = User.create(
     budget: 100,
     price_cents: 9500,
     packaging: "Gift Basket",
-    product1: "Fast delivery!",
+    product1: "Flower Boquet",
+    product2: "Picinick Basket",
+    comment: "Delivery is urgent!",
     requester: barcelonaShopper,
     status: "delivered",
     shopper: osloShopper

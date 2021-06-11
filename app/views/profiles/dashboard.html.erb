@@ -43,15 +43,15 @@
                   <%# end %>
                   <%= link_to "Pay now", new_gift_request_payment_path(request), class: "btn btn-primary btn-small" if request.status == "purchased" || request.status == "payment pending" && request.requester == current_user %>
                   <% if request.status == "delivered" && request.requester == current_user %>
-                    <a type="button" data-toggle="modal" data-target="#leaveAReview" class="btn btn-primary btn-small">Leave Review</a>
+                    <a type="button" data-toggle="modal" data-target="#leaveAReview" class="btn btn-primary btn-small mr-2">Leave Review</a>
+                    <!-- Partial Modal (needs to be rendered at the end, otherwise problem with being displayed inside card) -->
+                    <%= render partial: 'reviews/new', locals: { gift_request: request, review: Review.new } %>
                   <% end %>
-                  <span class="request-card-button-see">See gift <%= link_to icon('fas', 'arrow-circle-right'), gift_request_path(request), class: "request-card-button" %></span>
+                  <span class="request-card-button-see">See gift <%= link_to icon('fas', 'arrow-circle-right'), gift_request_path(request) %></span>
                 </div>
               </div>              
             </div>
           </div>
-           <!-- Partial Modal (needs to be rendered at the end, otherwise problem with being displayed inside card) -->
-           <%= render partial: 'reviews/new', locals: { gift_request: request, review: Review.new } %>
         <% end %>
       </div>
     </div>
@@ -103,7 +103,7 @@
                   <a type="button" data-toggle="modal" data-target="#priceModal" class="btn btn-primary btn-small mr-2">Upload Receipt</a>
                   <%= render partial: 'gift_requests/gift_price', locals: { gift_request: request } %>
                 <% end %>
-                <span class="request-card-button-see">See gift <%= link_to icon('fas', 'arrow-circle-right'), gift_request_path(request), class: "request-card-button" %></span>
+                <span class="request-card-button-see">See gift <%= link_to icon('fas', 'arrow-circle-right'), gift_request_path(request) %></span>
               </div>
             </div>
           </div>
