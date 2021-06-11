@@ -47,7 +47,7 @@
         <div>
           <p class="show-title">Comment</p>
         </div>
-        <div class="pl-1">
+        <div>
           <% if @giftrequest.comment %>
             <p><%= @giftrequest.comment %></p>
           <% else %>
@@ -64,7 +64,7 @@
         <div>
           <p class="show-title">Products</p>
         </div>
-        <div class="pl-1">
+        <div>
           <p><%= @giftrequest.product1 %> <%= @giftrequest.shop1 %></p>
           <p><%= @giftrequest.product2 %> <%= @giftrequest.shop2 %></p>
           <p><%= @giftrequest.product3 %> <%= @giftrequest.shop3 %></p>
@@ -77,7 +77,7 @@
           <div>
             <p class="show-title">Gifter</p>
           </div>
-          <div class="pl-1">
+          <div>
             <%= link_to profile_path(@giftrequest.requester) do %>
                 <%= image_tag @giftrequest.requester.profile_picture, class: "avatar", id: "show-avatar" %>
                 <%= @giftrequest.requester.first_name %>
