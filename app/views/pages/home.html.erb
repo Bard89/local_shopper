@@ -1,9 +1,64 @@
 
-<div class="bg-image">
-  <div class="container home">
-    <h1 id="logo-text">Local Shopper</h1>
-    <h4 id="description">Aliquam sit amet mauris lectus. Praesent quis sollicitudin ante. Sed urna quam, ultricies sed convallis nec, dictum in nisl. Sed nec tortor quis ex venenatis varius sit amet id nibh.</h4>
-    <%= link_to "Sign Up", new_user_registration_path, id: "btn-sign-up" %>
+
+  <div class="container">
+    <div class="row mt-5 mb-5 pb-5">
+      <div class="col-8">
+      <div class="row">
+          <h3 id="logo-text">Deliver local, meaningful gifts to your loved ones across the globe</h3>
+        </div>
+        <div class="row">
+          <h4 id="description">Join our community based platform to start giving better gifts to your friends and family and support other members by becoming a shopper in your local area.</h4>
+        </div>
+        <div class="row">
+          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary", id: "sign-up-btn" %>
+        </div>
+      </div>
+      <div class="col-4">
+        <%= image_tag('home-img', options = { id: "home-img" })  %>
+      </div>
+    </div>
+
+    <div class="row mt-5 pt-5">
+      <div class="col-12 pl-0">
+        <h4>How it Works</h4>
+      </div>
+      <div class="col-12 mt-4">
+        <%= image_tag('how-it-works',  options = { id: "how-it-works-img" }) %>
+      </div>
+    </div>
+
+    <div class="row mt-5 pt-5">
+      <div class="col-12 pl-0">
+        <h4>Meet the Team</h4>
+      </div>
+      <div class="col-12 mt-4">
+        <%= image_tag('local-shopper-team',  options = { id: "local-shopper-team-img" }) %>
+      </div>
+    </div>
   </div>
-</div>
+
+  <div class="container-float mt-5 pt-5 pl-5 pr-5 pb-1" id="footer">
+    <div class="row mr-5 ml-5">
+      <div class="col-3">
+        <p class="footer-heading">INFO</p>
+        <p>About</p>
+        <p>Privacy</p>
+      </div>
+      <div class="col-3">
+        <p class="footer-heading">SUPPORT</p>
+        <p>Contact</p>
+        <p>FAQ</p>
+      </div>
+      <div class="col-3">
+        <p class="footer-heading">SOCIAL</p>
+        <p>Facebook</p>
+        <p>Instagram</p>
+      </div>
+      <div class="col-3">
+        <p class="footer-heading">SUBSCRIBE</p>
+      </div>
+    </div>
+    <h5 class="text-center mt-3" id="copyright">© Local Shopper 2021</h5>
+  </div>
+
 
