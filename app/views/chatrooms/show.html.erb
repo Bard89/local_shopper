@@ -20,6 +20,9 @@
 <main>
   <div class="container" id="chatroom">
     <!--  <h1>#<%= @chatroom.id %></h1> id replaed -->
+    <div id="user-id" data-user-id="<%=current_user.id%>" >
+    </div>
+
     <div id="messages" data-chatroom-id="<%= @chatroom.id %>">
       <% @chatroom.messages.each do |message| %>
         <div class="message-container mb-2">
@@ -29,15 +32,17 @@
             </small>
           </p>
 
-          <% if message.user == current_user %>
-            <div class="d-flex justify-content-end">
-              <%= render 'chatrooms/message', message: message, css_class: 'sent-message' %>
-            </div>
-          <% else %>
-            <div class="d-flex">
-            <%= render 'chatrooms/message', message: message, css_class: 'received-message' %>
-            </div>
-          <% end %>
+          <%= render 'messages/message', message: message %>
+
+          <%# if message.user == current_user %>
+            <%# <div class="d-flex justify-content-end"> %>
+              <%#= render 'messages/message', message: message, css_class: 'sent-message' %>
+            <%# </div> %>
+          <%# else %>
+            <%# <div class="d-flex"> %>
+            <%#= render 'chatrooms/message', message: message, css_class: 'received-message' %>
+            <%# </div> %>
+          <%# end %>
 
         </div>
       <% end %>

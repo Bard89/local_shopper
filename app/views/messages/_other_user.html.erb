@@ -1,0 +1,8 @@
+<div class="message-container">
+  <div class="d-flex">
+    <p class="mb-0 message-other-user" id="message-<%= message.id %>">
+      <span id="message-content"><%= message.content %></span>
+      <span class="d-block" id="message-sent-time"><%= message.created_at.strftime("%l:%M%p") %></span>
+    </p>
+  </div>
+</div>
