@@ -510,7 +510,8 @@ sofia = User.create(
   sofiaPastGift= GiftRequest.create(
     recipient_name: "Elena",
     recipient_address: "Mitte, Berlin",
-    delivery_due_date: "2021-06-28",
+    delivery_due_date: "2021-06-17",
+    created_at: "2021-05-17, 19:14",
     price_cents: 4000,
     budget: 40,
     packaging: "Gift Basket",
@@ -520,11 +521,6 @@ sofia = User.create(
     status: "paid"
   )
   Chatroom.create(
-    gift_request_id: sofiaPastGift.id
-  )
-  Review.create(
-    rating: 5,
-    review: "Everything was great 😊",
     gift_request_id: sofiaPastGift.id
   )
 
