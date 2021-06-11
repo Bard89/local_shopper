@@ -32,7 +32,7 @@ class GiftRequestsController < ApplicationController
     @giftrequest.requester = current_user
     #raise
     if @giftrequest.save
-      flash[:success] = "GiftRequest successfully created"
+      flash[:success] = "Gift request successfully created"
       redirect_to dashboard_path(confirm: true)
     else
       flash[:error] = "Something went wrong"
@@ -58,7 +58,7 @@ class GiftRequestsController < ApplicationController
   def update # will also use for the what I added from stripe ...
     @giftrequest = GiftRequest.find(params[:id])
     if @giftrequest.update_attributes(giftrequest_params)
-      flash[:success] = "GiftRequest was successfully updated"
+      flash[:success] = "Gift request  successfully updated"
       redirect_to dashboard_path
     else
       flash[:error] = "Something went wrong"

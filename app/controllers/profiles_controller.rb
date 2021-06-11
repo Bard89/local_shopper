@@ -13,7 +13,7 @@ class ProfilesController < ApplicationController
     @giftrequests = GiftRequest.where(requester_id: current_user).order(updated_at: :desc)
     @mygiftrequests = GiftRequest.where(shopper_id: current_user).order(updated_at: :desc)
     if params[:confirm]
-      flash[:notice] = "Your Request has been succecfully made"
+      flash[:notice] = "Gift request successfully created"
     end
 
     # @chatrooms = Chatroom.where(gift_request: @giftrequest)
