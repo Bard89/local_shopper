@@ -34,7 +34,7 @@
                 <% if request.shopper %>
                   <p class="mb-0"><%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request), class: "ml-2 btn btn-primary btn-small"  %></p>
                 <% else %>
-                  <p class="text-muted mb-0">Waiting for Shopper to accept... </p>
+                  <p class="text-muted">Waiting for Shopper to accept... </p>
                 <% end %>
                 <div>
                   <%# if request.status == "pending" && request.requester == current_user %>
