@@ -477,7 +477,7 @@ GiftRequest.create(
 GiftRequest.create(
   recipient_name: "Lars",
   recipient_address: "Gamle Aker, Oslo",
-  delivery_due_date: "2021-06-10",
+  delivery_due_date: "2021-08-10",
   budget: 45,
   packaging: "Gift Basket",
   product1: "Coffee Beans",
@@ -555,6 +555,21 @@ GiftRequest.create(
   product1: "Native Olive Oil",
   product2: "Silver Necklace",
   requester: mia
+)
+
+# Purchased Gift Request for Review Testing
+GiftRequest.create(
+  recipient_name: "Carolina",
+  recipient_address: "Charlottenburg, Berlin",
+  delivery_due_date: "2021-06-13",
+  budget: 200,
+  price_cents: 18900,
+  packaging: "Gift Basket",
+  product1: "Pumpkin Seeds Oil",
+  product2: "Veganz Chocolate",
+  requester: mia,
+  status: "delivered",
+  shopper: alicia
 )
 
 puts "---Done creating Seeds!"

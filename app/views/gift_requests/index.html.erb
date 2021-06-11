@@ -2,9 +2,6 @@
   <div class="d-flex align-items-center mb-2 pb-2">
     <h1>Gift Requests in Your Area</h1>
   </div>
-<!--   <div class="container mb-3 pb-2">
-    <h1>Gift Requests in your Area</h1>
-  </div> -->
 </header>
 
 <main>
@@ -17,8 +14,11 @@
           <%= link_to gift_request_path(giftrequest) do %>
             <div class="request-card">
               <p><small><%= "Delivery Due Date: #{giftrequest.delivery_due_date.strftime("%-d.%-m.%Y")}" if giftrequest.delivery_due_date %></small></p>
-              <p><b>Products: </b><%= giftrequest.product1 %> <%= "|" if giftrequest.product2 %> <%= giftrequest.product2 %> <%= "|" if giftrequest.product3 %> <%= giftrequest.product3 %></p>
-              <p><b>Gift for: </b> <%= giftrequest.recipient_name%></p>
+              <p class="mb-1 card-recipient">Products</p>
+              <p><%= giftrequest.product1 %> <%= "|" if giftrequest.product2 %> <%= giftrequest.product2 %> <%= "|" if giftrequest.product3 %> <%= giftrequest.product3 %></p>
+              <p class="mb-1 card-recipient">Recipient</p>
+              <p><%= giftrequest.recipient_name%></p>
+              
               <%= image_tag(giftrequest.requester.profile_picture, class: "avatar", id: "request-card-avatar") %>
             </div>
           <% end %>
