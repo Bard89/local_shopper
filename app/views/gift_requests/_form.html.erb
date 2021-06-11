@@ -15,11 +15,9 @@
           <div style="width:40%" >
            <%= f.input :budget, as: :numeric, label: false, input_html: {placeholder: "Budget"} %>
           </div>
-          <input type="date" id="delivery_due_date" name="delivery_due_date" style="color:grey; height:calc(1.5em + 0.75rem + 2px); width:60%; margin-left: 7px;">
-
+          <input type="date" id="delivery_due_date" name="delivery_due_date" style="color:grey; height:calc(1.5em + 0.75rem + 2px); width:60%; margin-left: 7px; padding-left: 10px;">
 
         </div>
-
 
         <%= f.input :packaging, label: false, input_html: {placeholder: "Packaging"} %>
         <%#= f.date_select :delivery_due_date, :label => "Delivery Due Date" %>

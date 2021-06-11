@@ -7,6 +7,11 @@
           <%= link_to "Cancel Request", change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"}, class: "btn mr-3", id: "cancel-btn" %>
           <%= link_to "Edit Request", edit_gift_request_path(@giftrequest), class: "btn btn-primary mr-3" %>
         <% end %>
+        
+        <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
+          <%= link_to "Shop #{@giftrequest.requester.first_name}'s Gift", accept_gift_request_path(@giftrequest), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
+        <% end %>
+
       </div>
     </div>
   </div>
@@ -96,11 +101,7 @@
         <% end %>
         </div>
       </div>
-      <div class="ml-2 mt-3">
-        <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
-          <%= link_to "Take on #{@giftrequest.requester.first_name}'s Request", accept_gift_request_path(@giftrequest), class: "btn btn-primary mt-3", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
-        <% end %>
-      </div>
+      
 
     </div>
     </div>

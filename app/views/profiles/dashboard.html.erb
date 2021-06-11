@@ -1,7 +1,7 @@
 <div class="dashboard d-none">
   <header>
     <div class="container pt-4 mt-0 pb-3">
-      <div class="d-flex align-items-center  justify-content-between">
+      <div class="d-flex align-items-center justify-content-between">
         <h1 class="pt-0">My Gift Requests</h1>
         <%= link_to "New Gift Request", new_gift_request_path, class: "btn btn-primary mr-3" %>
       </div>
@@ -30,7 +30,7 @@
               </div>
 
               <p class="card-recipient mb-1">Shopper</p>
-              <div class="d-flex justify-content-between mb-1">
+              <div class="d-flex justify-content-between mb-1" id="height-fix">
                 <% if request.shopper %>
                   <p class="mb-0"><%= request.shopper.first_name %> <%= link_to icon('fas', 'comments'), gift_request_chatrooms_path(request), class: "ml-2 btn btn-primary btn-small"  %></p>
                 <% else %>
@@ -41,7 +41,7 @@
                     <%#= link_to icon('fas', 'pen', 'Edit'), edit_gift_request_path(request), class: "btn btn-primary" %>
                     <%#= link_to icon('fas', 'times', 'Cancel'), change_status_gift_request_path(request, status: "cancelled"), class: "btn btn-primary", method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{request.recipient_name}?"} %>
                   <%# end %>
-                  <%= link_to "Pay now", new_gift_request_payment_path(request), class: "btn btn-primary btn-small" if request.status == "purchased" || request.status == "payment pending" && request.requester == current_user %>
+                  <%= link_to "Pay now", new_gift_request_payment_path(request), class: "btn btn-primary btn-small mr-2" if request.status == "purchased" || request.status == "payment pending" && request.requester == current_user %>
                   <% if request.status == "delivered" && request.requester == current_user %>
                     <a type="button" data-toggle="modal" data-target="#leaveAReview" class="btn btn-primary btn-small mr-2">Leave Review</a>
                     <!-- Partial Modal (needs to be rendered at the end, otherwise problem with being displayed inside card) -->
@@ -63,7 +63,7 @@
     <div class="container pt-4 mt-0 pb-3">
       <div class="d-flex align-items-center justify-content-between">
         <h1 class="pt-0">My Shoppings</h1>
-        <%= link_to "Find Requests in your Area", gift_requests_path, class: "btn btn-primary mr-3" %>
+        <%= link_to "Gift Requests in your Area", gift_requests_path, class: "btn btn-primary mr-3" %>
       </div>
     </div>
   </header>
