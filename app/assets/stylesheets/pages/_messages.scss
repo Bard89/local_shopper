@@ -67,3 +67,17 @@ input#message_content:focus {
   border-color: #edddd1;
   box-shadow: 0 0 0 0.2rem rgb(239, 231, 224);
 }
+
+.received-message {
+  border-radius: 15px;
+  background: white;
+  padding: 10px 20px;
+}
+
+.sent-message {
+  border-radius: 15px;
+  text-align: right;
+  background-color: #F1DABF;
+  padding: 5px 20px;
+  margin-right: 25px;
+}

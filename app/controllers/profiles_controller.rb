@@ -10,8 +10,8 @@ class ProfilesController < ApplicationController
   def dashboard
     # @giftrequest = GiftRequest.find(params[:id])
     # @reviews = Review.new
-    @giftrequests = GiftRequest.where(requester_id: current_user).order(created_at: :desc)
-    @mygiftrequests = GiftRequest.where(shopper_id: current_user).order(created_at: :desc)
+    @giftrequests = GiftRequest.where(requester_id: current_user).order(updated_at: :desc)
+    @mygiftrequests = GiftRequest.where(shopper_id: current_user).order(updated_at: :desc)
     if params[:confirm]
       flash[:notice] = "Your Request has been succecfully made"
     end

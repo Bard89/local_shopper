@@ -10,6 +10,7 @@ class GiftRequest < ApplicationRecord
 
   validates :recipient_name, presence: true
   validates :recipient_address, presence: true
+  validates :delivery_due_date, presence: true
 
   # to enable the monetisation -> just sayin wchich column is the price
   monetize :price_cents

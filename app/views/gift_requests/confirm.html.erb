@@ -13,7 +13,7 @@
       <p class="show-subtitle"> PACKAGING</p>
       <p><%= @giftrequest.packaging %></p>
       <p class="show-subtitle"> DELIVERY DATE</p>
-      <p><%= @giftrequest.delivery_due_date%></p>
+      <p><%= @giftrequest.delivery_due_date.strftime("%-d.%-m.%Y")%></p>
     </div>
 
     <div>

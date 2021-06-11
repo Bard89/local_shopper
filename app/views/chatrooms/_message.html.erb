@@ -1,0 +1,9 @@
+<div class="message-container" id="message-<%= message.id %>">
+  <i class="author">
+<div class="<%= css_class %> card my-3 p-3 w-50" id="message-<%= message.id %>">
+  <i class="text-right">
+    <span><%#= message.user.first_name %></span>
+    <p><%= message.content %></p>
+    <small><%= message.created_at.strftime("%l:%M%p") %></small>
+  </i>
+</div>

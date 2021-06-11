@@ -1,9 +1,18 @@
 <header>
-  <div class="d-flex align-items-center mb-2 pb-2">
-    <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address.split(",").last %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1>
+  <div class="container pt-4 pb-3 mt-0">
+    <div class="d-flex align-items-center justify-content-between">
+      <h1 class="pt-0">Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address.split(",").last %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1>
+      <div>
+        <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
+          <%= link_to "Cancel Request", change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"}, class: "btn mr-3", id: "cancel-btn" %>
+          <%= link_to "Edit Request", edit_gift_request_path(@giftrequest), class: "btn btn-primary mr-3" %>
+        <% end %>
+      </div>
+    </div>
   </div>
   <!-- <h1>Gift for <%= @giftrequest.recipient_name %> in <%= @giftrequest.recipient_address %><span id="aligner" class="ml-3 pill-button pill-button-<%= @giftrequest.status%>"><%= @giftrequest.status %></span></h1> -->
 </header>
+
 
 <div class="container mt-4">
   <div>
@@ -68,42 +77,30 @@
                 <%= image_tag @giftrequest.requester.profile_picture, class: "avatar", id: "show-avatar" %>
                 <%= @giftrequest.requester.first_name %>
             <% end %>
-              <%= link_to "Messsage #{@giftrequest.requester.first_name}", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary ml-3" if @giftrequest.status != "pending" %>
-          <% elsif @giftrequest.shopper %>
-            <p class="show-title">Shopper</p>
-            <%= link_to profile_path(@giftrequest.shopper) do %>
-                <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar", id: "show-avatar" %>
-                <%= @giftrequest.shopper.first_name %>
-            <% end %>
-              <%= link_to "Message #{@giftrequest.shopper.first_name}", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary ml-3" if @giftrequest.status != "pending" %>
+              <%= link_to "Message #{@giftrequest.requester.first_name}", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary btn-small ml-3" if @giftrequest.status != "pending" %>
+        <% elsif @giftrequest.shopper %>
+          <p class="show-title">Shopper</p>
+          <%= link_to profile_path(@giftrequest.shopper) do %>
+            <%= image_tag @giftrequest.shopper.profile_picture, class: "avatar", id: "show-avatar" %>
+            <%= @giftrequest.shopper.first_name %>
           <% end %>
+          <%= link_to "Message #{@giftrequest.shopper.first_name}", gift_request_chatrooms_path(@giftrequest), class: "btn btn-primary btn-small ml-3" if @giftrequest.status != "pending" %>
+          <!-- Button trigger modal -->
+          <% if @giftrequest.status == "delivered" && @giftrequest.requester == current_user %>
+            <button type="button" class="btn btn-primary btn-small" data-toggle="modal" data-target="#leaveAReview">
+              Leave Review
+            </button>
+          <!-- Partial Modal -->
+          <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
+          <% end %>
+        <% end %>
         </div>
       </div>
       <div class="ml-2 mt-3">
         <% if @giftrequest.status == "pending" && @giftrequest.requester != current_user %>
-          <%= link_to "Take on #{@giftrequest.requester.first_name}'s request", accept_gift_request_path(@giftrequest), class: "btn btn-primary mt-3", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
+          <%= link_to "Take on #{@giftrequest.requester.first_name}'s Request", accept_gift_request_path(@giftrequest), class: "btn btn-primary mt-3", method: :patch, data: { confirm: "Are you sure you want to shop #{@giftrequest.requester.first_name}'s request?"} %>
         <% end %>
       </div>
-
-      <div class = "pt-3">
-        <% if @giftrequest.status == "pending" && @giftrequest.requester == current_user %>
-          <%= link_to "Edit Request", edit_gift_request_path(@giftrequest), class: "btn btn-primary ml-3 mt-3" %>
-          <%= link_to "Cancel Request", change_status_gift_request_path(@giftrequest, status: "cancelled"), method: :patch, data: { confirm: "Are you sure you want to cancel your gift request for #{@giftrequest.recipient_name}?"}, class: "btn ml-3 mt-3", id: "cancel-btn" %>
-        <% end %>
-      </div>
-
-            <!-- Button trigger modal -->
-      <% if @giftrequest.status == "delivered" && @giftrequest.requester == current_user %>
-      <div class="ml-2 mt-3">
-        <button type="button" class="btn btn-primary ml-3 mt-3" data-toggle="modal" data-target="#leaveAReview">
-          Leave Review
-        </button>
-      </div>
-
-      <!-- Partial Modal -->
-      <%= render partial: 'reviews/new', locals: { gift_request: @giftrequest, review: @review } %>
-
-      <% end %>
 
     </div>
     </div>

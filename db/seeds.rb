@@ -321,7 +321,7 @@ pragueShopper = User.create(
   last_name: "Miller",
   email: 'sebastian@localshopper.com',
   password: '123456',
-  profile_picture: "https://m.media-amazon.com/images/M/MV5BNGIwMDVkNjktMzM3MC00ZmZmLTg3ZDYtZGEzZjU5NDI3ZTkyXkEyXkFqcGdeQXVyNTcxNDk1MA@@._V1_UX172_CR0,0,172,256_AL_.jpg"
+  profile_picture: "https://uifaces.co/our-content/donated/oztASP4n.jpg"
   )
 grazShopper = User.create(
   location: "Graz",
@@ -409,7 +409,9 @@ osloShopper = User.create(
     budget: 100,
     price_cents: 9500,
     packaging: "Gift Basket",
-    product1: "Fast delivery!",
+    product1: "Flower Boquet",
+    product2: "Picinick Basket",
+    comment: "Delivery is urgent!",
     requester: barcelonaShopper,
     status: "delivered",
     shopper: osloShopper
@@ -477,7 +479,7 @@ GiftRequest.create(
 GiftRequest.create(
   recipient_name: "Lars",
   recipient_address: "Gamle Aker, Oslo",
-  delivery_due_date: "2021-06-10",
+  delivery_due_date: "2021-08-10",
   budget: 45,
   packaging: "Gift Basket",
   product1: "Coffee Beans",
@@ -555,6 +557,21 @@ GiftRequest.create(
   product1: "Native Olive Oil",
   product2: "Silver Necklace",
   requester: mia
+)
+
+# Purchased Gift Request for Review Testing
+GiftRequest.create(
+  recipient_name: "Carolina",
+  recipient_address: "Charlottenburg, Berlin",
+  delivery_due_date: "2021-06-13",
+  budget: 200,
+  price_cents: 18900,
+  packaging: "Gift Basket",
+  product1: "Pumpkin Seeds Oil",
+  product2: "Veganz Chocolate",
+  requester: mia,
+  status: "delivered",
+  shopper: alicia
 )
 
 puts "---Done creating Seeds!"
