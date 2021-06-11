@@ -510,7 +510,7 @@ sofia = User.create(
   sofiaPastGift= GiftRequest.create(
     recipient_name: "Elena",
     recipient_address: "Mitte, Berlin",
-    delivery_due_date: "2021-04-28",
+    delivery_due_date: "2021-06-28",
     price_cents: 4000,
     budget: 40,
     packaging: "Gift Basket",
