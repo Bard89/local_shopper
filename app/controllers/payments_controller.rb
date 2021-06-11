@@ -26,7 +26,6 @@ class PaymentsController < ApplicationController
       @giftrequest.update(checkout_session_id: session.id)
       #redirect_to new_gift_request_payment_path(@giftrequest)
       @giftrequest.update(status: "payment pending") # here it's just being processed by stripe, should be pending
-      flash[:success] = "Gift successfully paid"
     end
   end
 end
