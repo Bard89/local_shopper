@@ -5,7 +5,7 @@
 <main>
   <div class="container">
     <div><%#=image_tag @order.teddy.photo_url, width: '100%' %></div>
-      <p class="mt-4">Paying <strong><%= humanized_money_with_symbol @giftrequest.price_cents %></strong> for
+      <p class="mt-4">Paying <strong><%= humanized_money_with_symbol @giftrequest.price %></strong> for
         <strong><%= @giftrequest.product1 %> <%= "|" if @giftrequest.product2 %> <%= @giftrequest.product2 %> <%= "|" if @giftrequest.product3 %> </strong> 
         to <strong> <%= @giftrequest.shopper.first_name %></strong>. 
       </p>
